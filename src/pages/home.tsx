@@ -1686,12 +1686,12 @@ export default function Home() {
                                  <span className="text-xl font-bold">AI Sales Calling Agent</span>
               </div>
               <p className="text-slate-400 mb-6 max-w-md">
-                The world's most advanced AI sales calling system. Save 10+ hours per week while increasing conversions by 300%.
+                {t('footer.companyDescription')}
               </p>
               <div className="text-slate-400 text-sm space-y-1">
-                <p>📍 123 Business Ave, Tech City, TC 12345</p>
-                <p>📧 hello@aisalescalling.com</p>
-                <p>📞 +1 (555) 123-4567</p>
+                <p>📍 {t('footer.address')}</p>
+                <p>📧 {t('footer.email')}</p>
+                <p>📞 {t('footer.phone')}</p>
               </div>
               
               {/* Trust Elements */}
@@ -1731,37 +1731,37 @@ export default function Home() {
 
             {/* Product Links */}
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
+              <h3 className="font-semibold mb-4">{t('footer.product')}</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#solutions" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Voice Library</a></li>
+                <li><a href="#solutions" className="hover:text-white transition-colors">{t('footer.features')}</a></li>
+                <li><a href="#pricing" className="hover:text-white transition-colors">{t('footer.pricing')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.api')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.integrations')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.voiceLibrary')}</a></li>
               </ul>
             </div>
 
             {/* Company Links */}
             <div>
-              <h3 className="font-semibold mb-4">Company</h3>
+              <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="/about" className="hover:text-white transition-colors">{t('footer.about')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.blog')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.careers')}</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors">{t('footer.contact')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.helpCenter')}</a></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © 2024 AI Sales Calling Agent. All rights reserved.
+              {t('footer.copyright')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.privacyPolicy')}</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.termsOfService')}</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.cookiePolicy')}</a>
             </div>
           </div>
         </div>
