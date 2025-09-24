@@ -7,13 +7,10 @@ import VoiceSelection from "@/components/voice-selection";
 import LeadsUpload from "@/components/leads-upload";
 import CampaignActions from "@/components/campaign-actions";
 import CampaignSelector from "@/components/campaign-selector";
-import DashboardSettings from "@/components/dashboard-settings";
 import AnimatedBanner from "@/components/animated-banner";
 import LanguageSwitcher from "@/components/language-switcher";
-import CampaignsOverview from "@/components/campaigns-overview";
-import CallTracking from "@/components/call-tracking";
 import { Button } from "@/components/ui/button";
-import { Bell, Settings2, Sparkles, Zap, Sun, Moon, Menu } from "lucide-react";
+import { Sparkles, Zap, Sun, Moon, Menu, Megaphone } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/hooks/use-theme";
@@ -21,10 +18,9 @@ import { api } from "@/lib/api";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+  } from "@/components/ui/sheet";
+import CampaignsOverview from "@/components/campaigns-overview";
 
 export default function Dashboard() {
   const { t } = useTranslation();
@@ -140,9 +136,7 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Language Switcher */}
-              <div className="hidden sm:block">
-                <LanguageSwitcher />
-              </div>
+              <LanguageSwitcher />
               
               {/* Theme Toggle */}
               <Button
@@ -150,7 +144,7 @@ export default function Dashboard() {
                 size="icon"
                 onClick={toggleTheme}
                 className="hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
-                title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+                title={theme === 'light' ? t('common.switchToDark') : t('common.switchToLight')}
               >
                 {theme === 'light' ? (
                   <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -159,37 +153,6 @@ export default function Dashboard() {
                 )}
               </Button>
               
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    <Settings2 className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
-                  <SheetHeader>
-                    <SheetTitle className="text-xl sm:text-2xl font-bold spark-gradient-text">
-                      Dashboard Settings
-                    </SheetTitle>
-                  </SheetHeader>
-                  <div className="mt-6">
-                    <DashboardSettings />
-                  </div>
-                </SheetContent>
-              </Sheet>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="relative hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs rounded-full flex items-center justify-center font-bold animate-pulse">
-                  3
-                </span>
-              </Button>
             </div>
           </div>
         </header>
@@ -257,26 +220,24 @@ export default function Dashboard() {
               <StatsOverview />
             </div>
 
-            {/* Campaigns Overview */}
+            {/* Existing Campaigns */}
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
-                  Your Campaigns
-                </h3>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
+                    {t('dashboard.existingCampaigns')}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setLocation("/campaigns")}
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <Megaphone className="h-4 w-4 mr-2" />
+                  {t('dashboard.viewAllCampaigns')}
+                </button>
               </div>
               <CampaignsOverview />
-            </div>
-
-            {/* Call Tracking */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
-                  Live Call Tracking
-                </h3>
-              </div>
-              <CallTracking />
             </div>
 
             {/* Enhanced Test & Launch */}

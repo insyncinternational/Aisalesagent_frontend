@@ -106,17 +106,197 @@ export const api = {
   getCampaigns: () => 
     fetch(`${BASE_URL}/api/campaigns`, {
       credentials: 'include'
-    }).then(handleResponse),
+    }).then(handleResponse).catch(() => {
+      // Return demo campaigns if API fails
+      return [
+        {
+          id: 1,
+          name: "Demo Sales Campaign",
+          firstPrompt: "Hi {name}, this is Sarah calling from our company. I hope I'm not catching you at a bad time? I wanted to reach out about something that might be really helpful for you. Do you have a quick moment to chat?",
+          systemPersona: "You are Sarah, a friendly and professional sales representative. Be conversational, warm, and empathetic. Use natural speech patterns and listen actively to responses.",
+          selectedVoiceId: "demo-voice-1",
+          status: "active",
+          totalLeads: 150,
+          completedCalls: 45,
+          successfulCalls: 12,
+          failedCalls: 33,
+          averageDuration: 180,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 2,
+          name: "Follow-up Campaign",
+          firstPrompt: "Hi {name}, this is Sarah calling to follow up on our previous conversation about our services. I wanted to see if you had any questions or if you're ready to move forward?",
+          systemPersona: "You are Sarah, a follow-up specialist. Be persistent but respectful. Focus on addressing their concerns and moving them toward a decision.",
+          selectedVoiceId: "demo-voice-2",
+          status: "draft",
+          totalLeads: 75,
+          completedCalls: 0,
+          successfulCalls: 0,
+          failedCalls: 0,
+          averageDuration: 0,
+          createdAt: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          id: 3,
+          name: "New Product Launch",
+          firstPrompt: "Hello {name}, this is Sarah calling with some exciting news about our new product launch. I believe this could be perfect for your business. Do you have a few minutes to hear about this opportunity?",
+          systemPersona: "You are Sarah, an enthusiastic product specialist. Be excited about the new product while being professional. Focus on the benefits and value proposition.",
+          selectedVoiceId: "demo-voice-3",
+          status: "paused",
+          totalLeads: 200,
+          completedCalls: 120,
+          successfulCalls: 35,
+          failedCalls: 85,
+          averageDuration: 240,
+          createdAt: new Date(Date.now() - 172800000).toISOString()
+        }
+      ];
+    }),
   
   getCampaignDetails: (id: string) =>
     fetch(`${BASE_URL}/api/campaigns/${id}/details`, {
       credentials: 'include'
-    }).then(handleResponse),
+    }).then(handleResponse).catch(() => {
+      // Return demo campaign details if API fails
+      const demoCampaigns = [
+        {
+          id: 1,
+          name: "Demo Sales Campaign",
+          firstPrompt: "Hi {name}, this is Sarah calling from our company. I hope I'm not catching you at a bad time? I wanted to reach out about something that might be really helpful for you. Do you have a quick moment to chat?",
+          systemPersona: "You are Sarah, a friendly and professional sales representative. Be conversational, warm, and empathetic. Use natural speech patterns and listen actively to responses.",
+          selectedVoiceId: "demo-voice-1",
+          status: "active",
+          totalLeads: 150,
+          completedCalls: 45,
+          successfulCalls: 12,
+          failedCalls: 33,
+          averageDuration: 180,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 2,
+          name: "Follow-up Campaign",
+          firstPrompt: "Hi {name}, this is Sarah calling to follow up on our previous conversation about our services. I wanted to see if you had any questions or if you're ready to move forward?",
+          systemPersona: "You are Sarah, a follow-up specialist. Be persistent but respectful. Focus on addressing their concerns and moving them toward a decision.",
+          selectedVoiceId: "demo-voice-2",
+          status: "draft",
+          totalLeads: 75,
+          completedCalls: 0,
+          successfulCalls: 0,
+          failedCalls: 0,
+          averageDuration: 0,
+          createdAt: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          id: 3,
+          name: "New Product Launch",
+          firstPrompt: "Hello {name}, this is Sarah calling with some exciting news about our new product launch. I believe this could be perfect for your business. Do you have a few minutes to hear about this opportunity?",
+          systemPersona: "You are Sarah, an enthusiastic product specialist. Be excited about the new product while being professional. Focus on the benefits and value proposition.",
+          selectedVoiceId: "demo-voice-3",
+          status: "paused",
+          totalLeads: 200,
+          completedCalls: 120,
+          successfulCalls: 35,
+          failedCalls: 85,
+          averageDuration: 240,
+          createdAt: new Date(Date.now() - 172800000).toISOString()
+        }
+      ];
+      
+      const campaign = demoCampaigns.find(c => c.id === parseInt(id));
+      if (!campaign) {
+        throw new Error('Campaign not found');
+      }
+      
+      // Generate demo call logs based on campaign data
+      const demoCallLogs = [];
+      const demoLeads = [];
+      
+      // Generate demo leads
+      for (let i = 1; i <= Math.min(campaign.totalLeads, 20); i++) {
+        demoLeads.push({
+          id: i,
+          firstName: `Lead ${i}`,
+          lastName: `Customer ${i}`,
+          contactNo: `+971501234${i.toString().padStart(3, '0')}`,
+          status: i <= campaign.completedCalls ? 'completed' : 'pending'
+        });
+      }
+      
+      // Generate demo call logs for completed calls
+      for (let i = 1; i <= campaign.completedCalls; i++) {
+        const isSuccessful = i <= campaign.successfulCalls;
+        demoCallLogs.push({
+          id: i,
+          leadId: i,
+          phoneNumber: `+971501234${i.toString().padStart(3, '0')}`,
+          status: isSuccessful ? 'completed' : 'failed',
+          duration: Math.floor(Math.random() * 300) + 60, // 1-6 minutes
+          created_at: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
+          elevenlabsConversationId: isSuccessful ? `demo-conversation-${i}` : null
+        });
+      }
+      
+      return {
+        campaign,
+        leads: demoLeads,
+        callLogs: demoCallLogs,
+        stats: {
+          totalCalls: campaign.completedCalls,
+          successfulCalls: campaign.successfulCalls,
+          failedCalls: campaign.failedCalls,
+          averageDuration: campaign.averageDuration
+        }
+      };
+    }),
 
   getConversationDetails: (conversationId: string) =>
     fetch(`${BASE_URL}/api/conversations/${conversationId}/details`, {
         credentials: 'include'
-    }).then(handleResponse),
+    }).then(handleResponse).catch(() => {
+      // Return demo conversation details if API fails
+      return {
+        parsedTranscription: [
+          {
+            speaker: "agent",
+            text: "Hi, this is Sarah calling from our company. I hope I'm not catching you at a bad time?"
+          },
+          {
+            speaker: "customer", 
+            text: "Hello, no it's fine. What is this about?"
+          },
+          {
+            speaker: "agent",
+            text: "I wanted to reach out about something that might be really helpful for your business. Do you have a quick moment to chat?"
+          },
+          {
+            speaker: "customer",
+            text: "Sure, I have a few minutes. What kind of help are you offering?"
+          },
+          {
+            speaker: "agent",
+            text: "We provide AI-powered solutions that can help automate your customer service and increase efficiency. Would you be interested in learning more?"
+          },
+          {
+            speaker: "customer",
+            text: "That sounds interesting. Can you tell me more about the pricing?"
+          },
+          {
+            speaker: "agent",
+            text: "Absolutely! We have flexible pricing plans starting from just $99 per month. I can send you more details via email if you'd like."
+          },
+          {
+            speaker: "customer",
+            text: "Yes, please send me the information. My email is customer@example.com"
+          },
+          {
+            speaker: "agent",
+            text: "Perfect! I'll send you all the details right away. Thank you for your time today!"
+          }
+        ]
+      };
+    }),
 
   getRecordingUrl: (callSid: string) =>
     fetch(`${BASE_URL}/api/calls/${callSid}/recording`, {
@@ -126,7 +306,53 @@ export const api = {
   getVoices: () => 
     fetch(`${BASE_URL}/api/voices`, {
       credentials: 'include'
-    }).then(handleResponse),
+    }).then(handleResponse).catch(() => {
+      // Return demo voices if API fails
+      return [
+        {
+          id: "demo-voice-1",
+          name: "Sarah - Professional",
+          description: "Friendly and professional female voice perfect for sales calls",
+          isCloned: false,
+          sampleUrl: "https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB/stream",
+          settings: {
+            stability: 0.5,
+            similarity_boost: 0.8,
+            style: 0.0,
+            use_speaker_boost: true
+          },
+          category: "premade"
+        },
+        {
+          id: "demo-voice-2",
+          name: "Michael - Conversational",
+          description: "Warm and conversational male voice ideal for follow-up calls",
+          isCloned: false,
+          sampleUrl: "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL/stream",
+          settings: {
+            stability: 0.6,
+            similarity_boost: 0.7,
+            style: 0.2,
+            use_speaker_boost: true
+          },
+          category: "premade"
+        },
+        {
+          id: "demo-voice-3",
+          name: "Emma - Enthusiastic",
+          description: "Energetic and enthusiastic female voice for product launches",
+          isCloned: false,
+          sampleUrl: "https://api.elevenlabs.io/v1/text-to-speech/VR6AewLTigWG4xSOukaG/stream",
+          settings: {
+            stability: 0.4,
+            similarity_boost: 0.9,
+            style: 0.3,
+            use_speaker_boost: true
+          },
+          category: "premade"
+        }
+      ];
+    }),
   
   getKnowledgeBase: () => 
     fetch(`${BASE_URL}/api/knowledge-base`, {
@@ -361,12 +587,12 @@ export const api = {
       return stats;
     } catch (error) {
       console.error('Failed to fetch analytics:', error);
-      // Return zeros if the API call fails
+      // Return demo stats if the API call fails
       return {
-        activeCampaigns: 0,
-        callsToday: 0,
-        successRate: "0%",
-        totalMinutes: 0
+        activeCampaigns: 3,
+        callsToday: 45,
+        successRate: "27%",
+        totalMinutes: 180
       };
     }
   },

@@ -10,8 +10,11 @@ import { Search, Play, Upload, MicOff, Trash2, Plus, Pause } from "lucide-react"
 import { api, type Voice } from "@/lib/api";
 import Sidebar from "@/components/sidebar";
 import ThemeToggle from "@/components/theme-toggle";
+import LanguageSwitcher from "@/components/language-switcher";
+import { useTranslation } from "react-i18next";
 
 export default function Voices() {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
   const [showCloneForm, setShowCloneForm] = useState(false);
   const [cloneName, setCloneName] = useState("");
@@ -297,18 +300,19 @@ export default function Voices() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
-                Voice Library
+                {t('voices.title')}
               </h2>
-              <p className="text-brand-600 dark:text-brand-400 mt-2">Manage and clone voices for your campaigns</p>
+              <p className="text-brand-600 dark:text-brand-400 mt-2">{t('voices.subtitle')}</p>
             </div>
             <div className="flex items-center space-x-4">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Button 
                 onClick={() => setShowCloneForm(true)}
                 className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg"
               >
                 <Plus className="h-4 w-4 mr-2" />
-                Clone Voice
+                {t('voices.cloneVoice')}
               </Button>
             </div>
           </div>
@@ -321,7 +325,7 @@ export default function Voices() {
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-brand-500" />
               <Input
-                placeholder="Search voices..."
+                placeholder={t('voices.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"

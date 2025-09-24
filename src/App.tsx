@@ -21,6 +21,7 @@ import { Loader2 } from "lucide-react";
 import CampaignDetails from "./pages/campaign-details";
 import CampaignCreation from "./pages/campaign-creation";
 import CampaignEdit from "./pages/campaign-edit";
+import LiveChatWidget from "@/components/live-chat-widget";
 
 function AppRouter() {
   const { user, loading } = useAuth();
@@ -38,34 +39,39 @@ function AppRouter() {
   }
 
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/home" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/dashboard" component={user ? Dashboard : Login} />
-      <Route path="/campaigns/new">
-        {!user ? <Redirect to="/login" /> : <CampaignCreation />}
-      </Route>
-      <Route path="/campaigns/:id/edit">
-        {(params) =>
-          !user ? <Redirect to="/login" /> : <CampaignEdit id={params.id} />
-        }
-      </Route>
-      <Route path="/campaigns/:id">
-        {(params) =>
-          !user ? <Redirect to="/login" /> : <CampaignDetails id={params.id} />
-        }
-      </Route>
-      <Route path="/campaigns">
-        {!user ? <Redirect to="/login" /> : <Campaigns />}
-      </Route>
-      <Route path="/voices" component={user ? Voices : Login} />
-      <Route path="/analytics" component={user ? Analytics : Login} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/dashboard" component={user ? Dashboard : Login} />
+        <Route path="/campaigns/new">
+          {!user ? <Redirect to="/login" /> : <CampaignCreation />}
+        </Route>
+        <Route path="/campaigns/:id/edit">
+          {(params) =>
+            !user ? <Redirect to="/login" /> : <CampaignEdit id={params.id} />
+          }
+        </Route>
+        <Route path="/campaigns/:id">
+          {(params) =>
+            !user ? <Redirect to="/login" /> : <CampaignDetails id={params.id} />
+          }
+        </Route>
+        <Route path="/campaigns">
+          {!user ? <Redirect to="/login" /> : <Campaigns />}
+        </Route>
+        <Route path="/voices" component={user ? Voices : Login} />
+        <Route path="/analytics" component={user ? Analytics : Login} />
+        <Route component={NotFound} />
+      </Switch>
+      
+      {/* Global Chat Widget - Available on all pages */}
+      <LiveChatWidget />
+    </>
   );
 }
 

@@ -129,12 +129,12 @@ export default function Sidebar() {
               {theme === 'light' ? (
                 <>
                   <Moon className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Dark Mode
+                  {t('common.darkMode')}
                 </>
               ) : (
                 <>
                   <Sun className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                  Light Mode
+                  {t('common.lightMode')}
                 </>
               )}
             </Button>

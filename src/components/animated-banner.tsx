@@ -1,309 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Phone, MessageCircle, TrendingUp, Users, Zap, Sparkles, Bot, Target, Mic, Headphones, Clock, BarChart3, Settings, Globe, Shield, Star, Languages, PhoneCall, PhoneOff, Volume2, MicOff } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function AnimatedBanner() {
+  const { t, i18n } = useTranslation();
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isCalling, setIsCalling] = useState(false);
   const [callStatus, setCallStatus] = useState('idle');
-  const [currentLanguage, setCurrentLanguage] = useState('en');
 
-  // Language translations
-  const translations = {
-    en: {
-      title: "Spark AI Sales Calling Agent",
-      subtitle: "Intelligent automation for modern sales teams",
-      features: {
-        aiVoiceCalling: {
-          title: "AI Voice Calling",
-          description: "Intelligent voice agents that sound human and convert leads",
-          metric: "27%+ AOV Increase"
-        },
-        voiceCloning: {
-          title: "Voice Cloning",
-          description: "Create custom AI voices that match your brand personality",
-          metric: "95+ Voice Options"
-        },
-        multiLanguage: {
-          title: "Multi-Language Support",
-          description: "Reach global audiences with native language conversations",
-          metric: "95+ Languages"
-        },
-        arabicSupport: {
-          title: "Arabic Language Support",
-          description: "Connect with Arabic-speaking markets with native fluency",
-          metric: "Native Arabic"
-        },
-        availability: {
-          title: "24/7 Availability",
-          description: "Never miss a lead with round-the-clock AI agents",
-          metric: "Always Online"
-        },
-        analytics: {
-          title: "Real-Time Analytics",
-          description: "Track performance and optimize campaigns instantly",
-          metric: "Live Insights"
-        },
-        leadQualification: {
-          title: "Smart Lead Qualification",
-          description: "Automatically identify and prioritize high-value prospects",
-          metric: "94% Accuracy"
-        },
-        globalReach: {
-          title: "Global Reach",
-          description: "Connect with prospects worldwide with local expertise",
-          metric: "150+ Countries"
-        },
-        personalization: {
-          title: "Personalized Conversations",
-          description: "Adapt conversations based on prospect behavior and preferences",
-          metric: "Personal Touch"
-        }
-      },
-      dialer: {
-        aiSalesAgent: "AI Sales Agent",
-        sparkAISystem: "Spark AI Calling System",
-        dialing: "Dialing...",
-        connecting: "Connecting...",
-        connected: "Connected",
-        readyToCall: "Ready to Call",
-        duration: "Duration",
-        quality: "Quality",
-        sentiment: "Sentiment",
-        excellent: "Excellent",
-        positive: "Positive"
-      },
-      stats: {
-        activeCampaigns: "Active Campaigns",
-        callsToday: "Calls Today",
-        successRate: "Success Rate",
-        languages: "Languages"
-      },
-      progress: "of {total} features"
-    },
-    ar: {
-      title: "وكيل مبيعات Spark AI للاتصال الصوتي",
-      subtitle: "أتمتة ذكية لفرق المبيعات الحديثة",
-      features: {
-        aiVoiceCalling: {
-          title: "الاتصال الصوتي بالذكاء الاصطناعي",
-          description: "وكلاء صوت ذكيون يبدون كالبشر ويحولون العملاء المحتملين",
-          metric: "زيادة 27%+ في متوسط قيمة الطلب"
-        },
-        voiceCloning: {
-          title: "استنساخ الصوت",
-          description: "إنشاء أصوات ذكية مخصصة تطابق شخصية علامتك التجارية",
-          metric: "95+ خيار صوت"
-        },
-        multiLanguage: {
-          title: "دعم متعدد اللغات",
-          description: "الوصول إلى الجماهير العالمية بمحادثات باللغة الأم",
-          metric: "95+ لغة"
-        },
-        arabicSupport: {
-          title: "دعم اللغة العربية",
-          description: "التواصل مع الأسواق الناطقة بالعربية بطلاقة محلية",
-          metric: "عربية أصلية"
-        },
-        availability: {
-          title: "التوفر على مدار الساعة",
-          description: "لا تفوت أي عميل محتمل مع وكلاء الذكاء الاصطناعي على مدار الساعة",
-          metric: "متصل دائماً"
-        },
-        analytics: {
-          title: "التحليلات في الوقت الفعلي",
-          description: "تتبع الأداء وتحسين الحملات فوراً",
-          metric: "رؤى مباشرة"
-        },
-        leadQualification: {
-          title: "تأهيل العملاء المحتملين الذكي",
-          description: "تحديد العملاء المحتملين عالي القيمة وتحديد أولوياتهم تلقائياً",
-          metric: "دقة 94%"
-        },
-        globalReach: {
-          title: "الوصول العالمي",
-          description: "التواصل مع العملاء المحتملين في جميع أنحاء العالم بخبرة محلية",
-          metric: "150+ دولة"
-        },
-        personalization: {
-          title: "محادثات مخصصة",
-          description: "تكييف المحادثات بناءً على سلوك وتفضيلات العميل المحتمل",
-          metric: "لمسة شخصية"
-        }
-      },
-      dialer: {
-        aiSalesAgent: "وكيل مبيعات ذكي",
-        sparkAISystem: "نظام الاتصال Spark AI",
-        dialing: "جاري الاتصال...",
-        connecting: "جاري الاتصال...",
-        connected: "متصل",
-        readyToCall: "جاهز للاتصال",
-        duration: "المدة",
-        quality: "الجودة",
-        sentiment: "المشاعر",
-        excellent: "ممتاز",
-        positive: "إيجابي"
-      },
-      stats: {
-        activeCampaigns: "الحملات النشطة",
-        callsToday: "المكالمات اليوم",
-        successRate: "معدل النجاح",
-        languages: "اللغات"
-      },
-      progress: "من {total} ميزة"
-    },
-    tr: {
-      title: "Spark AI Satış Arama Ajanı",
-      subtitle: "Modern satış ekipleri için akıllı otomasyon",
-      features: {
-        aiVoiceCalling: {
-          title: "AI Sesli Arama",
-          description: "İnsan gibi ses çıkan ve müşteri adaylarını dönüştüren akıllı ses ajanları",
-          metric: "%27+ AOV Artışı"
-        },
-        voiceCloning: {
-          title: "Ses Klonlama",
-          description: "Marka kişiliğinize uygun özel AI sesleri oluşturun",
-          metric: "95+ Ses Seçeneği"
-        },
-        multiLanguage: {
-          title: "Çok Dilli Destek",
-          description: "Ana dil konuşmalarıyla küresel kitlelere ulaşın",
-          metric: "95+ Dil"
-        },
-        arabicSupport: {
-          title: "Arapça Dil Desteği",
-          description: "Ana dil akıcılığıyla Arapça konuşan pazarlarla bağlantı kurun",
-          metric: "Ana Arapça"
-        },
-        availability: {
-          title: "7/24 Erişilebilirlik",
-          description: "Günün her saati AI ajanlarla hiçbir müşteri adayını kaçırmayın",
-          metric: "Her Zaman Çevrimiçi"
-        },
-        analytics: {
-          title: "Gerçek Zamanlı Analitik",
-          description: "Performansı takip edin ve kampanyaları anında optimize edin",
-          metric: "Canlı İçgörüler"
-        },
-        leadQualification: {
-          title: "Akıllı Müşteri Adayı Nitelendirme",
-          description: "Yüksek değerli potansiyel müşterileri otomatik olarak belirleyin ve önceliklendirin",
-          metric: "%94 Doğruluk"
-        },
-        globalReach: {
-          title: "Küresel Erişim",
-          description: "Yerel uzmanlıkla dünya çapında potansiyel müşterilere ulaşın",
-          metric: "150+ Ülke"
-        },
-        personalization: {
-          title: "Kişiselleştirilmiş Konuşmalar",
-          description: "Müşteri adayı davranışı ve tercihlerine göre konuşmaları uyarlayın",
-          metric: "Kişisel Dokunuş"
-        }
-      },
-      dialer: {
-        aiSalesAgent: "AI Satış Ajanı",
-        sparkAISystem: "Spark AI Arama Sistemi",
-        dialing: "Aranıyor...",
-        connecting: "Bağlanıyor...",
-        connected: "Bağlandı",
-        readyToCall: "Aramaya Hazır",
-        duration: "Süre",
-        quality: "Kalite",
-        sentiment: "Duygu",
-        excellent: "Mükemmel",
-        positive: "Pozitif"
-      },
-      stats: {
-        activeCampaigns: "Aktif Kampanyalar",
-        callsToday: "Bugünkü Aramalar",
-        successRate: "Başarı Oranı",
-        languages: "Diller"
-      },
-      progress: "{total} özellikten"
-    },
-    az: {
-      title: "Spark AI Satış Zəng Agent",
-      subtitle: "Müasir satış komandaları üçün ağıllı avtomatlaşdırma",
-      features: {
-        aiVoiceCalling: {
-          title: "AI Səsli Zəng",
-          description: "İnsan kimi səs çıxaran və potensial müştəriləri çevirən ağıllı səs agentləri",
-          metric: "%27+ AOV Artımı"
-        },
-        voiceCloning: {
-          title: "Səs Klonlama",
-          description: "Brend şəxsiyyətinizə uyğun xüsusi AI səsləri yaradın",
-          metric: "95+ Səs Seçimi"
-        },
-        multiLanguage: {
-          title: "Çoxdilli Dəstək",
-          description: "Ana dil danışıqları ilə qlobal auditoriyaya çatın",
-          metric: "95+ Dil"
-        },
-        arabicSupport: {
-          title: "Ərəb Dili Dəstəyi",
-          description: "Ana dil səriştəsi ilə ərəb danışan bazaralarla əlaqə qurun",
-          metric: "Ana Ərəb"
-        },
-        availability: {
-          title: "7/24 Mövcudluq",
-          description: "Günün hər saatı AI agentlərlə heç bir potensial müştərini qaçırmayın",
-          metric: "Həmişə Onlayn"
-        },
-        analytics: {
-          title: "Real Vaxt Analitikası",
-          description: "Performansı izləyin və kampaniyaları dərhal optimallaşdırın",
-          metric: "Canlı İçgörülər"
-        },
-        leadQualification: {
-          title: "Ağıllı Potensial Müştəri Kvalifikasiyası",
-          description: "Yüksək dəyərli potensial müştəriləri avtomatik müəyyən edin və prioritetləşdirin",
-          metric: "%94 Dəqiqlik"
-        },
-        globalReach: {
-          title: "Qlobal Çatışma",
-          description: "Yerli ekspertizə ilə dünya miqyasında potensial müştərilərə çatın",
-          metric: "150+ Ölkə"
-        },
-        personalization: {
-          title: "Fərdiləşdirilmiş Danışıqlar",
-          description: "Potensial müştəri davranışı və üstünlüklərinə əsaslanaraq danışıqları uyğunlaşdırın",
-          metric: "Şəxsi Toxunuş"
-        }
-      },
-      dialer: {
-        aiSalesAgent: "AI Satış Agent",
-        sparkAISystem: "Spark AI Zəng Sistemi",
-        dialing: "Zəng edilir...",
-        connecting: "Qoşulur...",
-        connected: "Qoşuldu",
-        readyToCall: "Zəngə Hazırdır",
-        duration: "Müddət",
-        quality: "Keyfiyyət",
-        sentiment: "Hiss",
-        excellent: "Əla",
-        positive: "Müsbət"
-      },
-      stats: {
-        activeCampaigns: "Aktiv Kampaniyalar",
-        callsToday: "Bu Günkü Zənglər",
-        successRate: "Uğur Dərəcəsi",
-        languages: "Dillər"
-      },
-      progress: "{total} xüsusiyyətdən"
-    }
-  };
-
-  const t = translations[currentLanguage as keyof typeof translations];
+  const currentLanguage = i18n.language;
 
   const features = [
     {
       icon: Phone,
-      title: t.features.aiVoiceCalling.title,
-      description: t.features.aiVoiceCalling.description,
-      metric: t.features.aiVoiceCalling.metric,
+      title: t('features.aiVoiceCalling.title'),
+      description: t('features.aiVoiceCalling.description'),
+      metric: t('features.aiVoiceCalling.stats'),
       color: "from-purple-500 to-pink-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "مرحبا، أنا مهتم بخدماتكم" : currentLanguage === 'tr' ? "Merhaba, hizmetlerinizle ilgileniyorum" : currentLanguage === 'az' ? "Salam, xidmətlərinizlə maraqlanıram" : "Hello, I'm interested in your services" },
@@ -318,9 +31,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Mic,
-      title: t.features.voiceCloning.title,
-      description: t.features.voiceCloning.description,
-      metric: t.features.voiceCloning.metric,
+      title: t('features.voiceCloning.title'),
+      description: t('features.voiceCloning.description'),
+      metric: t('features.voiceCloning.stats'),
       color: "from-blue-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل يمكنك أن تبدو أكثر احترافية؟" : currentLanguage === 'tr' ? "Daha profesyonel ses çıkarabilir misiniz?" : currentLanguage === 'az' ? "Daha peşəkar səs çıxara bilərsinizmi?" : "Can you sound more professional?" },
@@ -334,9 +47,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Headphones,
-      title: t.features.multiLanguage.title,
-      description: t.features.multiLanguage.description,
-      metric: t.features.multiLanguage.metric,
+      title: t('features.multiLanguage.title'),
+      description: t('features.multiLanguage.description'),
+      metric: t('features.multiLanguage.stats'),
       color: "from-blue-500 to-cyan-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل تتحدث الإنجليزية؟" : currentLanguage === 'tr' ? "İngilizce konuşuyor musunuz?" : currentLanguage === 'az' ? "İngiliscə danışırsınızmı?" : "Do you speak English?" },
@@ -346,9 +59,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Languages,
-      title: t.features.arabicSupport.title,
-      description: t.features.arabicSupport.description,
-      metric: t.features.arabicSupport.metric,
+      title: t('features.arabicSupport.title'),
+      description: t('features.arabicSupport.description'),
+      metric: t('features.arabicSupport.stats'),
       color: "from-purple-500 to-pink-500",
       chatMessages: [
         { type: "user", text: "مرحبا، هل تتحدث العربية؟" },
@@ -358,9 +71,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Clock,
-      title: t.features.availability.title,
-      description: t.features.availability.description,
-      metric: t.features.availability.metric,
+      title: t('features.availability.title'),
+      description: t('features.availability.description'),
+      metric: t('features.availability.stats'),
       color: "from-orange-500 to-red-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "الساعة 2 صباحاً، هل ما زلت متاحاً؟" : currentLanguage === 'tr' ? "Saat gece 2, hala müsait misiniz?" : currentLanguage === 'az' ? "Saat gecə 2, hələ də mövcudmusunuz?" : "It's 2 AM, are you still available?" },
@@ -374,9 +87,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: BarChart3,
-      title: t.features.analytics.title,
-      description: t.features.analytics.description,
-      metric: t.features.analytics.metric,
+      title: t('features.analytics.title'),
+      description: t('features.analytics.description'),
+      metric: t('features.analytics.stats'),
       color: "from-indigo-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "كيف يؤدّي حملتي؟" : currentLanguage === 'tr' ? "Kampanyam nasıl performans gösteriyor?" : currentLanguage === 'az' ? "Kampaniyam necə performans göstərir?" : "How's my campaign performing?" },
@@ -390,9 +103,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Shield,
-      title: t.features.leadQualification.title,
-      description: t.features.leadQualification.description,
-      metric: t.features.leadQualification.metric,
+      title: t('features.leadQualification.title'),
+      description: t('features.leadQualification.description'),
+      metric: t('features.leadQualification.stats'),
       color: "from-pink-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل أنت مؤهل لاتخاذ القرارات؟" : currentLanguage === 'tr' ? "Karar verme konusunda yetkili misiniz?" : currentLanguage === 'az' ? "Qərar vermək üçün səlahiyyətlisinizmi?" : "Are you qualified to make decisions?" },
@@ -406,9 +119,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Globe,
-      title: t.features.globalReach.title,
-      description: t.features.globalReach.description,
-      metric: t.features.globalReach.metric,
+      title: t('features.globalReach.title'),
+      description: t('features.globalReach.description'),
+      metric: t('features.globalReach.stats'),
       color: "from-violet-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل تعمل دولياً؟" : currentLanguage === 'tr' ? "Uluslararası çalışıyor musunuz?" : currentLanguage === 'az' ? "Beynəlxalq işləyirsinizmi?" : "Do you work internationally?" },
@@ -422,9 +135,9 @@ export default function AnimatedBanner() {
     },
     {
       icon: Star,
-      title: t.features.personalization.title,
-      description: t.features.personalization.description,
-      metric: t.features.personalization.metric,
+      title: t('features.personalization.title'),
+      description: t('features.personalization.description'),
+      metric: t('features.personalization.stats'),
       color: "from-yellow-500 to-orange-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "كيف تخصص المكالمات؟" : currentLanguage === 'tr' ? "Aramaları nasıl kişiselleştiriyorsunuz?" : currentLanguage === 'az' ? "Zəngləri necə fərdiləşdirirsiniz?" : "How do you personalize calls?" },
@@ -491,7 +204,7 @@ export default function AnimatedBanner() {
             {['en', 'ar', 'tr', 'az'].map((lang) => (
               <button
                 key={lang}
-                onClick={() => setCurrentLanguage(lang)}
+                onClick={() => i18n.changeLanguage(lang)}
                 className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
                   currentLanguage === lang
                     ? 'bg-white text-purple-600 shadow-lg'
@@ -511,11 +224,11 @@ export default function AnimatedBanner() {
               <Sparkles className="h-4 w-4 lg:h-6 lg:w-6 text-white animate-pulse" />
             </div>
             <h1 className="text-xl lg:text-3xl xl:text-4xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-              {t.title}
+              {t('home.title')}
             </h1>
           </div>
           <p className="text-sm lg:text-lg xl:text-xl text-white/90 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-            {t.subtitle}
+            {t('home.subtitle')}
           </p>
         </div>
 
@@ -571,15 +284,15 @@ export default function AnimatedBanner() {
                   {/* Call Header */}
                   <div className="text-center mb-3 lg:mb-4">
                     <div className="flex items-center justify-center space-x-2 mb-2 lg:mb-3">
-                      <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center">
+                      <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                         <Bot className="h-4 w-4 lg:h-5 lg:w-5 text-white" />
                       </div>
                       <div>
                         <h3 className="text-sm lg:text-base font-bold text-gray-800" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.aiSalesAgent}
+                          {t('dialer.aiSalesAgent')}
                         </h3>
                         <p className="text-xs text-gray-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.sparkAISystem}
+                          {t('dialer.sparkAISystem')}
                         </p>
                       </div>
                     </div>
@@ -591,7 +304,7 @@ export default function AnimatedBanner() {
                           <>
                             <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-500 rounded-full animate-pulse"></div>
                             <span className="text-xs lg:text-sm text-yellow-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                              {t.dialer.dialing}
+                              {t('dialer.dialing')}
                             </span>
                           </>
                         )}
@@ -599,15 +312,15 @@ export default function AnimatedBanner() {
                           <>
                             <div className="w-2 h-2 lg:w-3 lg:h-3 bg-blue-500 rounded-full animate-pulse"></div>
                             <span className="text-xs lg:text-sm text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                              {t.dialer.connecting}
+                              {t('dialer.connecting')}
                             </span>
                           </>
                         )}
                         {callStatus === 'connected' && (
                           <>
-                            <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-500 rounded-full animate-pulse"></div>
-                            <span className="text-xs lg:text-sm text-green-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                              {t.dialer.connected}
+                            <div className="w-2 h-2 lg:w-3 lg:h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                            <span className="text-xs lg:text-sm text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                              {t('dialer.connected')}
                             </span>
                           </>
                         )}
@@ -615,7 +328,7 @@ export default function AnimatedBanner() {
                           <>
                             <div className="w-2 h-2 lg:w-3 lg:h-3 bg-gray-500 rounded-full"></div>
                             <span className="text-xs lg:text-sm text-gray-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                              {t.dialer.readyToCall}
+                              {t('dialer.readyToCall')}
                             </span>
                           </>
                         )}
@@ -636,7 +349,7 @@ export default function AnimatedBanner() {
                     <button className="w-8 h-8 lg:w-10 lg:h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors duration-300">
                       <PhoneOff className="h-4 w-4 lg:h-5 lg:w-5 text-white" />
                     </button>
-                    <button className="w-10 h-10 lg:w-12 lg:h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg">
+                    <button className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg">
                       <PhoneCall className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
                     </button>
                     <button className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors duration-300">
@@ -665,24 +378,24 @@ export default function AnimatedBanner() {
                     <div className="grid grid-cols-3 gap-2 text-center">
                       <div>
                         <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.duration}
+                          {t('dialer.duration')}
                         </p>
                         <p className="text-xs font-semibold text-gray-800">00:02:34</p>
                       </div>
                       <div>
                         <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.quality}
+                          {t('dialer.quality')}
                         </p>
-                        <p className="text-xs font-semibold text-green-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.excellent}
+                        <p className="text-xs font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                          {t('dialer.excellent')}
                         </p>
                       </div>
                       <div>
                         <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.sentiment}
+                          {t('dialer.sentiment')}
                         </p>
                         <p className="text-xs font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                          {t.dialer.positive}
+                          {t('dialer.positive')}
                         </p>
                       </div>
                     </div>
@@ -696,7 +409,7 @@ export default function AnimatedBanner() {
                   {/* Phone Header */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-lg flex items-center justify-center">
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
                         <Bot className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
                       </div>
                       <span className="font-semibold text-gray-800 text-sm lg:text-base" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
@@ -704,9 +417,9 @@ export default function AnimatedBanner() {
                       </span>
                     </div>
                     <div className="flex space-x-1">
-                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                     </div>
                   </div>
 
@@ -716,7 +429,7 @@ export default function AnimatedBanner() {
                       <div key={index} className={`fade-in`} style={{animationDelay: `${index * 0.5}s`}}>
                         {message.type === "user" && (
                           <div className="flex justify-end">
-                            <div className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-3 py-2 rounded-2xl rounded-br-md max-w-xs">
+                            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-2 rounded-2xl rounded-br-md max-w-xs">
                               <p className="text-xs lg:text-sm" style={{direction: message.text.includes('مرحبا') || message.text.includes('هل') ? 'rtl' : 'ltr'}}>
                                 {message.text}
                               </p>
@@ -765,10 +478,10 @@ export default function AnimatedBanner() {
             )}
 
             {/* Floating Elements */}
-            <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center bounce-animation">
+            <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center bounce-animation">
               <Zap className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
             </div>
-            <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-4 h-4 lg:w-6 lg:h-6 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center rotate-animation">
+            <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-4 h-4 lg:w-6 lg:h-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center rotate-animation">
               <Sparkles className="h-2 w-2 lg:h-3 lg:w-3 text-white" />
             </div>
           </div>
@@ -777,15 +490,15 @@ export default function AnimatedBanner() {
         {/* Bottom Stats */}
         <div className="mt-4 lg:mt-6 grid grid-cols-2 md:grid-cols-4 gap-2 lg:gap-4 flex-shrink-0">
           {[
-            { label: t.stats.activeCampaigns, value: "12", icon: Target },
-            { label: t.stats.callsToday, value: "1,247", icon: Phone },
-            { label: t.stats.successRate, value: "94.2%", icon: TrendingUp },
-            { label: t.stats.languages, value: "95+", icon: Users }
+            { label: t('stats.activeCampaigns'), value: "12", icon: Target },
+            { label: t('stats.callsToday'), value: "1,247", icon: Phone },
+            { label: t('stats.successRate'), value: "94.2%", icon: TrendingUp },
+            { label: t('stats.languages'), value: "95+", icon: Users }
           ].map((stat, index) => {
             const StatIcon = stat.icon;
             return (
               <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-2 lg:p-3 border border-white/20 text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-lg flex items-center justify-center mx-auto mb-1 lg:mb-2">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-1 lg:mb-2">
                   <StatIcon className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
                 </div>
                 <div className="text-sm lg:text-lg font-bold text-white">{stat.value}</div>
@@ -799,13 +512,13 @@ export default function AnimatedBanner() {
         <div className="mt-3 lg:mt-4 flex-shrink-0">
           <div className="w-full bg-white/20 rounded-full h-1.5 lg:h-2">
             <div 
-              className="h-1.5 lg:h-2 bg-gradient-to-r from-purple-500 to-green-500 rounded-full transition-all duration-1000 ease-out"
+              className="h-1.5 lg:h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${((currentFeature + 1) / features.length) * 100}%` }}
             ></div>
           </div>
           <div className="text-center mt-1 lg:mt-2">
             <span className="text-white/80 text-xs lg:text-sm" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-              {currentFeature + 1} {t.progress.replace('{total}', features.length.toString())}
+              {currentFeature + 1} {t('progress').replace('{total}', features.length.toString())}
             </span>
           </div>
         </div>

@@ -7,8 +7,11 @@ import { BarChart3, TrendingUp, Clock, Phone, Users, Target, Calendar, Download,
 import { api } from "@/lib/api";
 import Sidebar from "@/components/sidebar";
 import ThemeToggle from "@/components/theme-toggle";
+import LanguageSwitcher from "@/components/language-switcher";
+import { useTranslation } from "react-i18next";
 
 export default function Analytics() {
+  const { t } = useTranslation();
   const [timeRange, setTimeRange] = useState("7d");
 
   const { data: campaignsData } = useQuery({
@@ -28,28 +31,28 @@ export default function Analytics() {
 
   const analyticsCards = [
     {
-      title: "Total Campaigns",
+      title: t('analytics.cards.totalCampaigns'),
       value: totalCampaigns,
       icon: Target,
       color: "blue",
       change: "+12%",
     },
     {
-      title: "Active Campaigns", 
+      title: t('analytics.cards.activeCampaigns'), 
       value: activeCampaigns,
       icon: Play,
       color: "green",
       change: "+8%",
     },
     {
-      title: "Total Calls",
+      title: t('analytics.cards.totalCalls'),
       value: totalCalls,
       icon: Phone,
       color: "purple",
       change: "+23%",
     },
     {
-      title: "Success Rate",
+      title: t('analytics.cards.successRate'),
       value: `${successRate}%`,
       icon: TrendingUp,
       color: "emerald",
@@ -93,26 +96,27 @@ export default function Analytics() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
-                Analytics
+                {t('analytics.title')}
               </h2>
-              <p className="text-brand-600 dark:text-brand-400 mt-2">Track performance and insights for your campaigns</p>
+              <p className="text-brand-600 dark:text-brand-400 mt-2">{t('analytics.subtitle')}</p>
             </div>
             <div className="flex items-center space-x-4">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Select value={timeRange} onValueChange={setTimeRange}>
                 <SelectTrigger className="w-40">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="24h">Last 24 hours</SelectItem>
-                  <SelectItem value="7d">Last 7 days</SelectItem>
-                  <SelectItem value="30d">Last 30 days</SelectItem>
-                  <SelectItem value="90d">Last 90 days</SelectItem>
+                  <SelectItem value="24h">{t('analytics.timeRange.24h')}</SelectItem>
+                  <SelectItem value="7d">{t('analytics.timeRange.7d')}</SelectItem>
+                  <SelectItem value="30d">{t('analytics.timeRange.30d')}</SelectItem>
+                  <SelectItem value="90d">{t('analytics.timeRange.90d')}</SelectItem>
                 </SelectContent>
               </Select>
               <Button className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg">
                 <Download className="h-4 w-4 mr-2" />
-                Export
+                {t('analytics.export')}
               </Button>
             </div>
           </div>

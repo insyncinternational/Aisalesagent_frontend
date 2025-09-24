@@ -48,6 +48,10 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "user": "User",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
     "admin": "Admin",
     "administrator": "Administrator",
     "signIn": "Sign In",
@@ -134,8 +138,9 @@
     "campaignSelection": "Campaign Selection",
     "createNewCampaign": "Create a new campaign or select an existing one",
     "createNewCampaignButton": "+ Create New Campaign",
-    "existingCampaigns": "Existing Campaigns",
-    "noExistingCampaigns": "No existing campaigns found",
+     "existingCampaigns": "Existing Campaigns",
+     "viewAllCampaigns": "View All Campaigns",
+     "noExistingCampaigns": "No existing campaigns found",
     "performanceOverview": "Performance Overview",
     "activeCampaigns": "Active Campaigns",
     "currentlyRunningCampaigns": "Currently running campaigns",
@@ -192,6 +197,16 @@
       "title": "Multi-Language Support",
       "description": "Reach global audiences with native language conversations and cultural awareness",
       "stats": "95+ Languages"
+    },
+    "multiLanguage": {
+      "title": "Multi-Language Support",
+      "description": "Reach global audiences with native language conversations and cultural awareness",
+      "stats": "95+ Languages"
+    },
+    "arabicSupport": {
+      "title": "Arabic Support",
+      "description": "Native Arabic language support with regional dialects",
+      "stats": "4 Dialects"
     },
     "availability": {
       "title": "24/7 Availability",
@@ -499,6 +514,8 @@
     "joinThousands": "Join thousands of businesses already using Spark AI to transform their sales process"
   },
   "home": {
+    "title": "AI Sales Calling Agent",
+    "subtitle": "Transform your sales with intelligent voice automation",
     "hero": {
       "title": "AI Sales Calls That Actually Convert",
       "subtitle": "Stop losing leads to missed calls. Our AI agents make 24/7 sales calls that sound human, qualify prospects, and book meetings automatically. Save 10+ hours per week while increasing conversions by 300%.",
@@ -584,28 +601,40 @@
     }
   },
   "chat": {
-    "welcomeMessage": "Hi! 👋 I'm here to help you get started with AI voice calling. How can I assist you today?",
+    "welcomeMessage": "👋 Hi! I'm Sarah, your AI Sales Assistant. I can help you with questions about our AI voice calling service, or I can call you directly to demonstrate our technology! What would you like to know?",
     "chatWithUs": "Chat with us",
-    "aiSalesSupport": "AI Sales Support",
-    "onlineNow": "Online now",
-    "typeMessage": "Type your message...",
+    "aiSalesSupport": "Sarah - AI Sales Assistant",
+    "onlineNow": "Online & Ready to Call",
+    "typeMessage": "Type your message or say 'call me to demo'...",
     "call": "Call",
     "email": "Email",
     "schedule": "Schedule",
     "quickQuestions": "Quick questions:",
     "quickReplies": {
-      "cost": "How much does it cost?",
-      "freeTrial": "Can I try it for free?",
-      "howItWorks": "How does it work?",
-      "demo": "Do you have a demo?"
+      "cost": "💰 What's the cost?",
+      "freeTrial": "🎯 Free trial available?",
+      "howItWorks": "⚡ How does it work?",
+      "demo": "📞 Call me to demo!"
     },
     "responses": {
-      "pricing": "Great question! Our plans start at just $97/month for the Starter plan, and $297/month for Professional. We're currently offering 50% off your first 3 months + free setup (worth $500)! Would you like me to show you the details?",
-      "freeTrial": "Absolutely! We offer a 14-day free trial with no credit card required. You can test all features and see real results. Plus, we have a 30-day money-back guarantee. Ready to get started?",
-      "demo": "I'd love to show you! Our AI makes natural-sounding calls 24/7, qualifies leads, and books meetings automatically. You can try our interactive demo right now, or I can schedule a personalized demo call. What sounds better?",
-      "setup": "Getting started is super easy! Just upload your contact list, choose your AI voice, and launch. Setup takes only 5 minutes, and we provide free onboarding. Would you like me to walk you through it?",
-      "default": "That's a great question! Let me connect you with one of our AI calling experts who can give you a personalized answer. In the meantime, you can try our free trial or check out our demo. What would you prefer?"
-    }
+      "pricing": "💰 Our AI voice calling service starts at just $99/month for up to 1,000 calls. We also offer a 14-day free trial with no credit card required! Would you like me to call you to discuss pricing options?",
+      "freeTrial": "🎯 Yes! We offer a completely free 14-day trial. You can make up to 100 calls to test our AI voice technology. No credit card required! Just say 'call me to demo' and I'll set up a personalized demo call for you.",
+      "demo": "⚡ Our AI makes natural-sounding phone calls to your leads, handles objections, and books appointments - all while sounding completely human! The best way to experience it is to receive a demo call. Would you like me to call you right now?",
+      "setup": "🚀 Getting started is super easy! Just upload your contact list, choose your AI voice, and customize your script. Our AI will start calling within minutes. I can walk you through the entire process with a live demo call - shall I call you?",
+      "default": "🤖 That's a great question! I'd love to help you learn more about our AI voice calling technology. The best way to understand how powerful it is would be to experience it firsthand. Would you like me to call you for a personalized demo?"
+    },
+    "freeDemoCall": "Free Demo Call Setup",
+    "yourName": "Your Name",
+    "phoneNumber": "Phone Number (e.g., +1234567890)",
+    "selectIndustry": "Select Your Industry",
+    "companyName": "Company Name (Optional)",
+    "scheduleDemoCall": "Schedule Demo Call",
+    "scheduling": "Scheduling...",
+    "callScheduled": "🎉 Perfect! I've scheduled your free demo call. Our AI will call you at {{phone}} within the next 5 minutes. The call will be about {{industry}} solutions. Get ready to be amazed! 📞✨",
+    "voiceInput": "Voice Input",
+    "listenToMessage": "Listen to message",
+    "stopSpeaking": "Stop Speaking",
+    "aiVoice": "AI Voice"
   },
   "exitIntent": {
     "title": "Wait! Don't Miss Out! 🚨",
@@ -696,6 +725,320 @@
         "value": "10x",
         "label": "More Efficient"
       }
+    }
+  },
+  "campaigns": {
+    "title": "Campaigns",
+    "subtitle": "Manage all your voice calling campaigns",
+    "createNew": "Create New Campaign",
+    "createFirst": "Create Your First Campaign",
+    "noCampaigns": "No campaigns found",
+    "noCampaignsDesc": "Get started by creating a new campaign.",
+    "searchPlaceholder": "Search campaigns...",
+    "loading": "Loading campaigns...",
+    "active": "Active",
+    "paused": "Paused",
+    "draft": "Draft",
+    "completed": "Completed",
+    "totalLeads": "Total Leads",
+    "completedCalls": "Completed Calls",
+    "successfulCalls": "Successful Calls",
+    "failedCalls": "Failed Calls",
+    "averageDuration": "Avg Duration",
+    "createdAt": "Created",
+    "actions": "Actions",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Resume"
+  },
+  "campaignDetails": {
+    "title": "Campaign Details",
+    "subtitle": "Campaign Details & Conversations",
+    "backToCampaigns": "Back to Campaigns",
+    "loading": "Loading campaign...",
+    "error": "Failed to load campaign",
+    "stats": {
+      "totalLeads": "Total Leads",
+      "completed": "Completed",
+      "calling": "Calling",
+      "failed": "Failed",
+      "pending": "Pending"
+    },
+    "leads": {
+      "title": "Leads",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "contactNo": "Contact Number",
+      "status": "Status"
+    },
+    "callLogs": {
+      "title": "Call Logs",
+      "phoneNumber": "Phone Number",
+      "status": "Status",
+      "duration": "Duration",
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "viewConversation": "View Conversation"
+    },
+    "conversation": {
+      "title": "Call Transcription",
+      "subtitle": "Conversation with {{phoneNumber}} on {{date}}",
+      "loading": "Loading transcription...",
+      "noTranscription": "No transcription available for this call.",
+      "speaker": "Speaker",
+      "message": "Message"
+    }
+  },
+  "campaignCreation": {
+    "title": "Create New Campaign",
+    "subtitle": "Set up your AI voice calling campaign",
+    "step1": "Campaign Details",
+    "step2": "Voice Selection",
+    "step3": "Upload Leads",
+    "step4": "Review & Launch",
+    "campaignName": "Campaign Name",
+    "campaignNamePlaceholder": "Enter campaign name",
+    "firstPrompt": "First Prompt",
+    "firstPromptPlaceholder": "Enter the first message your AI will say",
+    "systemPersona": "System Persona",
+    "systemPersonaPlaceholder": "Define your AI's personality and behavior",
+    "next": "Next",
+    "previous": "Previous",
+    "create": "Create Campaign",
+    "creating": "Creating Campaign...",
+    "success": "Campaign created successfully!"
+  },
+  "voices": {
+    "title": "Voice Library",
+    "subtitle": "Manage and clone voices for your campaigns",
+    "searchPlaceholder": "Search voices...",
+    "cloneVoice": "Clone Voice",
+    "premade": "Premade Voices",
+    "cloned": "Cloned Voices",
+    "select": "Select Voice",
+    "selected": "Selected",
+    "preview": "Preview",
+    "settings": "Voice Settings",
+    "stability": "Stability",
+    "similarity": "Similarity Boost",
+    "style": "Style",
+    "speakerBoost": "Speaker Boost",
+    "cloneVoice": "Clone Voice",
+    "uploadAudio": "Upload Audio File",
+    "voiceName": "Voice Name",
+    "voiceNamePlaceholder": "Enter voice name",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter voice description"
+  },
+  "leads": {
+    "title": "Upload Leads",
+    "subtitle": "Upload your contact list to start calling",
+    "dragDrop": "Drag and drop your CSV file here, or click to browse",
+    "supportedFormats": "Supported formats: CSV",
+    "uploading": "Uploading...",
+    "processing": "Processing leads...",
+    "success": "Leads uploaded successfully!",
+    "error": "Failed to upload leads",
+    "preview": "Preview",
+    "totalLeads": "Total Leads",
+    "validLeads": "Valid Leads",
+    "invalidLeads": "Invalid Leads",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "email": "Email",
+    "company": "Company",
+    "remove": "Remove",
+    "confirm": "Confirm Upload"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Track performance and insights for your campaigns",
+    "export": "Export",
+    "timeRange": {
+      "24h": "Last 24 hours",
+      "7d": "Last 7 days", 
+      "30d": "Last 30 days",
+      "90d": "Last 90 days"
+    },
+    "cards": {
+      "totalCampaigns": "Total Campaigns",
+      "activeCampaigns": "Active Campaigns",
+      "totalCalls": "Total Calls",
+      "successRate": "Success Rate"
+    },
+    "overview": "Overview",
+    "campaigns": "Campaigns",
+    "calls": "Calls",
+    "leads": "Leads",
+    "conversions": "Conversions",
+    "callsToday": "Calls Today",
+    "totalMinutes": "Total Minutes",
+    "totalCalls": "Total Calls",
+    "successfulCalls": "Successful Calls",
+    "failedCalls": "Failed Calls",
+    "averageCallDuration": "Average Call Duration",
+    "conversionRate": "Conversion Rate",
+    "totalLeads": "Total Leads",
+    "qualifiedLeads": "Qualified Leads",
+    "appointmentsBooked": "Appointments Booked",
+    "revenue": "Revenue",
+    "costPerCall": "Cost Per Call",
+    "roi": "ROI",
+    "timeframe": "Timeframe",
+    "last7Days": "Last 7 Days",
+    "last30Days": "Last 30 Days",
+    "last90Days": "Last 90 Days",
+    "custom": "Custom Range"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "campaigns": "Campaigns",
+    "voices": "Voices",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "logout": "Logout",
+    "newCampaign": "New Campaign",
+    "activeCampaigns": "Active Campaigns",
+    "totalCalls": "Total Calls",
+    "successRate": "Success Rate"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications",
+    "markAllRead": "Mark all as read",
+    "campaignStarted": "Campaign started successfully",
+    "campaignPaused": "Campaign paused",
+    "campaignCompleted": "Campaign completed",
+    "newLead": "New lead added",
+    "callCompleted": "Call completed",
+    "systemUpdate": "System update available"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "validation": "Please check your input and try again.",
+    "server": "Server error. Please try again later.",
+    "timeout": "Request timed out. Please try again.",
+    "fileUpload": "Failed to upload file. Please try again.",
+    "invalidFile": "Invalid file format. Please upload a valid file.",
+    "fileTooLarge": "File is too large. Please upload a smaller file."
+  },
+  "success": {
+    "campaignCreated": "Campaign created successfully!",
+    "campaignUpdated": "Campaign updated successfully!",
+    "campaignDeleted": "Campaign deleted successfully!",
+    "leadsUploaded": "Leads uploaded successfully!",
+    "voiceCloned": "Voice cloned successfully!",
+    "settingsUpdated": "Settings updated successfully!",
+    "callScheduled": "Call scheduled successfully!",
+    "dataExported": "Data exported successfully!"
+  },
+  "dialer": {
+    "aiSalesAgent": "AI Sales Agent",
+    "sparkAISystem": "Spark AI System",
+    "dialing": "Dialing...",
+    "connecting": "Connecting...",
+    "connected": "Connected",
+    "readyToCall": "Ready to Call",
+    "duration": "Duration",
+    "quality": "Quality",
+    "excellent": "Excellent",
+    "sentiment": "Sentiment",
+    "positive": "Positive"
+  },
+  "stats": {
+    "activeCampaigns": "Active Campaigns",
+    "callsToday": "Calls Today",
+    "successRate": "Success Rate",
+    "languages": "Languages"
+  },
+  "progress": "of {total} features",
+  "campaignWorkflow": {
+    "title": "How Campaigns Work",
+    "subtitle": "Follow these simple steps to create and launch your AI voice calling campaigns",
+    "workflowTitle": "Campaign Workflow",
+    "step": "Step",
+    "startFirstCampaign": "Start Your First Campaign",
+    "step1": {
+      "title": "Create Campaign",
+      "description": "Set up your voice calling campaign",
+      "details": [
+        "Enter campaign name and description",
+        "Write your opening message",
+        "Configure AI personality",
+        "Set campaign objectives"
+      ],
+      "features": [
+        "Campaign Setup",
+        "Message Creation",
+        "AI Configuration"
+      ]
+    },
+    "step2": {
+      "title": "Upload Leads",
+      "description": "Add your contact list",
+      "details": [
+        "Upload CSV file with contacts",
+        "Map contact fields (name, phone, email)",
+        "Validate phone numbers",
+        "Preview lead data"
+      ],
+      "features": [
+        "CSV Upload",
+        "Field Mapping",
+        "Data Validation"
+      ]
+    },
+    "step3": {
+      "title": "Configure AI",
+      "description": "Set up voice and knowledge base",
+      "details": [
+        "Select AI voice (ElevenLabs)",
+        "Upload knowledge base documents",
+        "Configure conversation flow",
+        "Set call parameters"
+      ],
+      "features": [
+        "Voice Selection",
+        "Knowledge Base",
+        "AI Setup"
+      ]
+    },
+    "step4": {
+      "title": "Test & Launch",
+      "description": "Test and start your campaign",
+      "details": [
+        "Make test calls to verify setup",
+        "Review campaign settings",
+        "Start campaign execution",
+        "Monitor call progress"
+      ],
+      "features": [
+        "Test Calls",
+        "Campaign Launch",
+        "Progress Monitoring"
+      ]
+    },
+    "step5": {
+      "title": "Monitor Results",
+      "description": "Track campaign performance",
+      "details": [
+        "View call statistics",
+        "Analyze success rates",
+        "Review call recordings",
+        "Export results"
+      ],
+      "features": [
+        "Analytics",
+        "Call Logs",
+        "Performance Reports"
+      ]
     }
   }
 }

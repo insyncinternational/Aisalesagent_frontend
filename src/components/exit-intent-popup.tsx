@@ -74,7 +74,7 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
 
         {/* Timer */}
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div className="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center space-x-2">
+          <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center space-x-2">
             <Clock className="h-4 w-4" />
             <span>{formatTime(timeLeft)}</span>
           </div>
@@ -82,7 +82,7 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
 
         {/* Content */}
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
             <Gift className="h-8 w-8 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-2">
@@ -94,7 +94,7 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
         </div>
 
         {/* Benefits */}
-        <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-4 mb-6">
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-4 mb-6">
           <div className="space-y-2 text-sm">
             <div className="flex items-center space-x-2">
               <Check className="h-4 w-4 text-purple-500" />
@@ -126,13 +126,13 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
               placeholder={t('exitIntent.emailPlaceholder')}
             />
           </div>
           <Button 
             type="submit"
-            className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-3 text-lg font-semibold"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 text-lg font-semibold"
           >
             {t('exitIntent.claimButton')}
             <ArrowRight className="ml-2 h-5 w-5" />

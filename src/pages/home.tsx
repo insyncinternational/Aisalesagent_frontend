@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import ExitIntentPopup from '@/components/exit-intent-popup';
-import LiveChatWidget from '@/components/live-chat-widget';
 import LiveCallCounter from '@/components/live-call-counter';
 import InteractiveDemo from '@/components/interactive-demo';
 import CurrencySwitcher from '@/components/currency-switcher';
@@ -1773,8 +1772,6 @@ export default function Home() {
         <ExitIntentPopup onClose={() => setShowExitIntent(false)} />
       )}
 
-      {/* Live Chat Widget */}
-      <LiveChatWidget />
 
       {/* Interactive Demo */}
       {showInteractiveDemo && (

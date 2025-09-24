@@ -33,10 +33,14 @@ export default function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="w-10 h-10 p-0 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           title={t('language.selectLanguage')}
         >
-          <Globe className="h-5 w-5 text-slate-700 dark:text-slate-300" />
+          <span className="text-lg">{currentLanguage.flag}</span>
+          <span className="text-sm font-medium text-slate-700 dark:text-slate-300 hidden sm:block">
+            {currentLanguage.name}
+          </span>
+          <Globe className="h-4 w-4 text-slate-700 dark:text-slate-300" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">

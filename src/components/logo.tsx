@@ -32,13 +32,13 @@ export default function Logo({ size = 'md', className = '', showText = true }: L
         {/* Background circle with gradient */}
         <defs>
           <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8B5CF6" />
-            <stop offset="50%" stopColor="#A855F7" />
-            <stop offset="100%" stopColor="#10B981" />
+            <stop offset="0%" stopColor="#3B82F6" />
+            <stop offset="50%" stopColor="#8B5CF6" />
+            <stop offset="100%" stopColor="#A855F7" />
           </linearGradient>
           <linearGradient id="outlineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8B5CF6" />
-            <stop offset="100%" stopColor="#10B981" />
+            <stop offset="0%" stopColor="#3B82F6" />
+            <stop offset="100%" stopColor="#A855F7" />
           </linearGradient>
         </defs>
         

@@ -43,12 +43,12 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
 
   if (isLoading) {
     return (
-      <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
+      <div className="flex h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-900/20 dark:to-slate-900">
         <Sidebar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-500 mx-auto mb-4"></div>
-            <p className="text-brand-600 dark:text-brand-400">Loading campaign...</p>
+            <p className="text-slate-600 dark:text-slate-400">Loading campaign...</p>
           </div>
         </div>
       </div>
@@ -57,13 +57,13 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
 
   if (error) {
     return (
-      <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
+      <div className="flex h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-900/20 dark:to-slate-900">
         <Sidebar />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <AlertCircle className="h-8 w-8 text-brand-500 mx-auto mb-4" />
-            <p className="text-brand-600 dark:text-brand-400">Failed to load campaign</p>
-            <Button onClick={() => setLocation('/campaigns')} className="mt-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white">
+            <p className="text-slate-600 dark:text-slate-400">Failed to load campaign</p>
+            <Button onClick={() => setLocation('/campaigns')} className="mt-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
               Back to Campaigns
             </Button>
           </div>
@@ -73,7 +73,7 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
   }
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
+    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-900/20 dark:to-slate-900">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-8 py-6">
@@ -92,7 +92,7 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
                 <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
                   Edit Campaign
                 </h2>
-                <p className="text-brand-600 dark:text-brand-400 mt-2">Update your AI voice calling campaign</p>
+                <p className="text-slate-600 dark:text-slate-400 mt-2">Update your AI voice calling campaign</p>
               </div>
             </div>
             <ThemeToggle />

@@ -134,8 +134,9 @@
     "campaignSelection": "Kampanya Seçimi",
     "createNewCampaign": "Yeni kampanya oluşturun veya mevcut olanı seçin",
     "createNewCampaignButton": "+ Yeni Kampanya Oluştur",
-    "existingCampaigns": "Mevcut Kampanyalar",
-    "noExistingCampaigns": "Mevcut kampanya bulunamadı",
+     "existingCampaigns": "Mevcut Kampanyalar",
+     "viewAllCampaigns": "Tüm Kampanyaları Görüntüle",
+     "noExistingCampaigns": "Mevcut kampanya bulunamadı",
     "performanceOverview": "Performans Genel Bakış",
     "activeCampaigns": "Aktif Kampanyalar",
     "currentlyRunningCampaigns": "Şu anda çalışan kampanyalar",
@@ -192,6 +193,16 @@
       "title": "Çok Dilli Destek",
       "description": "Ana dil konuşmaları ve kültürel farkındalıkla küresel kitlelere ulaşın",
       "stats": "95+ Dil"
+    },
+    "multiLanguage": {
+      "title": "Çok Dilli Destek",
+      "description": "Ana dil konuşmaları ve kültürel farkındalıkla küresel kitlelere ulaşın",
+      "stats": "95+ Dil"
+    },
+    "arabicSupport": {
+      "title": "Arapça Destek",
+      "description": "Bölgesel lehçelerle yerel Arapça dil desteği",
+      "stats": "4 Lehçe"
     },
     "availability": {
       "title": "7/24 Erişilebilirlik",
@@ -451,6 +462,8 @@
     "selectLanguage": "Dil Seçin"
   },
   "home": {
+    "title": "AI Satış Arama Ajanı",
+    "subtitle": "Satışlarınızı akıllı ses otomasyonu ile dönüştürün",
     "hero": {
       "title": "Gerçekten Dönüştüren AI Satış Aramaları",
       "subtitle": "Kaçırılan aramalar nedeniyle müşteri adaylarını kaybetmeyi bırakın. AI ajanlarımız 7/24 insan gibi ses çıkaran satış aramaları yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Haftada 10+ saat tasarruf ederken dönüşümleri %300 artırın.",
@@ -648,6 +661,307 @@
         "value": "10x",
         "label": "Daha Verimli"
       }
+    }
+  },
+  "campaigns": {
+    "title": "Kampanyalar",
+    "subtitle": "Tüm sesli arama kampanyalarınızı yönetin",
+    "createNew": "Yeni Kampanya Oluştur",
+    "createFirst": "İlk Kampanyanızı Oluşturun",
+    "noCampaigns": "Kampanya bulunamadı",
+    "noCampaignsDesc": "Yeni bir kampanya oluşturarak başlayın.",
+    "searchPlaceholder": "Kampanyaları ara...",
+    "loading": "Kampanyalar yükleniyor...",
+    "active": "Aktif",
+    "paused": "Duraklatıldı",
+    "draft": "Taslak",
+    "completed": "Tamamlandı",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "completedCalls": "Tamamlanan Aramalar",
+    "successfulCalls": "Başarılı Aramalar",
+    "failedCalls": "Başarısız Aramalar",
+    "averageDuration": "Ortalama Süre",
+    "createdAt": "Oluşturulma",
+    "actions": "İşlemler",
+    "view": "Görüntüle",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "start": "Başlat",
+    "pause": "Duraklat",
+    "resume": "Devam Et"
+  },
+  "campaignDetails": {
+    "title": "Kampanya Detayları",
+    "subtitle": "Kampanya Detayları ve Konuşmalar",
+    "backToCampaigns": "Kampanyalara Dön",
+    "loading": "Kampanya yükleniyor...",
+    "error": "Kampanya yüklenemedi",
+    "stats": {
+      "totalLeads": "Toplam Potansiyel Müşteri",
+      "completed": "Tamamlandı",
+      "calling": "Aranıyor",
+      "failed": "Başarısız",
+      "pending": "Beklemede"
+    },
+    "leads": {
+      "title": "Potansiyel Müşteriler",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "contactNo": "İletişim Numarası",
+      "status": "Durum"
+    },
+    "callLogs": {
+      "title": "Arama Kayıtları",
+      "phoneNumber": "Telefon Numarası",
+      "status": "Durum",
+      "duration": "Süre",
+      "createdAt": "Oluşturulma Tarihi",
+      "actions": "İşlemler",
+      "viewConversation": "Konuşmayı Görüntüle"
+    },
+    "conversation": {
+      "title": "Arama Transkripsiyonu",
+      "subtitle": "{{phoneNumber}} ile {{date}} tarihinde yapılan konuşma",
+      "loading": "Transkripsiyon yükleniyor...",
+      "noTranscription": "Bu arama için transkripsiyon mevcut değil.",
+      "speaker": "Konuşmacı",
+      "message": "Mesaj"
+    }
+  },
+  "campaignCreation": {
+    "title": "Yeni Kampanya Oluştur",
+    "subtitle": "AI sesli arama kampanyanızı kurun",
+    "step1": "Kampanya Detayları",
+    "step2": "Ses Seçimi",
+    "step3": "Potansiyel Müşteri Yükle",
+    "step4": "İncele ve Başlat",
+    "campaignName": "Kampanya Adı",
+    "campaignNamePlaceholder": "Kampanya adını girin",
+    "firstPrompt": "İlk Mesaj",
+    "firstPromptPlaceholder": "AI'nızın söyleyeceği ilk mesajı girin",
+    "systemPersona": "Sistem Kişiliği",
+    "systemPersonaPlaceholder": "AI'nızın kişiliğini ve davranışını tanımlayın",
+    "next": "İleri",
+    "previous": "Geri",
+    "create": "Kampanya Oluştur",
+    "creating": "Kampanya Oluşturuluyor...",
+    "success": "Kampanya başarıyla oluşturuldu!"
+  },
+  "voices": {
+    "title": "Ses Seçimi",
+    "subtitle": "Kampanyanız için mükemmel sesi seçin",
+    "premade": "Hazır Sesler",
+    "cloned": "Klonlanmış Sesler",
+    "select": "Ses Seç",
+    "selected": "Seçildi",
+    "preview": "Önizleme",
+    "settings": "Ses Ayarları",
+    "stability": "Kararlılık",
+    "similarity": "Benzerlik Artırma",
+    "style": "Stil",
+    "speakerBoost": "Konuşmacı Artırma",
+    "cloneVoice": "Ses Klonla",
+    "uploadAudio": "Ses Dosyası Yükle",
+    "voiceName": "Ses Adı",
+    "voiceNamePlaceholder": "Ses adını girin",
+    "description": "Açıklama",
+    "descriptionPlaceholder": "Ses açıklamasını girin"
+  },
+  "leads": {
+    "title": "Potansiyel Müşteri Yükle",
+    "subtitle": "Aramaya başlamak için iletişim listenizi yükleyin",
+    "dragDrop": "CSV dosyanızı buraya sürükleyip bırakın veya göz atmak için tıklayın",
+    "supportedFormats": "Desteklenen formatlar: CSV",
+    "uploading": "Yükleniyor...",
+    "processing": "Potansiyel müşteriler işleniyor...",
+    "success": "Potansiyel müşteriler başarıyla yüklendi!",
+    "error": "Potansiyel müşteriler yüklenemedi",
+    "preview": "Önizleme",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "validLeads": "Geçerli Potansiyel Müşteri",
+    "invalidLeads": "Geçersiz Potansiyel Müşteri",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "company": "Şirket",
+    "remove": "Kaldır",
+    "confirm": "Yüklemeyi Onayla"
+  },
+  "analytics": {
+    "title": "Analitik",
+    "subtitle": "Kampanya performansınızı takip edin",
+    "overview": "Genel Bakış",
+    "campaigns": "Kampanyalar",
+    "calls": "Aramalar",
+    "leads": "Potansiyel Müşteriler",
+    "conversions": "Dönüşümler",
+    "activeCampaigns": "Aktif Kampanyalar",
+    "callsToday": "Bugünkü Aramalar",
+    "successRate": "Başarı Oranı",
+    "totalMinutes": "Toplam Dakika",
+    "totalCalls": "Toplam Aramalar",
+    "successfulCalls": "Başarılı Aramalar",
+    "failedCalls": "Başarısız Aramalar",
+    "averageCallDuration": "Ortalama Arama Süresi",
+    "conversionRate": "Dönüşüm Oranı",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "qualifiedLeads": "Nitelikli Potansiyel Müşteri",
+    "appointmentsBooked": "Randevu Alınan",
+    "revenue": "Gelir",
+    "costPerCall": "Arama Başına Maliyet",
+    "roi": "Yatırım Getirisi",
+    "timeframe": "Zaman Aralığı",
+    "last7Days": "Son 7 Gün",
+    "last30Days": "Son 30 Gün",
+    "last90Days": "Son 90 Gün",
+    "custom": "Özel Aralık"
+  },
+  "sidebar": {
+    "dashboard": "Kontrol Paneli",
+    "campaigns": "Kampanyalar",
+    "voices": "Sesler",
+    "analytics": "Analitik",
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap",
+    "newCampaign": "Yeni Kampanya",
+    "activeCampaigns": "Aktif Kampanyalar",
+    "totalCalls": "Toplam Aramalar",
+    "successRate": "Başarı Oranı"
+  },
+  "notifications": {
+    "title": "Bildirimler",
+    "noNotifications": "Bildirim yok",
+    "markAllRead": "Tümünü okundu olarak işaretle",
+    "campaignStarted": "Kampanya başarıyla başlatıldı",
+    "campaignPaused": "Kampanya duraklatıldı",
+    "campaignCompleted": "Kampanya tamamlandı",
+    "newLead": "Yeni potansiyel müşteri eklendi",
+    "callCompleted": "Arama tamamlandı",
+    "systemUpdate": "Sistem güncellemesi mevcut"
+  },
+  "errors": {
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "network": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+    "unauthorized": "Bu işlemi gerçekleştirmek için yetkiniz yok.",
+    "notFound": "İstenen kaynak bulunamadı.",
+    "validation": "Lütfen girdinizi kontrol edin ve tekrar deneyin.",
+    "server": "Sunucu hatası. Lütfen daha sonra tekrar deneyin.",
+    "timeout": "İstek zaman aşımına uğradı. Lütfen tekrar deneyin.",
+    "fileUpload": "Dosya yüklenemedi. Lütfen tekrar deneyin.",
+    "invalidFile": "Geçersiz dosya formatı. Lütfen geçerli bir dosya yükleyin.",
+    "fileTooLarge": "Dosya çok büyük. Lütfen daha küçük bir dosya yükleyin."
+  },
+  "success": {
+    "campaignCreated": "Kampanya başarıyla oluşturuldu!",
+    "campaignUpdated": "Kampanya başarıyla güncellendi!",
+    "campaignDeleted": "Kampanya başarıyla silindi!",
+    "leadsUploaded": "Potansiyel müşteriler başarıyla yüklendi!",
+    "voiceCloned": "Ses başarıyla klonlandı!",
+    "settingsUpdated": "Ayarlar başarıyla güncellendi!",
+    "callScheduled": "Arama başarıyla planlandı!",
+    "dataExported": "Veri başarıyla dışa aktarıldı!"
+  },
+  "dialer": {
+    "aiSalesAgent": "AI Satış Ajanı",
+    "sparkAISystem": "Spark AI Sistemi",
+    "dialing": "Aranıyor...",
+    "connecting": "Bağlanıyor...",
+    "connected": "Bağlandı",
+    "readyToCall": "Aramaya Hazır",
+    "duration": "Süre",
+    "quality": "Kalite",
+    "excellent": "Mükemmel",
+    "sentiment": "Duygu",
+    "positive": "Pozitif"
+  },
+  "stats": {
+    "activeCampaigns": "Aktif Kampanyalar",
+    "callsToday": "Bugünkü Aramalar",
+    "successRate": "Başarı Oranı",
+    "languages": "Diller"
+  },
+  "progress": "{total} özellikten",
+  "campaignWorkflow": {
+    "title": "Kampanyalar Nasıl Çalışır",
+    "subtitle": "AI sesli arama kampanyalarınızı oluşturmak ve başlatmak için bu basit adımları izleyin",
+    "workflowTitle": "Kampanya İş Akışı",
+    "step": "Adım",
+    "startFirstCampaign": "İlk Kampanyanızı Başlatın",
+    "step1": {
+      "title": "Kampanya Oluştur",
+      "description": "Sesli arama kampanyanızı kurun",
+      "details": [
+        "Kampanya adı ve açıklamasını girin",
+        "Açılış mesajınızı yazın",
+        "AI kişiliğini yapılandırın",
+        "Kampanya hedeflerini belirleyin"
+      ],
+      "features": [
+        "Kampanya Kurulumu",
+        "Mesaj Oluşturma",
+        "AI Yapılandırması"
+      ]
+    },
+    "step2": {
+      "title": "Potansiyel Müşterileri Yükle",
+      "description": "İletişim listenizi ekleyin",
+      "details": [
+        "İletişimlerle CSV dosyasını yükleyin",
+        "İletişim alanlarını eşleyin (ad, telefon, e-posta)",
+        "Telefon numaralarını doğrulayın",
+        "Potansiyel müşteri verilerini önizleyin"
+      ],
+      "features": [
+        "CSV Yükleme",
+        "Alan Eşleme",
+        "Veri Doğrulama"
+      ]
+    },
+    "step3": {
+      "title": "AI'yi Yapılandır",
+      "description": "Ses ve bilgi tabanını kurun",
+      "details": [
+        "AI sesini seçin (ElevenLabs)",
+        "Bilgi tabanı belgelerini yükleyin",
+        "Konuşma akışını yapılandırın",
+        "Arama parametrelerini ayarlayın"
+      ],
+      "features": [
+        "Ses Seçimi",
+        "Bilgi Tabanı",
+        "AI Kurulumu"
+      ]
+    },
+    "step4": {
+      "title": "Test Et ve Başlat",
+      "description": "Kampanyanızı test edin ve başlatın",
+      "details": [
+        "Kurulumu doğrulamak için test aramaları yapın",
+        "Kampanya ayarlarını gözden geçirin",
+        "Kampanya yürütmesini başlatın",
+        "Arama ilerlemesini izleyin"
+      ],
+      "features": [
+        "Test Aramaları",
+        "Kampanya Başlatma",
+        "İlerleme İzleme"
+      ]
+    },
+    "step5": {
+      "title": "Sonuçları İzle",
+      "description": "Kampanya performansını takip edin",
+      "details": [
+        "Arama istatistiklerini görüntüleyin",
+        "Başarı oranlarını analiz edin",
+        "Arama kayıtlarını gözden geçirin",
+        "Sonuçları dışa aktarın"
+      ],
+      "features": [
+        "Analitik",
+        "Arama Kayıtları",
+        "Performans Raporları"
+      ]
     }
   }
 }

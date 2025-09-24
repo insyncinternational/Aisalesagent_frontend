@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'wouter';
+import { useTranslation } from 'react-i18next';
 import { 
   FileText, 
   Settings, 
@@ -14,79 +16,101 @@ import {
 } from 'lucide-react';
 
 const CampaignWorkflowBanner = () => {
+  const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [, setLocation] = useLocation();
 
   const workflowSteps = [
     {
       id: 1,
-      title: "Create Campaign",
-      description: "Set up your voice calling campaign",
+      title: t('campaignWorkflow.step1.title'),
+      description: t('campaignWorkflow.step1.description'),
       icon: FileText,
       color: "from-blue-500 to-cyan-500",
       details: [
-        "Enter campaign name and description",
-        "Write your opening message",
-        "Configure AI personality",
-        "Set campaign objectives"
+        t('campaignWorkflow.step1.details.0'),
+        t('campaignWorkflow.step1.details.1'),
+        t('campaignWorkflow.step1.details.2'),
+        t('campaignWorkflow.step1.details.3')
       ],
-      features: ["Campaign Setup", "Message Creation", "AI Configuration"]
+      features: [
+        t('campaignWorkflow.step1.features.0'),
+        t('campaignWorkflow.step1.features.1'),
+        t('campaignWorkflow.step1.features.2')
+      ]
     },
     {
       id: 2,
-      title: "Upload Leads",
-      description: "Add your contact list",
+      title: t('campaignWorkflow.step2.title'),
+      description: t('campaignWorkflow.step2.description'),
       icon: Users,
       color: "from-purple-500 to-pink-500",
       details: [
-        "Upload CSV file with contacts",
-        "Map contact fields (name, phone, email)",
-        "Validate phone numbers",
-        "Preview lead data"
+        t('campaignWorkflow.step2.details.0'),
+        t('campaignWorkflow.step2.details.1'),
+        t('campaignWorkflow.step2.details.2'),
+        t('campaignWorkflow.step2.details.3')
       ],
-      features: ["CSV Upload", "Field Mapping", "Data Validation"]
+      features: [
+        t('campaignWorkflow.step2.features.0'),
+        t('campaignWorkflow.step2.features.1'),
+        t('campaignWorkflow.step2.features.2')
+      ]
     },
     {
       id: 3,
-      title: "Configure AI",
-      description: "Set up voice and knowledge base",
+      title: t('campaignWorkflow.step3.title'),
+      description: t('campaignWorkflow.step3.description'),
       icon: Settings,
       color: "from-blue-500 to-purple-500",
       details: [
-        "Select AI voice (ElevenLabs)",
-        "Upload knowledge base documents",
-        "Configure conversation flow",
-        "Set call parameters"
+        t('campaignWorkflow.step3.details.0'),
+        t('campaignWorkflow.step3.details.1'),
+        t('campaignWorkflow.step3.details.2'),
+        t('campaignWorkflow.step3.details.3')
       ],
-      features: ["Voice Selection", "Knowledge Base", "AI Setup"]
+      features: [
+        t('campaignWorkflow.step3.features.0'),
+        t('campaignWorkflow.step3.features.1'),
+        t('campaignWorkflow.step3.features.2')
+      ]
     },
     {
       id: 4,
-      title: "Test & Launch",
-      description: "Test and start your campaign",
+      title: t('campaignWorkflow.step4.title'),
+      description: t('campaignWorkflow.step4.description'),
       icon: Rocket,
       color: "from-orange-500 to-red-500",
       details: [
-        "Make test calls to verify setup",
-        "Review campaign settings",
-        "Start campaign execution",
-        "Monitor call progress"
+        t('campaignWorkflow.step4.details.0'),
+        t('campaignWorkflow.step4.details.1'),
+        t('campaignWorkflow.step4.details.2'),
+        t('campaignWorkflow.step4.details.3')
       ],
-      features: ["Test Calls", "Campaign Launch", "Progress Monitoring"]
+      features: [
+        t('campaignWorkflow.step4.features.0'),
+        t('campaignWorkflow.step4.features.1'),
+        t('campaignWorkflow.step4.features.2')
+      ]
     },
     {
       id: 5,
-      title: "Monitor Results",
-      description: "Track campaign performance",
+      title: t('campaignWorkflow.step5.title'),
+      description: t('campaignWorkflow.step5.description'),
       icon: BarChart3,
       color: "from-indigo-500 to-purple-500",
       details: [
-        "View call statistics",
-        "Analyze success rates",
-        "Review call recordings",
-        "Export results"
+        t('campaignWorkflow.step5.details.0'),
+        t('campaignWorkflow.step5.details.1'),
+        t('campaignWorkflow.step5.details.2'),
+        t('campaignWorkflow.step5.details.3')
       ],
-      features: ["Analytics", "Call Logs", "Performance Reports"]
+      features: [
+        t('campaignWorkflow.step5.features.0'),
+        t('campaignWorkflow.step5.features.1'),
+        t('campaignWorkflow.step5.features.2')
+      ]
     }
   ];
 
@@ -105,22 +129,22 @@ const CampaignWorkflowBanner = () => {
   }, [workflowSteps.length]);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-brand-900 rounded-2xl p-6 mb-8">
+    <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-2xl p-6 mb-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -left-4 w-72 h-72 bg-brand-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-brand-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-8 -right-4 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
       </div>
 
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-2">
-            How Campaigns Work
+            {t('campaignWorkflow.title')}
           </h2>
-          <p className="text-brand-200 text-lg">
-            Follow these simple steps to create and launch your AI voice calling campaigns
+          <p className="text-slate-200 text-lg">
+            {t('campaignWorkflow.subtitle')}
           </p>
         </div>
 
@@ -135,9 +159,9 @@ const CampaignWorkflowBanner = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white">
-                    Step {currentStepData.id}: {currentStepData.title}
+                    {t('campaignWorkflow.step')} {currentStepData.id}: {currentStepData.title}
                   </h3>
-                  <p className="text-brand-200">
+                  <p className="text-slate-200">
                     {currentStepData.description}
                   </p>
                 </div>
@@ -169,7 +193,7 @@ const CampaignWorkflowBanner = () => {
 
           {/* Right Side - Workflow Steps */}
           <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-white mb-4">Campaign Workflow</h4>
+            <h4 className="text-xl font-semibold text-white mb-4">{t('campaignWorkflow.workflowTitle')}</h4>
             {workflowSteps.map((step, index) => (
               <div
                 key={step.id}
@@ -194,7 +218,7 @@ const CampaignWorkflowBanner = () => {
                 <div className="flex-1">
                   <div className="flex items-center space-x-2">
                     <span className="text-sm font-medium text-white/80">
-                      Step {step.id}
+                      {t('campaignWorkflow.step')} {step.id}
                     </span>
                     {index === currentStep && (
                       <div className="flex space-x-1">
@@ -238,11 +262,14 @@ const CampaignWorkflowBanner = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-8">
-          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <button 
+            onClick={() => setLocation("/campaigns/new")}
+            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
             <Play className="h-5 w-5" />
-            <span>Start Your First Campaign</span>
+            <span>{t('campaignWorkflow.startFirstCampaign')}</span>
             <ArrowRight className="h-5 w-5" />
-          </div>
+          </button>
         </div>
       </div>
     </div>

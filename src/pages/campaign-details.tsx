@@ -86,20 +86,29 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
 
   const { campaign, leads, callLogs, stats } = data;
   const completedCallsProgress = campaign.totalLeads > 0 ? (campaign.completedCalls / campaign.totalLeads) * 100 : 0;
+  
+  // Calculate stats from campaign data if stats object is not properly structured
+  const campaignStats = {
+    totalLeads: campaign.totalLeads || 0,
+    completed: campaign.completedCalls || 0,
+    calling: 0, // Demo data doesn't have active calls
+    failed: campaign.failedCalls || 0,
+    pending: (campaign.totalLeads || 0) - (campaign.completedCalls || 0) - (campaign.failedCalls || 0)
+  };
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-8 py-6">
+        <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-white/20 dark:border-slate-700/50 px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" onClick={() => setLocation("/campaigns")}>
-                <ArrowLeft className="text-gray-500 dark:text-gray-400" />
+                <ArrowLeft className="text-brand-600 dark:text-brand-400" />
               </Button>
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{campaign.name}</h2>
-                <p className="text-gray-500 dark:text-gray-400 mt-2">Campaign Details & Conversations</p>
+                <h2 className="text-3xl font-bold text-brand-900 dark:text-white">{campaign.name}</h2>
+                <p className="text-brand-600 dark:text-brand-400 mt-2">Campaign Details & Conversations</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -113,19 +122,19 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
         </header>
         <main className="flex-1 overflow-auto p-8 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            <StatCard icon={<Users className="text-blue-500" />} title="Total Leads" value={stats.totalLeads} />
-            <StatCard icon={<CheckCircle className="text-green-500" />} title="Completed" value={stats.completed} />
-            <StatCard icon={<Phone className="text-purple-500" />} title="Calling" value={stats.calling} />
-            <StatCard icon={<XCircle className="text-red-500" />} title="Failed" value={stats.failed} />
-            <StatCard icon={<Clock className="text-yellow-500" />} title="Pending" value={stats.pending} />
+            <StatCard icon={<Users className="text-blue-500" />} title="Total Leads" value={campaignStats.totalLeads} />
+            <StatCard icon={<CheckCircle className="text-green-500" />} title="Completed" value={campaignStats.completed} />
+            <StatCard icon={<Phone className="text-purple-500" />} title="Calling" value={campaignStats.calling} />
+            <StatCard icon={<XCircle className="text-red-500" />} title="Failed" value={campaignStats.failed} />
+            <StatCard icon={<Clock className="text-yellow-500" />} title="Pending" value={campaignStats.pending} />
           </div>
 
-          <Card className="bg-white dark:bg-gray-800 shadow-sm">
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 shadow-lg">
             <CardHeader>
               <CardTitle>Campaign Overview</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex justify-between items-center text-sm text-brand-600 dark:text-brand-400">
                 <p>Completed Calls</p>
                 <p>{campaign.completedCalls} / {campaign.totalLeads}</p>
               </div>
@@ -133,7 +142,7 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
             </CardContent>
           </Card>
 
-          <Card className="bg-white dark:bg-gray-800 shadow-sm">
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 shadow-lg">
             <CardHeader>
               <CardTitle>Conversations ({callLogs.length})</CardTitle>
             </CardHeader>
@@ -202,8 +211,8 @@ function StatCard({ icon, title, value }: { icon: React.ReactNode; title: string
       <CardContent className="flex items-center gap-4 p-6">
         {icon}
         <div>
-          <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{title}</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{value}</p>
+          <p className="text-brand-500 dark:text-brand-400 text-sm font-medium">{title}</p>
+          <p className="text-2xl font-bold text-brand-900 dark:text-white">{value}</p>
         </div>
       </CardContent>
     </Card>
@@ -257,24 +266,24 @@ function TranscriptionDialog({ log, open, onOpenChange }: { log: any, open: bool
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm border border-white/20 dark:border-slate-700/50">
         <DialogHeader>
-          <DialogTitle>Call Transcription</DialogTitle>
-          <DialogDescription>Conversation with {log.phoneNumber} on {new Date(log.created_at).toLocaleString()}</DialogDescription>
+          <DialogTitle className="text-brand-900 dark:text-white">Call Transcription</DialogTitle>
+          <DialogDescription className="text-brand-600 dark:text-brand-400">Conversation with {log.phoneNumber} on {new Date(log.created_at).toLocaleString()}</DialogDescription>
         </DialogHeader>
-        <div className="max-h-[60vh] overflow-y-auto p-4 space-y-4">
-          {isLoading && <p>Loading transcription...</p>}
+        <div className="max-h-[60vh] overflow-y-auto p-4 space-y-4 bg-gradient-to-br from-brand-50/50 to-purple-50/50 dark:from-brand-900/20 dark:to-purple-900/20 rounded-lg">
+          {isLoading && <p className="text-brand-600 dark:text-brand-400">Loading transcription...</p>}
           {error && <p className="text-red-500">Failed to load transcription.</p>}
 
           {!isLoading && !error && items.length === 0 && (
-            <p className="text-gray-500">No transcription available for this call.</p>
+            <p className="text-brand-500 dark:text-brand-400">No transcription available for this call.</p>
           )}
 
           {items.map((entry, index) => (
             <div key={index} className={`flex ${entry.speaker?.toLowerCase() === 'agent' || entry.speaker?.toLowerCase() === 'assistant' ? 'justify-start' : 'justify-end'}`}>
-              <div className={`p-3 rounded-lg max-w-md ${entry.speaker?.toLowerCase() === 'agent' || entry.speaker?.toLowerCase() === 'assistant' ? 'bg-gray-100 dark:bg-gray-700' : 'bg-blue-500 text-white'}`}>
-                <p className="font-bold capitalize">{entry.speaker}</p>
-                <p>{entry.text}</p>
+              <div className={`p-4 rounded-xl max-w-md shadow-sm ${entry.speaker?.toLowerCase() === 'agent' || entry.speaker?.toLowerCase() === 'assistant' ? 'bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200 dark:border-purple-700' : 'bg-gradient-to-br from-blue-500 to-purple-500 text-white'}`}>
+                <p className="font-semibold capitalize text-sm mb-2 opacity-80">{entry.speaker}</p>
+                <p className="text-sm leading-relaxed">{entry.text}</p>
               </div>
             </div>
           ))}

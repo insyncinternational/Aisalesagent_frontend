@@ -2,13 +2,13 @@
   <!-- Background circle with gradient -->
   <defs>
     <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8B5CF6" />
-      <stop offset="50%" stop-color="#A855F7" />
-      <stop offset="100%" stop-color="#10B981" />
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#A855F7" />
     </linearGradient>
     <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F59E0B" />
-      <stop offset="100%" stop-color="#F97316" />
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#A855F7" />
     </linearGradient>
   </defs>
   
