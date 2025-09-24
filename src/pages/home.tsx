@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import ExitIntentPopup from '@/components/exit-intent-popup';
 import LiveCallCounter from '@/components/live-call-counter';
 import InteractiveDemo from '@/components/interactive-demo';
+import BackToTop from '@/components/back-to-top';
 import CurrencySwitcher from '@/components/currency-switcher';
 import { useCurrency } from '@/contexts/currency-context';
 import { 
@@ -1777,6 +1778,9 @@ export default function Home() {
       {showInteractiveDemo && (
         <InteractiveDemo onClose={() => setShowInteractiveDemo(false)} />
       )}
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
