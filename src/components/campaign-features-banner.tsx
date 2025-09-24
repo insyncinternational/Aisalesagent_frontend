@@ -394,7 +394,7 @@ export default function CampaignFeaturesBanner() {
             const StatIcon = stat.icon;
             return (
               <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-2 lg:p-3 border border-white/20 text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-lg flex items-center justify-center mx-auto mb-1 lg:mb-2">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-1 lg:mb-2">
                   <StatIcon className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
                 </div>
                 <div className="text-sm lg:text-lg font-bold text-white">{stat.value}</div>
@@ -408,7 +408,7 @@ export default function CampaignFeaturesBanner() {
         <div className="mt-3 lg:mt-4 flex-shrink-0">
           <div className="w-full bg-white/20 rounded-full h-1.5 lg:h-2">
             <div 
-              className="h-1.5 lg:h-2 bg-gradient-to-r from-purple-500 to-green-500 rounded-full transition-all duration-1000 ease-out"
+              className="h-1.5 lg:h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${((currentFeature + 1) / features.length) * 100}%` }}
             ></div>
           </div>

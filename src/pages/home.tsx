@@ -1167,7 +1167,7 @@ export default function Home() {
 
             <div className="mb-6 p-4 bg-gradient-to-r from-purple-50 to-green-50 dark:from-purple-900/20 dark:to-green-900/20 rounded-xl">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
                   {agents.find(a => a.id === selectedAgent)?.avatar}
                 </div>
                 <div>
@@ -1262,7 +1262,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={isCalling}
-                className="w-full bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isCalling ? (
                   <div className="flex items-center justify-center">
@@ -1306,7 +1306,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Setup Fee */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 dark:border-slate-700/50 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-green-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Settings className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-2">
@@ -1361,7 +1361,7 @@ export default function Home() {
               }`}>
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
                       {t('pricing.mostPopular')}
                     </span>
                   </div>
@@ -1392,7 +1392,7 @@ export default function Home() {
                 <Link href="/login">
                   <Button className={`w-full ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white' 
+                      ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white' 
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}>
                     {plan.popular ? 'Start Free Trial - Save 10+ Hours/Week' : 'Get Started Now'}
@@ -1558,7 +1558,7 @@ export default function Home() {
               {/* Video Testimonial Info */}
               <div className="mt-4 p-4 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl border border-white/20 dark:border-slate-700/50">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                     {testimonials[currentTestimonial].avatar}
                   </div>
                   <div>
@@ -1648,7 +1648,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-purple-500 to-green-500 rounded-3xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to 10x Your Sales Calls?
             </h2>
@@ -1657,12 +1657,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/login">
-                <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 text-lg">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 text-lg">
                   Try for Free - Save 10+ Hours/Week
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-3 text-lg">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg">
                 Book a Demo
               </Button>
             </div>
@@ -1680,7 +1680,7 @@ export default function Home() {
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-xl flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                   <Sparkles className="h-5 w-5 text-white" />
                 </div>
                                  <span className="text-xl font-bold">AI Sales Calling Agent</span>

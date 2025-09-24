@@ -124,7 +124,7 @@ export default function InteractiveDemo({ onClose }: InteractiveDemoProps) {
           {/* Call Status */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-lg">S</span>
               </div>
               <div>
@@ -156,7 +156,7 @@ export default function InteractiveDemo({ onClose }: InteractiveDemoProps) {
             </div>
             <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
               <div 
-                className="bg-gradient-to-r from-purple-500 to-green-500 h-2 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${((currentStep + 1) / demoSteps.length) * 100}%` }}
               ></div>
             </div>
@@ -165,7 +165,7 @@ export default function InteractiveDemo({ onClose }: InteractiveDemoProps) {
           {/* AI Message */}
           <div className="bg-white dark:bg-slate-700 rounded-xl p-4 mb-4">
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-sm">S</span>
               </div>
               <div className="flex-1">
@@ -257,7 +257,7 @@ export default function InteractiveDemo({ onClose }: InteractiveDemoProps) {
             Ready to experience this with your own leads?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button className="bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white px-6 py-3">
+            <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white px-6 py-3">
               Start Free Trial
             </Button>
             <Button variant="outline" className="px-6 py-3">
