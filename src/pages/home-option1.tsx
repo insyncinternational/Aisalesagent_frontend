@@ -10,13 +10,11 @@ import {
   Sparkles, 
   Bot, 
   Target, 
-  Mic, 
   Headphones, 
   Clock, 
   BarChart3, 
   Settings, 
   Globe, 
-  Shield, 
   Star, 
   Languages, 
   PhoneCall, 
@@ -37,7 +35,9 @@ import {
   Briefcase,
   Calendar,
   Sun,
-  Moon
+  Moon,
+  Shield,
+  Mic
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/use-theme';
@@ -351,6 +351,276 @@ export default function HomeOption1() {
                   </h4>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Your Autonomous AI Sales Team */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Your Autonomous AI Sales Team
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              25+ coordinated AI agents working together to find, research, and convert your ideal prospects.
+            </p>
+          </div>
+
+          {/* AI Sales Process Flow */}
+          <div className="relative mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center">
+              {[
+                { name: 'Lead Discovery', icon: Target, color: 'from-blue-500 to-cyan-500' },
+                { name: 'Research & Enrichment', icon: Users, color: 'from-cyan-500 to-teal-500' },
+                { name: 'Personalized Outreach', icon: MessageCircle, color: 'from-teal-500 to-green-500' },
+                { name: 'Follow-Up Sequences', icon: Phone, color: 'from-green-500 to-emerald-500' },
+                { name: 'Objection Handling', icon: Shield, color: 'from-emerald-500 to-lime-500' },
+                { name: 'Booked Demo', icon: Calendar, color: 'from-lime-500 to-yellow-500' }
+              ].map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="text-center">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse`} style={{animationDelay: `${index * 0.5}s`}}>
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
+                      {step.name}
+                    </h3>
+                    {index < 5 && (
+                      <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-slate-300 to-slate-400 transform translate-x-8"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Platform Integrations */}
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+              Platform Integrations
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-8">
+              Connect with all your favorite tools and platforms
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              {['HubSpot', 'Salesforce', 'Pipedrive', 'Close.com', 'Twilio', 'GoHighLevel', 'Zapier', 'Slack', 'Intercom', 'Calendly', 'Zoom', 'Microsoft Teams'].map((platform, index) => (
+                <div key={index} className="w-16 h-16 bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center">
+                  <span className="text-xs font-medium text-slate-500">{platform}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Real World Scenarios */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Real World Scenarios
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              See how our AI automation works across calls, emails, and LinkedIn outreach
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* AI Voice */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-600">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Voice</h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Professional outreach that sounds human
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                    Our AI greets by name, references the company, and opens with a context-driven reason for calling.
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    It adjusts mid-call to answers, handles objections naturally, and books the meeting. It sounds like a sharp SDR and runs 24/7 without salary, commission, or downtime.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border-l-4 border-blue-500">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Live Call</span>
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
+                    "Hi James, I saw you at SaaStr Annual. Your scaling insights were spot-on - exactly what our AI SDR helps achieve. Wednesday work for a 10-min call?"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-600">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Email</h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Personalized outreach that converts
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                    Every email is written for the recipient using LinkedIn, company site, recent press, and market signals. No templating.
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    The AI chooses the right tone: casual, direct, or consultative, based on industry norms and seniority.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border-l-4 border-green-500">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-green-600 dark:text-green-400">Personalized Email</span>
+                  </div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400 mb-1">
+                    <strong>Subject:</strong> Quick question about SaaStr
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
+                    "Hey James, Saw you at SaaStr Annual. Your scaling insights were spot-on - exactly what our AI SDR helps achieve. One client booked 62 calls in 18 days. Wednesday work for a 10-min call?"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* LinkedIn Voice Note */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-600">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Mic className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">LinkedIn Voice Note</h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Authentic voice messages that increase connection rates
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                    Personalized connection message. If no reply, follow with an AI generated voice note that sounds human and fits context.
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    Our AI creates authentic voice messages that feel personal and relevant, increasing connection acceptance rates significantly.
+                  </p>
+                </div>
+
+                <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border-l-4 border-purple-500">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-purple-600 dark:text-purple-400">Voice Message</span>
+                  </div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">S</span>
+                    </div>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Shrey Ansh</span>
+                    <span className="text-xs text-slate-500">0:46</span>
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
+                    "Hey James, great to connect! I saw your insights on scaling at SaaStr. Would love to share how we're helping similar companies automate their sales process. Quick 10-min call this week?"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scale Your Pipeline */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Scale Your Pipeline Without Scaling Your Team
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Our AI does the heavy lifting while you focus on what matters: taking credit for all those closed deals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: 'Find Leads',
+                description: 'No more detective work. Our AI scours the web to find your dream prospects—so you don\'t have to stalk LinkedIn at 2 AM.',
+                icon: Target,
+                color: 'from-blue-500 to-cyan-500'
+              },
+              {
+                title: 'Research Leads',
+                description: 'We read the room (and their tweets) so you don\'t accidentally ask about their ex\'s startup. Awkwardness: avoided.',
+                icon: Users,
+                color: 'from-cyan-500 to-teal-500'
+              },
+              {
+                title: 'Personalize Messages',
+                description: 'Generic is out. Hyper-personalized is in. Think "Hey [Name]" but with actual effort—like a love letter, minus the creepiness.',
+                icon: MessageCircle,
+                color: 'from-teal-500 to-green-500'
+              },
+              {
+                title: 'Execute Outreach',
+                description: 'Emails, LinkedIn, carrier pigeon (ok, maybe not that last one). We hit all the right channels while you hit "snooze."',
+                icon: Phone,
+                color: 'from-green-500 to-emerald-500'
+              }
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-600">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mb-4`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Live Stats */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">12</div>
+              <div className="text-slate-600 dark:text-slate-400 mb-4">Calls Today</div>
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">8</div>
+              <div className="text-slate-600 dark:text-slate-400">Connected</div>
+            </div>
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">24</div>
+              <div className="text-slate-600 dark:text-slate-400 mb-4">Meetings Booked</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">
+                Demo Scheduled: TechCorp Inc. • 2:30 PM
+              </div>
+            </div>
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg text-center">
+              <div className="text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">0</div>
+              <div className="text-slate-600 dark:text-slate-400 mb-4">Missed Calls</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">
+                Follow-up: Enterprise Lead • Tomorrow
+              </div>
             </div>
           </div>
         </div>

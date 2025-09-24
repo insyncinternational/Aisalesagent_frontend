@@ -41,7 +41,9 @@ import {
   X,
   Menu,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  ChevronLeft,
+  Video
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/use-theme';
@@ -414,6 +416,152 @@ export default function HomeOption2() {
         </div>
       </section>
 
+      {/* Missed Calls = Missed Revenue */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              24/7 Call Handling
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+              Missed Calls = Missed Revenue
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Every missed call costs your company money. Answer every call 24/7/365.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Problem Section */}
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                  <X className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Problem</h3>
+              </div>
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                Overwhelmed by repetitive calls?
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  'Want to get more leads?',
+                  'Struggling with high call volume?',
+                  'Distracted from important tasks?',
+                  'Looking for a scalable, 24/7 solution?'
+                ].map((problem, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                      <X className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300">{problem}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Problem Cards */}
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg transform rotate-2">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Clock className="w-5 h-5 text-red-500" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Out-of-hours calls</span>
+                    </div>
+                    <div className="text-2xl font-bold text-red-500">7</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg transform -rotate-1 mt-4">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Users className="w-5 h-5 text-red-500" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Unqualified leads</span>
+                    </div>
+                    <div className="text-2xl font-bold text-red-500">32</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg transform rotate-1 -mt-2">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <BarChart3 className="w-5 h-5 text-red-500" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Canceled tasks</span>
+                    </div>
+                    <div className="text-2xl font-bold text-red-500">12</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg transform -rotate-2 mt-2">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Phone className="w-5 h-5 text-red-500" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Missed calls</span>
+                    </div>
+                    <div className="text-2xl font-bold text-red-500">7</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Solution Section */}
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Solution</h3>
+              </div>
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                Automate calls with AI Voice Agents
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  { text: 'Generate More Leads & Qualified Appointments', icon: '💰' },
+                  { text: 'Convert More Sales Opportunities', icon: '📈' },
+                  { text: 'Allocate Your Time to what matters most', icon: '⏰' },
+                  { text: 'Automatically Nurture Leads & Never Miss A Call Again', icon: '🎧' }
+                ].map((solution, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center">
+                      <span className="mr-2">{solution.icon}</span>
+                      {solution.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Solution Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <Settings className="w-5 h-5 text-green-500" />
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">24/7 Availability</span>
+                  </div>
+                  <div className="text-2xl font-bold text-green-500">✓</div>
+                </div>
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <Users className="w-5 h-5 text-green-500" />
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Qualified leads</span>
+                  </div>
+                  <div className="text-2xl font-bold text-green-500">41</div>
+                </div>
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <TrendingUp className="w-5 h-5 text-green-500" />
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Freed-up tasks</span>
+                  </div>
+                  <div className="text-2xl font-bold text-green-500">17</div>
+                </div>
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <Phone className="w-5 h-5 text-green-500" />
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">No missed calls</span>
+                  </div>
+                  <div className="text-2xl font-bold text-green-500">0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Social Proof */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
         <div className="max-w-7xl mx-auto">
@@ -426,72 +574,6 @@ export default function HomeOption2() {
                 <Building2 className="w-8 h-8 text-slate-500" />
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Solutions */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Solutions
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Focus on what your audience gains. Use short, outcome-driven statements with icons to emphasize key improvements.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {solutions.map((solution, index) => {
-              const Icon = solution.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${solution.color} rounded-2xl mb-6`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
-                    {solution.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {solution.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section id="benefits" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Benefits
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Highlight your product's key advantages - 24/7 functionality, seamless integration, and superior efficiency.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <div key={index} className="text-center p-6 bg-slate-50 dark:bg-slate-700 rounded-xl">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm">
-                    {benefit.description}
-                  </p>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -526,8 +608,112 @@ export default function HomeOption2() {
         </div>
       </section>
 
-      {/* Demo Calls Section */}
+      {/* Solutions */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Solutions
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Focus on what your audience gains. Use short, outcome-driven statements with icons to emphasize key improvements.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {solutions.map((solution, index) => {
+              const Icon = solution.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${solution.color} rounded-2xl mb-6`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                    {solution.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    {solution.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section id="benefits" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Benefits
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Highlight your product's key advantages - 24/7 functionality, seamless integration, and superior efficiency.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <div key={index} className="text-center p-6 bg-slate-50 dark:bg-slate-700 rounded-xl">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">
+                    {benefit.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Trusted Across Industries
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              From healthcare to real estate, our AI agents adapt to your industry's unique needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {industries.map((industry, index) => {
+              const Icon = industry.icon;
+              return (
+                <div key={index} className="group bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${industry.color} rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{industry.name}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    {industry.name === 'Healthcare' && 'Appointment scheduling, patient reminders, and support'}
+                    {industry.name === 'E-commerce' && 'Order tracking, returns, and customer support'}
+                    {industry.name === 'Real Estate' && 'Lead qualification, property inquiries, and scheduling'}
+                    {industry.name === 'Education' && 'Student support, enrollment, and information'}
+                    {industry.name === 'Automotive' && 'Service appointments, sales follow-ups, and support'}
+                    {industry.name === 'Legal' && 'Client intake, appointment scheduling, and case updates'}
+                    {industry.name === 'Restaurant' && 'Reservations, orders, and customer service'}
+                    {industry.name === 'Services' && 'Appointment booking, follow-ups, and support'}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Calls Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
@@ -560,44 +746,6 @@ export default function HomeOption2() {
                     <Play className="mr-2 w-4 h-4" />
                     Watch Demo
                   </Button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Trusted Across Industries
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              From healthcare to real estate, our AI agents adapt to your industry's unique needs
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {industries.map((industry, index) => {
-              const Icon = industry.icon;
-              return (
-                <div key={index} className="group bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${industry.color} rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{industry.name}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    {industry.name === 'Healthcare' && 'Appointment scheduling, patient reminders, and support'}
-                    {industry.name === 'E-commerce' && 'Order tracking, returns, and customer support'}
-                    {industry.name === 'Real Estate' && 'Lead qualification, property inquiries, and scheduling'}
-                    {industry.name === 'Education' && 'Student support, enrollment, and information'}
-                    {industry.name === 'Automotive' && 'Service appointments, sales follow-ups, and support'}
-                    {industry.name === 'Legal' && 'Client intake, appointment scheduling, and case updates'}
-                    {industry.name === 'Restaurant' && 'Reservations, orders, and customer service'}
-                    {industry.name === 'Services' && 'Appointment booking, follow-ups, and support'}
-                  </p>
                 </div>
               );
             })}
@@ -658,6 +806,328 @@ export default function HomeOption2() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Consultation Booking */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              LET'S CONNECT
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Book a free consultation with our AI experts
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Get personalized advice on how AI voice agents can transform your business
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Left Section - Consultation Details */}
+              <div className="p-8 lg:p-12 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-700 dark:to-slate-800">
+                {/* Host Profile */}
+                <div className="text-center mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-white">AI</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Expert Team</h3>
+                  <p className="text-slate-600 dark:text-slate-400">Spark AI Specialists</p>
+                </div>
+
+                {/* Call Details */}
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Agent Discovery Call</h4>
+                    <div className="flex items-center space-x-4 text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-5 h-5" />
+                        <span>30 min</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Video className="w-5 h-5" />
+                        <span>Web conferencing details provided upon confirmation</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-600 rounded-xl p-6">
+                    <p className="text-slate-700 dark:text-slate-300 font-medium mb-4">
+                      Schedule a free discovery call with our AI experts!
+                    </p>
+                    
+                    <div className="mb-4">
+                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">We'll cover:</h5>
+                      <ul className="space-y-1 text-slate-600 dark:text-slate-400">
+                        <li className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                          Your business needs and challenges
+                        </li>
+                        <li className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                          Custom AI strategy for your industry
+                        </li>
+                        <li className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                          Implementation roadmap and timeline
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="border-t border-slate-200 dark:border-slate-500 pt-4">
+                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">Hear it from others:</h5>
+                      <blockquote className="text-slate-600 dark:text-slate-400 italic">
+                        "The AI experts at Spark AI were professional and attentive during our consultation. They created an amazing AI voice agent strategy for our business that increased our conversion rate by 300%."
+                      </blockquote>
+                      <cite className="text-sm text-slate-500 dark:text-slate-400 mt-2 block">
+                        - Sarah Johnson, CEO TechStart Inc.
+                      </cite>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Section - Calendar */}
+              <div className="p-8 lg:p-12">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Select a Date & Time</h3>
+                
+                {/* Calendar Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <h4 className="text-xl font-semibold text-slate-900 dark:text-white">June 2025</h4>
+                  <div className="flex space-x-2">
+                    <Button variant="outline" size="sm" className="w-8 h-8 p-0">
+                      <ChevronLeft className="w-4 h-4" />
+                    </Button>
+                    <Button variant="outline" size="sm" className="w-8 h-8 p-0">
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Calendar Grid */}
+                <div className="mb-6">
+                  <div className="grid grid-cols-7 gap-1 mb-2">
+                    {['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map((day) => (
+                      <div key={day} className="text-center text-sm font-medium text-slate-500 dark:text-slate-400 py-2">
+                        {day}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-7 gap-1">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map((date) => (
+                      <button
+                        key={date}
+                        className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors ${
+                          date === 30
+                            ? 'bg-blue-500 text-white'
+                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                        }`}
+                      >
+                        {date}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Time Selection */}
+                <div className="mb-6">
+                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3">Available Times</h5>
+                  <div className="grid grid-cols-2 gap-2">
+                    {['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'].map((time) => (
+                      <button
+                        key={time}
+                        className="p-3 text-sm font-medium border border-slate-200 dark:border-slate-600 rounded-lg hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                      >
+                        {time}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Time Zone */}
+                <div className="mb-6">
+                  <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400">
+                    <Globe className="w-4 h-4" />
+                    <span>Kazakhstan Time (21:53)</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+
+                {/* Book Button */}
+                <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3">
+                  Book Free Consultation
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-slate-500 dark:text-slate-400">
+              Can't find a time that works?{' '}
+              <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">
+                Contact us directly
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Top Companies Choose Spark AI */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              WORLD-CLASS VOICE AI AGENTS
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Why top companies choose Spark AI
+            </h2>
+          </div>
+
+          <div className="bg-white dark:bg-slate-700 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-slate-200 dark:border-slate-600">
+                    <th className="text-left py-6 px-8 text-lg font-semibold text-slate-900 dark:text-white">
+                      Benefits
+                    </th>
+                    <th className="text-center py-6 px-8">
+                      <div className="inline-flex items-center justify-center w-32 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg">
+                        <span className="text-white font-bold text-lg">SPARK AI</span>
+                      </div>
+                    </th>
+                    <th className="text-center py-6 px-8 text-lg font-semibold text-slate-900 dark:text-white">
+                      Other AI Platforms
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    'Experienced AI Engineers & Voice Specialists',
+                    'Innovative Development Practices',
+                    'Complete Custom Development',
+                    'Client-Centric Approach',
+                    'Rigorous Testing and Validation',
+                    'Connections With All Major AI Platforms'
+                  ].map((benefit, index) => (
+                    <tr key={index} className="border-b border-slate-100 dark:border-slate-600">
+                      <td className="py-6 px-8 text-slate-700 dark:text-slate-300 font-medium">
+                        {benefit}
+                      </td>
+                      <td className="text-center py-6 px-8">
+                        <div className="inline-flex items-center justify-center w-8 h-8 bg-green-500 rounded-full">
+                          <CheckCircle className="w-5 h-5 text-white" />
+                        </div>
+                      </td>
+                      <td className="text-center py-6 px-8">
+                        <div className="inline-flex items-center justify-center w-8 h-8 bg-red-500 rounded-full">
+                          <X className="w-5 h-5 text-white" />
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              WHO IS BEHIND SPARK AI
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Meet our team
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              The experts behind Spark AI's revolutionary voice agent technology
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            {[
+              {
+                name: 'Brendan',
+                title: 'Founder',
+                avatar: 'B',
+                color: 'from-blue-500 to-purple-500',
+                description: 'AI strategy and business development expert'
+              },
+              {
+                name: 'Tyler',
+                title: 'Consultant',
+                avatar: 'T',
+                color: 'from-green-500 to-emerald-500',
+                description: 'Voice AI implementation specialist'
+              },
+              {
+                name: 'Nathan',
+                title: 'Head Of Dev',
+                avatar: 'N',
+                color: 'from-purple-500 to-pink-500',
+                description: 'Lead AI engineer and platform architect'
+              },
+              {
+                name: 'Logan',
+                title: 'Engineer',
+                avatar: 'L',
+                color: 'from-orange-500 to-red-500',
+                description: 'Full-stack developer and AI integration expert'
+              },
+              {
+                name: 'Zach',
+                title: 'SDR',
+                avatar: 'Z',
+                color: 'from-teal-500 to-cyan-500',
+                description: 'Sales development and client success manager'
+              }
+            ].map((member, index) => (
+              <div key={index} className="group text-center">
+                <div className="relative mb-6">
+                  <div className={`w-32 h-32 bg-gradient-to-r ${member.color} rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105`}>
+                    <span className="text-4xl font-bold text-white">{member.avatar}</span>
+                  </div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white dark:bg-slate-800 rounded-full border-4 border-white dark:border-slate-800"></div>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
+                  {member.title}
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  {member.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Team Stats */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
+              <div className="text-slate-600 dark:text-slate-400">Years Combined Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
+              <div className="text-slate-600 dark:text-slate-400">Projects Delivered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">95%</div>
+              <div className="text-slate-600 dark:text-slate-400">Client Satisfaction</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">24/7</div>
+              <div className="text-slate-600 dark:text-slate-400">Support Available</div>
+            </div>
           </div>
         </div>
       </section>
