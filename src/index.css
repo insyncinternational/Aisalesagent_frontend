@@ -176,10 +176,10 @@
   animation: bannerGradient 8s ease infinite;
   position: relative;
   overflow: hidden;
-  /* Facebook cover-like sizing */
-  aspect-ratio: 16/9;
-  min-height: 400px;
-  max-height: 600px;
+  /* Mobile-first responsive sizing */
+  aspect-ratio: 4/3;
+  min-height: 250px;
+  max-height: 400px;
   width: 100%;
 }
 
@@ -216,19 +216,19 @@
 }
 
 /* Responsive banner sizing */
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .animated-banner {
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     min-height: 350px;
-    max-height: 450px;
+    max-height: 500px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .animated-banner {
-    aspect-ratio: 3/2;
-    min-height: 300px;
-    max-height: 400px;
+    aspect-ratio: 16/9;
+    min-height: 400px;
+    max-height: 600px;
   }
 }
 
@@ -243,6 +243,48 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+/* Campaign Features Banner Styles */
+.campaign-features-banner {
+  background: linear-gradient(135deg, #4652f1 0%, #5c66f2 25%, #8488f5 50%, #b069f5 75%, #8453f6 100%);
+  background-size: 400% 400%;
+  animation: bannerGradient 8s ease infinite;
+  position: relative;
+  overflow: hidden;
+  /* Mobile-first responsive sizing */
+  aspect-ratio: 4/3;
+  min-height: 300px;
+  max-height: 400px;
+  width: 100%;
+}
+
+.campaign-features-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Responsive campaign features banner sizing */
+@media (min-width: 640px) {
+  .campaign-features-banner {
+    aspect-ratio: 16/9;
+    min-height: 350px;
+    max-height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .campaign-features-banner {
+    aspect-ratio: 16/9;
+    min-height: 400px;
+    max-height: 600px;
   }
 }
 

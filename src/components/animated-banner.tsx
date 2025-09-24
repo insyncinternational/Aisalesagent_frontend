@@ -196,7 +196,7 @@ export default function AnimatedBanner() {
   ];
 
   return (
-    <div className={`animated-banner rounded-2xl sm:rounded-3xl mb-4 sm:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '16/9', minHeight: '300px' }}>
+    <div className={`animated-banner rounded-xl sm:rounded-2xl lg:rounded-3xl mb-3 sm:mb-4 lg:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '4/3', minHeight: '250px' }}>
       <div className="relative z-10 h-full flex flex-col p-3 sm:p-6 lg:p-8">
         {/* Language Selector */}
         <div className="flex justify-center mb-1 sm:mb-2 lg:mb-4">

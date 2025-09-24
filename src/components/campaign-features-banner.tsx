@@ -251,16 +251,16 @@ export default function CampaignFeaturesBanner() {
   const Icon = currentFeatureData.icon;
 
   return (
-    <div className={`campaign-features-banner rounded-3xl mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '16/9', minHeight: '400px' }}>
-      <div className="relative z-10 h-full flex flex-col p-4 sm:p-6 lg:p-8">
+    <div className={`campaign-features-banner rounded-xl sm:rounded-2xl lg:rounded-3xl mb-4 sm:mb-6 lg:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '4/3', minHeight: '300px' }}>
+      <div className="relative z-10 h-full flex flex-col p-3 sm:p-4 md:p-6 lg:p-8">
         {/* Language Selector */}
-        <div className="flex justify-center mb-2 lg:mb-4">
-          <div className="flex space-x-2 bg-white/20 backdrop-blur-sm rounded-full p-1">
+        <div className="flex justify-center mb-1 sm:mb-2 lg:mb-4">
+          <div className="flex space-x-1 sm:space-x-2 bg-white/20 backdrop-blur-sm rounded-full p-0.5 sm:p-1">
             {['en', 'ar', 'tr', 'az'].map((lang) => (
               <button
                 key={lang}
                 onClick={() => setCurrentLanguage(lang)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   currentLanguage === lang
                     ? 'bg-white text-purple-600 shadow-lg'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -273,24 +273,24 @@ export default function CampaignFeaturesBanner() {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-4 lg:mb-6 flex-shrink-0">
-          <div className="flex items-center justify-center space-x-2 lg:space-x-3 mb-2 lg:mb-3">
-            <div className="w-8 h-8 lg:w-12 lg:h-12 bg-white/20 backdrop-blur-sm rounded-xl lg:rounded-2xl flex items-center justify-center">
-              <Sparkles className="h-4 w-4 lg:h-6 lg:w-6 text-white animate-pulse" />
+        <div className="text-center mb-2 sm:mb-3 lg:mb-4 xl:mb-6 flex-shrink-0">
+          <div className="flex items-center justify-center space-x-1 sm:space-x-2 lg:space-x-3 mb-1 sm:mb-2 lg:mb-3">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center">
+              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-white animate-pulse" />
             </div>
-            <h1 className="text-xl lg:text-3xl xl:text-4xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
               {t.title}
             </h1>
           </div>
-          <p className="text-sm lg:text-lg xl:text-xl text-white/90 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
             {t.subtitle}
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 flex-1 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 flex-1 items-center">
           {/* Left Side - Feature Showcase */}
-          <div className="space-y-3 lg:space-y-4">
+          <div className="space-y-2 sm:space-y-3 lg:space-y-4">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-3 lg:p-4 border border-white/20">
               <div className="flex items-center space-x-3 mb-2 lg:mb-3">
                 <div className={`w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br ${currentFeatureData.color} rounded-xl flex items-center justify-center shadow-lg float-animation`}>

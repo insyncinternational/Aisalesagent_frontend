@@ -129,7 +129,7 @@ const CampaignWorkflowBanner = () => {
   }, [workflowSteps.length]);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-2xl p-6 mb-8">
+    <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 lg:mb-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -139,19 +139,19 @@ const CampaignWorkflowBanner = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-2">
+        <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
             {t('campaignWorkflow.title')}
           </h2>
-          <p className="text-slate-200 text-lg">
+          <p className="text-slate-200 text-sm sm:text-base md:text-lg">
             {t('campaignWorkflow.subtitle')}
           </p>
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
           {/* Left Side - Current Step */}
-          <div className="space-y-6">
+          <div className="space-y-3 sm:space-y-4 lg:space-y-6">
             <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
               <div className="flex items-center space-x-4 mb-4">
                 <div className={`p-4 rounded-2xl bg-gradient-to-r ${currentStepData.color} shadow-lg`}>

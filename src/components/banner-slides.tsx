@@ -86,7 +86,7 @@ const BannerSlides = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl shadow-2xl">
+    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl">
       {/* Background Pattern */}
       <div className={`absolute inset-0 ${currentSlideData.bgPattern}`}>
         {/* Animated Background Elements */}
@@ -110,10 +110,10 @@ const BannerSlides = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 items-center">
             {/* Left Side - Content */}
-            <div className="text-white space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
+            <div className="text-white space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
               {/* Badge */}
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 border border-white/20">
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-brand-300" />
@@ -121,22 +121,22 @@ const BannerSlides = () => {
               </div>
 
               {/* Main Content */}
-              <div className="space-y-3 sm:space-y-4 lg:space-y-6">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-white via-brand-100 to-white bg-clip-text text-transparent">
                     {currentSlideData.title}
                   </span>
                 </h1>
                 
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-brand-100 leading-relaxed max-w-2xl">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-100 leading-relaxed max-w-2xl">
                   {currentSlideData.subtitle}
                 </p>
               </div>
 
               {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 md:gap-3">
                 {currentSlideData.features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2 sm:space-x-3 bg-white/5 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 sm:py-3 border border-white/10">
+                  <div key={index} className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3 bg-white/5 backdrop-blur-sm rounded-lg px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 border border-white/10">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-300 rounded-full animate-pulse flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-brand-100 font-medium">{feature}</span>
                   </div>
