@@ -254,6 +254,108 @@ export default function HomeOption1() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              See Spark AI in Action
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              Watch our AI agent handle real customer calls, qualify leads, and book appointments automatically
+            </p>
+          </div>
+
+          {/* Video Placeholder */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-8 md:p-12 overflow-hidden">
+              {/* Video Container */}
+              <div className="relative bg-black/20 backdrop-blur-sm rounded-2xl aspect-video flex items-center justify-center">
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button className="group w-20 h-20 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-2xl">
+                    <Play className="w-8 h-8 text-blue-600 ml-1 group-hover:text-purple-600 transition-colors" />
+                  </button>
+                </div>
+                
+                {/* Video Overlay Elements */}
+                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="text-white text-sm font-medium">LIVE DEMO</span>
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
+                  <span className="text-white text-sm">2:45</span>
+                </div>
+                
+                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
+                  <div className="flex items-center space-x-1">
+                    <Volume2 className="w-4 h-4 text-white" />
+                    <span className="text-white text-sm">100%</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Video Description */}
+              <div className="mt-8 text-center">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Real AI Agent Demo: Customer Support Call
+                </h3>
+                <p className="text-white/80 text-lg mb-6 max-w-3xl mx-auto">
+                  Watch as our AI agent handles a real customer inquiry, provides instant support, 
+                  and seamlessly transfers to a human agent when needed.
+                </p>
+                
+                {/* Video Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white mb-2">95%</div>
+                    <div className="text-white/70 text-sm">Customer Satisfaction</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white mb-2">2.3s</div>
+                    <div className="text-white/70 text-sm">Average Response Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                    <div className="text-white/70 text-sm">Always Available</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Video Thumbnails */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { title: 'Sales Qualification', duration: '1:45', thumbnail: 'Sales' },
+                { title: 'Appointment Booking', duration: '2:30', thumbnail: 'Booking' },
+                { title: 'Customer Support', duration: '3:15', thumbnail: 'Support' }
+              ].map((video, index) => (
+                <div key={index} className="group cursor-pointer">
+                  <div className="bg-slate-100 dark:bg-slate-700 rounded-lg aspect-video flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300"></div>
+                    <div className="relative z-10 text-center">
+                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <Play className="w-5 h-5 text-blue-600 ml-0.5" />
+                      </div>
+                      <div className="text-slate-600 dark:text-slate-400 text-sm font-medium">{video.thumbnail}</div>
+                    </div>
+                    <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                      {video.duration}
+                    </div>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900 dark:text-white mt-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {video.title}
+                  </h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Current Reality vs Desired Outcomes */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
         <div className="max-w-7xl mx-auto">

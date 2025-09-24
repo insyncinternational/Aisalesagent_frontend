@@ -13,6 +13,7 @@ import Voices from "@/pages/voices";
 import Analytics from "@/pages/analytics";
 import Home from "@/pages/home";
 import HomeOption1 from "@/pages/home-option1";
+import HomeOption2 from "@/pages/home-option2";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
@@ -45,6 +46,7 @@ function AppRouter() {
         <Route path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/home-option1" component={HomeOption1} />
+        <Route path="/home-option2" component={HomeOption2} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
