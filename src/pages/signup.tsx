@@ -106,17 +106,17 @@ export default function Signup() {
   }, []);
 
   const floatingElements = [
-    { icon: Phone, text: "AI Voice Calls", color: "from-purple-500 to-pink-500" },
-    { icon: Bot, text: "Smart Agents", color: "from-blue-500 to-purple-500" },
-    { icon: MessageCircle, text: "Real-time Chat", color: "from-blue-500 to-cyan-500" },
-    { icon: TrendingUp, text: "Analytics", color: "from-orange-500 to-red-500" },
+    { icon: Phone, text: t('signup.floatingElements.aiVoiceCalls'), color: "from-blue-500 to-purple-500" },
+    { icon: Bot, text: t('signup.floatingElements.smartAgents'), color: "from-blue-500 via-purple-500 to-purple-600" },
+    { icon: MessageCircle, text: t('signup.floatingElements.realTimeChat'), color: "from-blue-500 to-purple-500" },
+    { icon: TrendingUp, text: t('signup.floatingElements.analytics'), color: "from-blue-500 to-purple-500" },
   ];
 
   const features = [
-    { icon: Zap, text: "Lightning Fast Setup" },
-    { icon: Shield, text: "Enterprise Security" },
-    { icon: Globe, text: "Multi-language Support" },
-    { icon: BarChart3, text: "Advanced Analytics" },
+    { icon: Zap, text: t('signup.features.lightningFastSetup') },
+    { icon: Shield, text: t('signup.features.enterpriseSecurity') },
+    { icon: Globe, text: t('signup.features.multiLanguageSupport') },
+    { icon: BarChart3, text: t('signup.features.advancedAnalytics') },
   ];
 
   return (
@@ -174,14 +174,14 @@ export default function Signup() {
               <>
                 {/* Header */}
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl mb-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl mb-4">
                     <User className="w-8 h-8 text-white" />
                   </div>
                   <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                    Create Account
+                    {t('signup.title')}
                   </h1>
                   <p className="text-slate-600 dark:text-slate-400">
-                    Join SparkAI and start your AI sales journey
+                    {t('signup.subtitle')}
                   </p>
                 </div>
 
@@ -190,7 +190,7 @@ export default function Signup() {
                   {/* Email */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Email Address
+                      {t('signup.emailLabel')}
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -200,8 +200,8 @@ export default function Signup() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        placeholder="Enter your email"
+                        className="w-full pl-10 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        placeholder={t('signup.emailPlaceholder')}
                       />
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export default function Signup() {
                   {/* Password */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Password
+                      {t('signup.passwordLabel')}
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -219,8 +219,8 @@ export default function Signup() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        placeholder="Create a password"
+                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        placeholder={t('signup.passwordPlaceholder')}
                       />
                       <button
                         type="button"
@@ -235,7 +235,7 @@ export default function Signup() {
                   {/* Confirm Password */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Confirm Password
+                      {t('signup.confirmPasswordLabel')}
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -245,8 +245,8 @@ export default function Signup() {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        placeholder="Confirm your password"
+                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        placeholder={t('signup.confirmPasswordPlaceholder')}
                       />
                       <button
                         type="button"
@@ -262,16 +262,16 @@ export default function Signup() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-xl font-semibold transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isLoading ? (
                       <>
                         <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Creating Account...
+                        {t('signup.creatingAccount')}
                       </>
                     ) : (
                       <>
-                        Create Account
+                        {t('signup.createAccount')}
                         <ArrowRight className="w-5 h-5 ml-2" />
                       </>
                     )}
@@ -281,9 +281,9 @@ export default function Signup() {
                 {/* Login Link */}
                 <div className="mt-6 text-center">
                   <p className="text-slate-600 dark:text-slate-400">
-                    Already have an account?{' '}
-                    <Link href="/login" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors">
-                      Sign in here
+                    {t('signup.alreadyHaveAccount')}{' '}
+                    <Link href="/login" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors">
+                      {t('signup.signInHere')}
                     </Link>
                   </p>
                 </div>
@@ -294,13 +294,13 @@ export default function Signup() {
                   <Check className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                  Account Created!
+                  {t('signup.accountCreated')}
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Welcome to SparkAI! Redirecting to your dashboard...
+                  {t('signup.welcomeMessage')}
                 </p>
                 <div className="flex justify-center">
-                  <Loader2 className="w-6 h-6 animate-spin text-purple-500" />
+                  <Loader2 className="w-6 h-6 animate-spin text-blue-500" />
                 </div>
               </div>
             )}
@@ -320,7 +320,7 @@ export default function Signup() {
                     <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
                       <defs>
                         <pattern id={`signup-pattern-${index}`} x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
-                          <circle cx="12.5" cy="12.5" r="1" fill="currentColor" className="text-purple-500"/>
+                          <circle cx="12.5" cy="12.5" r="1" fill="currentColor" className="text-blue-500"/>
                           <path d="M12.5 0L12.5 10M0 12.5L10 12.5M12.5 12.5L12.5 22.5M15 12.5L25 12.5" stroke="currentColor" strokeWidth="0.5" className="text-purple-400"/>
                         </pattern>
                       </defs>
@@ -329,11 +329,11 @@ export default function Signup() {
                   </div>
                   
                   {/* Floating Elements */}
-                  <div className="absolute top-1 right-1 w-2 h-2 bg-purple-500/20 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-pink-500/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute top-1 right-1 w-2 h-2 bg-blue-500/20 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-purple-500/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                   
                   <div className="relative z-10">
-                    <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mb-2 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-2 shadow-lg">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-300">

@@ -760,6 +760,34 @@
     "languageChanged": "Dil Dəyişdirildi",
     "languageChangedMessage": "Dil {language} olaraq dəyişdirildi"
   },
+  "signup": {
+    "title": "Hesab Yarat",
+    "subtitle": "SparkAI-ə qoşulun və AI satış səyahətinizə başlayın",
+    "emailLabel": "E-poçt Ünvanı",
+    "emailPlaceholder": "E-poçtunuzu daxil edin",
+    "passwordLabel": "Şifrə",
+    "passwordPlaceholder": "Şifrə yaradın",
+    "confirmPasswordLabel": "Şifrəni Təsdiqlə",
+    "confirmPasswordPlaceholder": "Şifrənizi təsdiqləyin",
+    "createAccount": "Hesab Yarat",
+    "creatingAccount": "Hesab Yaradılır...",
+    "alreadyHaveAccount": "Artıq hesabınız var?",
+    "signInHere": "Buradan daxil olun",
+    "accountCreated": "Hesab Yaradıldı!",
+    "welcomeMessage": "SparkAI-yə xoş gəlmisiniz! İdarəetmə panelinizə yönləndirilirsiniz...",
+    "floatingElements": {
+      "aiVoiceCalls": "AI Səsli Zənglər",
+      "smartAgents": "Ağıllı Ajanlar",
+      "realTimeChat": "Real-vaxt Söhbət",
+      "analytics": "Analitika"
+    },
+    "features": {
+      "lightningFastSetup": "Şimşək Sürətli Quraşdırma",
+      "enterpriseSecurity": "Korporativ Təhlükəsizlik",
+      "multiLanguageSupport": "Çoxdilli Dəstək",
+      "advancedAnalytics": "Təkmilləşdirilmiş Analitika"
+    }
+  },
   "home": {
     "hero": {
       "title": "Həqiqətən Dönüşən AI Satış Zəngləri",

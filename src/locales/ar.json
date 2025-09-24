@@ -453,6 +453,34 @@
     "currentLanguage": "اللغة الحالية",
     "selectLanguage": "اختر اللغة"
   },
+  "signup": {
+    "title": "إنشاء حساب",
+    "subtitle": "انضم إلى SparkAI وابدأ رحلة المبيعات بالذكاء الاصطناعي",
+    "emailLabel": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "passwordPlaceholder": "إنشاء كلمة مرور",
+    "confirmPasswordLabel": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
+    "createAccount": "إنشاء حساب",
+    "creatingAccount": "جاري إنشاء الحساب...",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "signInHere": "سجل الدخول هنا",
+    "accountCreated": "تم إنشاء الحساب!",
+    "welcomeMessage": "مرحباً بك في SparkAI! جاري التوجيه إلى لوحة التحكم...",
+    "floatingElements": {
+      "aiVoiceCalls": "مكالمات صوتية بالذكاء الاصطناعي",
+      "smartAgents": "وكلاء أذكياء",
+      "realTimeChat": "دردشة فورية",
+      "analytics": "التحليلات"
+    },
+    "features": {
+      "lightningFastSetup": "إعداد سريع كالبرق",
+      "enterpriseSecurity": "أمان المؤسسات",
+      "multiLanguageSupport": "دعم متعدد اللغات",
+      "advancedAnalytics": "تحليلات متقدمة"
+    }
+  },
   "contact": {
     "emailSupport": "دعم البريد الإلكتروني",
     "phoneSupport": "دعم الهاتف",

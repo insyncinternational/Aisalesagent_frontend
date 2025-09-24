@@ -468,6 +468,34 @@
     "currentLanguage": "Current Language",
     "selectLanguage": "Select Language"
   },
+  "signup": {
+    "title": "Create Account",
+    "subtitle": "Join SparkAI and start your AI sales journey",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "createAccount": "Create Account",
+    "creatingAccount": "Creating Account...",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInHere": "Sign in here",
+    "accountCreated": "Account Created!",
+    "welcomeMessage": "Welcome to SparkAI! Redirecting to your dashboard...",
+    "floatingElements": {
+      "aiVoiceCalls": "AI Voice Calls",
+      "smartAgents": "Smart Agents",
+      "realTimeChat": "Real-time Chat",
+      "analytics": "Analytics"
+    },
+    "features": {
+      "lightningFastSetup": "Lightning Fast Setup",
+      "enterpriseSecurity": "Enterprise Security",
+      "multiLanguageSupport": "Multi-language Support",
+      "advancedAnalytics": "Advanced Analytics"
+    }
+  },
   "contact": {
     "emailSupport": "Email Support",
     "phoneSupport": "Phone Support",

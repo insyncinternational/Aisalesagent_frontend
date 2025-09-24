@@ -464,6 +464,34 @@
     "currentLanguage": "Mevcut Dil",
     "selectLanguage": "Dil Seçin"
   },
+  "signup": {
+    "title": "Hesap Oluştur",
+    "subtitle": "SparkAI'ye katılın ve AI satış yolculuğunuza başlayın",
+    "emailLabel": "E-posta Adresi",
+    "emailPlaceholder": "E-postanızı girin",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "Şifre oluşturun",
+    "confirmPasswordLabel": "Şifreyi Onayla",
+    "confirmPasswordPlaceholder": "Şifrenizi onaylayın",
+    "createAccount": "Hesap Oluştur",
+    "creatingAccount": "Hesap Oluşturuluyor...",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "signInHere": "Buradan giriş yapın",
+    "accountCreated": "Hesap Oluşturuldu!",
+    "welcomeMessage": "SparkAI'ye hoş geldiniz! Kontrol panelinize yönlendiriliyorsunuz...",
+    "floatingElements": {
+      "aiVoiceCalls": "AI Sesli Aramalar",
+      "smartAgents": "Akıllı Ajanlar",
+      "realTimeChat": "Gerçek Zamanlı Sohbet",
+      "analytics": "Analitik"
+    },
+    "features": {
+      "lightningFastSetup": "Şimşek Hızında Kurulum",
+      "enterpriseSecurity": "Kurumsal Güvenlik",
+      "multiLanguageSupport": "Çok Dilli Destek",
+      "advancedAnalytics": "Gelişmiş Analitik"
+    }
+  },
   "home": {
     "title": "AI Satış Arama Ajanı",
     "subtitle": "Satışlarınızı akıllı ses otomasyonu ile dönüştürün",
