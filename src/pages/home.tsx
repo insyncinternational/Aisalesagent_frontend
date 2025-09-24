@@ -527,7 +527,7 @@ export default function Home() {
                   <div className="flex items-center space-x-3">
                     <div className="relative">
                       <img 
-                        src="/images/ai-avatar-1.jpg" 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                         alt="AI Sales Agent" 
                         className="w-12 h-12 rounded-xl object-cover border-2 border-purple-200 dark:border-purple-700"
                       />
@@ -847,7 +847,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img 
-                src="/images/leads-success.jpg" 
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop" 
                 alt="Happy business team celebrating leads success" 
                 className="w-full h-80 object-cover rounded-2xl shadow-2xl"
               />

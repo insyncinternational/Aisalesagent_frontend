@@ -120,7 +120,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-3">
                   <div className="relative">
                     <img 
-                      src="/images/ai-avatar-1.jpg" 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                       alt="AI Sales Agent" 
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-purple-200 dark:border-purple-700"
                     />

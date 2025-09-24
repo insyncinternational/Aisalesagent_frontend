@@ -169,7 +169,7 @@ export default function Contact() {
           {/* Hero Image */}
           <div className="relative max-w-4xl mx-auto mb-16">
             <img 
-              src="/images/contact-hero.jpg" 
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" 
               alt="Professional customer service team" 
               className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl"
             />

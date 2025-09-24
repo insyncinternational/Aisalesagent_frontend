@@ -244,7 +244,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img 
-                src="/images/ai-experience.jpg" 
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" 
                 alt="People experiencing AI technology" 
                 className="w-full h-80 object-cover rounded-2xl shadow-2xl"
               />
@@ -270,7 +270,7 @@ export default function About() {
               </div>
               <div className="flex items-center space-x-4">
                 <img 
-                  src="/images/ai-avatar-2.jpg" 
+                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" 
                   alt="AI Avatar" 
                   className="w-12 h-12 rounded-full object-cover border-2 border-purple-200 dark:border-purple-700"
                 />
