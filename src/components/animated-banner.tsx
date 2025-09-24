@@ -321,7 +321,7 @@ export default function AnimatedBanner() {
       title: t.features.voiceCloning.title,
       description: t.features.voiceCloning.description,
       metric: t.features.voiceCloning.metric,
-      color: "from-green-500 to-emerald-500",
+      color: "from-blue-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل يمكنك أن تبدو أكثر احترافية؟" : currentLanguage === 'tr' ? "Daha profesyonel ses çıkarabilir misiniz?" : currentLanguage === 'az' ? "Daha peşəkar səs çıxara bilərsinizmi?" : "Can you sound more professional?" },
         { type: "ai", text: currentLanguage === 'ar' ? "بالتأكيد! يمكنني تكييف صوتي ليطابق علامتك التجارية. اختر من:" : currentLanguage === 'tr' ? "Kesinlikle! Sesimi markanıza uyacak şekilde ayarlayabilirim. Seçin:" : currentLanguage === 'az' ? "Əlbəttə! Səsimi brendinizə uyğunlaşdıra bilərəm. Seçin:" : "Absolutely! I can adapt my voice to match your brand. Choose from:", 
@@ -349,7 +349,7 @@ export default function AnimatedBanner() {
       title: t.features.arabicSupport.title,
       description: t.features.arabicSupport.description,
       metric: t.features.arabicSupport.metric,
-      color: "from-emerald-500 to-teal-500",
+      color: "from-purple-500 to-pink-500",
       chatMessages: [
         { type: "user", text: "مرحبا، هل تتحدث العربية؟" },
         { type: "ai", text: "نعم بالطبع! أستطيع التحدث باللغة العربية بطلاقة:", features: ["اللهجة المصرية", "اللهجة الخليجية", "اللهجة الشامية", "اللهجة المغربية"] },
@@ -393,7 +393,7 @@ export default function AnimatedBanner() {
       title: t.features.leadQualification.title,
       description: t.features.leadQualification.description,
       metric: t.features.leadQualification.metric,
-      color: "from-teal-500 to-green-500",
+      color: "from-pink-500 to-purple-500",
       chatMessages: [
         { type: "user", text: currentLanguage === 'ar' ? "هل أنت مؤهل لاتخاذ القرارات؟" : currentLanguage === 'tr' ? "Karar verme konusunda yetkili misiniz?" : currentLanguage === 'az' ? "Qərar vermək üçün səlahiyyətlisinizmi?" : "Are you qualified to make decisions?" },
         { type: "ai", text: currentLanguage === 'ar' ? "نعم! أستخدم الذكاء الاصطناعي المتقدم لتأهيل العملاء المحتملين:" : currentLanguage === 'tr' ? "Evet! Müşteri adaylarını nitelendirmek için gelişmiş AI kullanıyorum:" : currentLanguage === 'az' ? "Bəli! Potensial müştəriləri kvalifikasiya etmək üçün inkişaf etmiş AI istifadə edirəm:" : "Yes! I use advanced AI to qualify leads:", 

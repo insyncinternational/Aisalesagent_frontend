@@ -1099,7 +1099,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                           value={cloneName}
                           onChange={(e) => setCloneName(e.target.value)}
                           placeholder="Enter voice name"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         />
                       </div>
                       <div>
@@ -1111,7 +1111,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                           value={cloneDescription}
                           onChange={(e) => setCloneDescription(e.target.value)}
                           placeholder="Enter description"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         />
                       </div>
                       <div>
@@ -1122,7 +1122,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                           type="file"
                           accept="audio/*"
                           onChange={handleFileInput}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         />
                       </div>
                     </div>
@@ -1152,7 +1152,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                             {voice.category && (
                               <span className={`px-1.5 py-0.5 text-xs rounded-full ${
                                 voice.category === 'premade' ? 'bg-brand-100 text-brand-800 dark:bg-brand-700 dark:text-brand-200' :
-                                voice.category === 'cloned' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' :
+                                voice.category === 'cloned' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' :
                                 voice.category === 'professional' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' :
                                 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
                               }`}>
@@ -1242,11 +1242,11 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               </div>
               
               {leadsFile && (
-                <div className="mt-3 p-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                <div className="mt-3 p-2 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-600 dark:text-green-400" />
-                      <span className="text-xs text-green-800 dark:text-green-200">{leadsFile.name}</span>
+                      <CheckCircle className="h-3 w-3 text-purple-600 dark:text-purple-400" />
+                      <span className="text-xs text-purple-800 dark:text-purple-200">{leadsFile.name}</span>
                       {csvLeads.length > 0 && (
                         <span className="text-xs bg-brand-100 dark:bg-brand-800/30 text-brand-700 dark:text-brand-300 px-1.5 py-0.5 rounded">
                           {csvLeads.length} leads loaded
@@ -1282,8 +1282,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       {currentStep === 4 && currentCampaign && (
         <div className="space-y-6">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-              <Rocket className="h-5 w-5 text-green-600" />
+            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+              <Rocket className="h-5 w-5 text-purple-600" />
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-900">Campaign Launch</h2>
@@ -1358,11 +1358,11 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       {item.completed ? (
-                        <CheckCircle className="h-4 w-4 text-green-600" />
+                        <CheckCircle className="h-4 w-4 text-purple-600" />
                       ) : (
                         <Circle className="h-4 w-4 text-gray-400" />
                       )}
-                      <span className={`text-sm ${item.completed ? 'text-green-700' : 'text-gray-500'}`}>
+                      <span className={`text-sm ${item.completed ? 'text-purple-700' : 'text-gray-500'}`}>
                         {item.label}
                       </span>
                     </div>
@@ -1380,7 +1380,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                 disabled={!completionStatus.launch || startCampaignMutation.isPending}
                 className={`w-full flex items-center justify-center space-x-2 px-6 py-4 rounded-lg text-lg font-medium transition-colors mb-6 ${
                   completionStatus.launch && !startCampaignMutation.isPending
-                    ? 'bg-green-600 text-white hover:bg-green-700'
+                    ? 'bg-purple-600 text-white hover:bg-purple-700'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 }`}
               >
@@ -1410,11 +1410,11 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       {item.completed ? (
-                        <CheckCircle className="h-4 w-4 text-green-600" />
+                        <CheckCircle className="h-4 w-4 text-purple-600" />
                       ) : (
                         <Circle className="h-4 w-4 text-gray-400" />
                       )}
-                      <span className={`text-sm ${item.completed ? 'text-green-700' : 'text-gray-500'}`}>
+                      <span className={`text-sm ${item.completed ? 'text-purple-700' : 'text-gray-500'}`}>
                         {item.label}
                       </span>
                     </div>
@@ -1451,18 +1451,18 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       {showCampaignStatus && campaignStatus && (
         <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-6">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-              <Rocket className="h-5 w-5 text-green-600" />
+            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+              <Rocket className="h-5 w-5 text-purple-600" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-green-900">Campaign Active</h3>
-              <p className="text-green-700">Your campaign is now making calls!</p>
+              <h3 className="text-lg font-semibold text-purple-900">Campaign Active</h3>
+              <p className="text-purple-700">Your campaign is now making calls!</p>
             </div>
           </div>
           
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
              <div className="bg-white rounded-lg p-3 text-center">
-               <div className="text-2xl font-bold text-green-600">{campaignStatus.totalLeads || 0}</div>
+               <div className="text-2xl font-bold text-purple-600">{campaignStatus.totalLeads || 0}</div>
                <div className="text-sm text-gray-600">Total Leads</div>
              </div>
              <div className="bg-white rounded-lg p-3 text-center">
@@ -1470,7 +1470,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                <div className="text-sm text-gray-600">Calls Made</div>
              </div>
              <div className="bg-white rounded-lg p-3 text-center">
-               <div className="text-2xl font-bold text-green-600">{campaignStatus.successfulCalls || 0}</div>
+               <div className="text-2xl font-bold text-purple-600">{campaignStatus.successfulCalls || 0}</div>
                <div className="text-sm text-gray-600">Successful</div>
              </div>
              <div className="bg-white rounded-lg p-3 text-center">
@@ -1492,7 +1492,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                      </div>
                      <div className="text-xs text-gray-500">
                        {index < (campaignStatus.completedCalls || 0) ? (
-                         <span className="text-green-600">✅ Called</span>
+                         <span className="text-purple-600">✅ Called</span>
                        ) : (
                          <span className="text-orange-600">⏳ Pending</span>
                        )}
@@ -1524,7 +1524,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                  {campaignStatus.callHistory.map((call: any, index: number) => (
                    <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                      <div className="flex items-center space-x-3">
-                       <div className={`w-2 h-2 rounded-full ${call.success ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                       <div className={`w-2 h-2 rounded-full ${call.success ? 'bg-purple-500' : 'bg-red-500'}`}></div>
                        <div>
                          <span className="font-medium text-gray-900">{call.leadName}</span>
                          <span className="text-sm text-gray-500 ml-2">({call.phone})</span>
@@ -1534,7 +1534,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                        <div className="text-xs text-gray-500">
                          {new Date(call.timestamp).toLocaleTimeString()}
                        </div>
-                       <div className={`text-xs ${call.success ? 'text-green-600' : 'text-red-600'}`}>
+                       <div className={`text-xs ${call.success ? 'text-purple-600' : 'text-red-600'}`}>
                          {call.success ? `✅ ${call.status}` : `❌ Failed`}
                        </div>
                      </div>
@@ -1546,7 +1546,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
            <div className="mt-4 flex items-center justify-between">
              <div className="text-sm text-gray-600">
-               <p>Status: <span className="font-medium text-green-600 capitalize">{campaignStatus.status}</span></p>
+               <p>Status: <span className="font-medium text-purple-600 capitalize">{campaignStatus.status}</span></p>
                {campaignStatus.startedAt && (
                  <p>Started: {new Date(campaignStatus.startedAt).toLocaleString()}</p>
                )}
@@ -1589,7 +1589,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">
-                  Found <span className="font-semibold text-green-600">{csvLeads.length}</span> leads in your CSV file:
+                  Found <span className="font-semibold text-purple-600">{csvLeads.length}</span> leads in your CSV file:
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
                   Required: first_name, contact_no | Optional: last_name, email
@@ -1617,8 +1617,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <div key={index} className="p-3 hover:bg-gray-50 transition-colors">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 flex-1">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                          <span className="text-sm font-medium text-green-600">{index + 1}</span>
+                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                          <span className="text-sm font-medium text-purple-600">{index + 1}</span>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">
@@ -1674,7 +1674,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                             No Country Code
                           </span>
                         )}
-                        <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                        <span className="text-xs bg-purple-100 text-green-800 px-2 py-1 rounded-full">
                           Valid
                         </span>
                       </div>

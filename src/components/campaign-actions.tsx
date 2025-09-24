@@ -151,7 +151,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     <Card className="border border-border bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
       <CardHeader>
         <CardTitle className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-md">
+          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-md">
             <Rocket className="h-6 w-6 text-white" />
           </div>
           <div>
@@ -246,7 +246,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
               <Button
                 onClick={handleStartCampaign}
                 disabled={!isReadyToLaunch || startCampaignMutation.isPending}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 h-12 text-lg"
+                className="w-full bg-purple-600 hover:bg-purple-700 h-12 text-lg"
               >
                 {startCampaignMutation.isPending ? (
                   <>

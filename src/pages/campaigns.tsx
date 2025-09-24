@@ -103,7 +103,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
           
           {/* Floating Elements */}
           <div className="absolute top-4 right-28 w-5 h-5 bg-brand-500/20 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-4 left-28 w-4 h-4 bg-green-500/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-4 left-28 w-4 h-4 bg-purple-500/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-3xl font-bold text-brand-900 dark:text-white">Campaigns</h2>

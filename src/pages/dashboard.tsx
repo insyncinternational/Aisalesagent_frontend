@@ -119,6 +119,14 @@ export default function Dashboard() {
               <div className="space-y-1 sm:space-y-2">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
+                    <img 
+                      src="/images/ai-avatar-1.jpg" 
+                      alt="AI Sales Agent" 
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-purple-200 dark:border-purple-700"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
+                  </div>
+                  <div className="relative">
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold spark-gradient-text">
                       {t('auth.title')}
                     </h2>

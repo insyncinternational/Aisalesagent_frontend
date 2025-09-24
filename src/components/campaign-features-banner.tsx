@@ -228,7 +228,7 @@ export default function CampaignFeaturesBanner() {
       title: t.features.step3.title,
       description: t.features.step3.description,
       details: t.features.step3.details,
-      color: "from-green-500 to-emerald-500",
+      color: "from-blue-500 to-purple-500",
       features: [
         t.featureNames.testCall,
         t.featureNames.campaignLaunch,

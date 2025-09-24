@@ -25,7 +25,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit",
-    "check": "tsc"
+    "check": "tsc",
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

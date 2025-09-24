@@ -252,7 +252,7 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <span className="px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs rounded-full font-semibold shadow-md">
+                    <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs rounded-full font-semibold shadow-md">
                       Uploaded
                     </span>
                     <Button

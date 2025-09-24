@@ -47,7 +47,7 @@ export default function About() {
       icon: Globe,
       title: "Global Impact",
       description: "We're building technology that connects people across languages and cultures worldwide.",
-      color: "from-green-500 to-emerald-500"
+      color: "from-blue-500 to-purple-500"
     }
   ];
 
@@ -231,6 +231,52 @@ export default function About() {
                       <p className="text-sm text-slate-600 dark:text-slate-400">Transform sales globally</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Experience Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/10 dark:to-purple-900/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <img 
+                src="/images/ai-experience.jpg" 
+                alt="People experiencing AI technology" 
+                className="w-full h-80 object-cover rounded-2xl shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-2xl"></div>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold spark-gradient-text">
+                Experience Our AI Voice Agents
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-400">
+                Our AI voice agents are designed to sound natural, understand context, and deliver 
+                results that exceed human performance. Experience the future of sales automation.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">95%</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Natural Sounding</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">24/7</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Always Available</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="/images/ai-avatar-2.jpg" 
+                  alt="AI Avatar" 
+                  className="w-12 h-12 rounded-full object-cover border-2 border-purple-200 dark:border-purple-700"
+                />
+                <div>
+                  <h4 className="font-semibold text-slate-800 dark:text-slate-200">Meet Sarah, Our AI Agent</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Professional, friendly, and results-driven</p>
                 </div>
               </div>
             </div>

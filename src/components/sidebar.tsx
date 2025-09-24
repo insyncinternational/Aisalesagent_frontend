@@ -99,7 +99,7 @@ export default function Sidebar() {
                       
                       {/* Active indicator */}
                       {item.current && (
-                        <div className="absolute right-2 w-2 h-2 bg-gradient-to-r from-purple-500 to-green-500 rounded-full animate-pulse"></div>
+                        <div className="absolute right-2 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
                       )}
                     </div>
                   </Link>
@@ -140,12 +140,12 @@ export default function Sidebar() {
             </Button>
           </div>
 
-          <div className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-purple-50/50 to-green-50/50 dark:from-purple-900/20 dark:to-green-900/20 border border-purple-200/30 dark:border-purple-700/30 shadow-lg">
+          <div className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200/30 dark:border-blue-700/30 shadow-lg">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-600 via-purple-500 to-green-500 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
                 <User className="h-6 w-6 text-white" />
               </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">

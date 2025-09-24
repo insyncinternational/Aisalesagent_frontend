@@ -1,330 +1,62 @@
-# Deployment Guide
+# Vercel Deployment Guide
 
-This guide covers how to deploy the AI Voice Caller Frontend to various platforms.
+## Prerequisites
+- GitHub repository connected to Vercel
+- Backend API deployed and accessible
 
-## 🚀 Quick Deployment Options
+## Environment Variables
 
-### 1. Vercel (Recommended)
+Set the following environment variables in your Vercel dashboard:
 
-**One-click deployment:**
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-org/ai-voice-caller-frontend)
+### Required Variables
+- `VITE_API_URL`: Your backend API URL (e.g., `https://your-backend-api.vercel.app`)
 
-**Manual deployment:**
-```bash
-# Install Vercel CLI
-npm i -g vercel
+### Setting Environment Variables in Vercel
+1. Go to your Vercel dashboard
+2. Select your project
+3. Go to Settings → Environment Variables
+4. Add `VITE_API_URL` with your production API URL
 
-# Deploy
-vercel
+## Deployment Steps
 
-# Follow the prompts
-```
+### Automatic Deployment
+1. Push your code to the main branch
+2. Vercel will automatically build and deploy
 
-**Environment Variables for Vercel:**
-- `VITE_API_URL`: Your backend API URL
-- `VITE_APP_NAME`: Application name
-- `VITE_DEFAULT_LANGUAGE`: Default language (en, tr, az, ar)
-- `VITE_DEFAULT_CURRENCY`: Default currency (USD, TRY, AZN, AED)
+### Manual Deployment
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel --prod`
 
-### 2. Netlify
+## Build Configuration
 
-**One-click deployment:**
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-org/ai-voice-caller-frontend)
+The project is configured with:
+- **Framework**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Node Version**: 18.x
 
-**Manual deployment:**
-```bash
-# Build the project
-npm run build
+## Important Notes
 
-# Upload dist folder to Netlify
-# Or connect your Git repository
-```
+1. **API Configuration**: Update `VITE_API_URL` in your environment variables to point to your production backend
+2. **SPA Routing**: The app uses client-side routing with rewrites configured for all routes
+3. **Build Optimization**: Consider code splitting for better performance (current bundle is ~900KB)
 
-**Netlify Configuration:**
-Create `netlify.toml`:
-```toml
-[build]
-  publish = "dist"
-  command = "npm run build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-```
-
-### 3. GitHub Pages
-
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-"deploy": "gh-pages -d dist"
-
-# Deploy
-npm run build
-npm run deploy
-```
-
-### 4. AWS S3 + CloudFront
-
-```bash
-# Build the project
-npm run build
-
-# Upload to S3
-aws s3 sync dist/ s3://your-bucket-name --delete
-
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
-```
-
-### 5. Docker Deployment
-
-**Dockerfile:**
-```dockerfile
-# Build stage
-FROM node:18-alpine as builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-# Production stage
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-```
-
-**nginx.conf:**
-```nginx
-events {
-    worker_connections 1024;
-}
-
-http {
-    include /etc/nginx/mime.types;
-    default_type application/octet-stream;
-
-    server {
-        listen 80;
-        server_name localhost;
-        root /usr/share/nginx/html;
-        index index.html;
-
-        location / {
-            try_files $uri $uri/ /index.html;
-        }
-
-        location /api {
-            proxy_pass http://backend:8000;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
-    }
-}
-```
-
-**Build and run:**
-```bash
-docker build -t ai-voice-caller-frontend .
-docker run -p 80:80 ai-voice-caller-frontend
-```
-
-## 🔧 Environment Configuration
-
-### Required Environment Variables
-
-```env
-# API Configuration
-VITE_API_URL=https://your-api-domain.com
-
-# Application Settings
-VITE_APP_NAME=AI Voice Caller
-VITE_DEFAULT_LANGUAGE=en
-VITE_DEFAULT_CURRENCY=USD
-```
-
-### Optional Environment Variables
-
-```env
-# Feature Flags
-VITE_ENABLE_ANALYTICS=true
-VITE_ENABLE_CHAT_BOT=true
-VITE_ENABLE_EXIT_INTENT=true
-
-# External Services
-VITE_GOOGLE_ANALYTICS_ID=GA_MEASUREMENT_ID
-VITE_HOTJAR_ID=HOTJAR_ID
-
-# CDN Configuration
-VITE_CDN_URL=https://cdn.your-domain.com
-```
-
-## 📱 Mobile App Deployment
-
-### PWA Configuration
-
-The app is configured as a Progressive Web App (PWA):
-
-```json
-// public/manifest.json
-{
-  "name": "AI Voice Caller",
-  "short_name": "AI Voice Caller",
-  "description": "AI-powered voice calling system",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#8B5CF6",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
-```
-
-### App Store Deployment
-
-For mobile app stores, consider using:
-- **Capacitor**: Convert web app to native mobile app
-- **Cordova**: Hybrid mobile app development
-- **React Native**: Native mobile app development
-
-## 🔒 Security Considerations
-
-### Content Security Policy (CSP)
-
-```html
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval';
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' data: https:;
-  font-src 'self' data:;
-  connect-src 'self' https://your-api-domain.com;
-">
-```
-
-### HTTPS Configuration
-
-- Always use HTTPS in production
-- Configure SSL certificates
-- Enable HSTS headers
-- Use secure cookies
-
-## 📊 Performance Optimization
-
-### Build Optimization
-
-```bash
-# Analyze bundle size
-npm run build
-npx vite-bundle-analyzer dist
-
-# Optimize images
-# Use WebP format
-# Implement lazy loading
-```
-
-### CDN Configuration
-
-```javascript
-// vite.config.ts
-export default defineConfig({
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu']
-        }
-      }
-    }
-  }
-})
-```
-
-## 🔍 Monitoring and Analytics
-
-### Error Tracking
-
-```javascript
-// Add to main.tsx
-import * as Sentry from "@sentry/react";
-
-Sentry.init({
-  dsn: "YOUR_SENTRY_DSN",
-  environment: process.env.NODE_ENV,
-});
-```
-
-### Performance Monitoring
-
-```javascript
-// Add to main.tsx
-import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
-
-getCLS(console.log);
-getFID(console.log);
-getFCP(console.log);
-getLCP(console.log);
-getTTFB(console.log);
-```
-
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
+1. **Build Failures**: Check that all dependencies are in `package.json`
+2. **API Errors**: Verify `VITE_API_URL` is set correctly
+3. **Routing Issues**: Ensure `vercel.json` rewrites are configured
 
-1. **Build fails with memory error:**
-   ```bash
-   NODE_OPTIONS="--max-old-space-size=4096" npm run build
-   ```
+### Performance Optimization
+- The build shows a warning about large chunks (>500KB)
+- Consider implementing code splitting for better loading times
+- Use dynamic imports for heavy components
 
-2. **API calls fail in production:**
-   - Check CORS configuration
-   - Verify API URL in environment variables
-   - Check network connectivity
-
-3. **Translations not loading:**
-   - Verify translation files are included in build
-   - Check i18n configuration
-   - Ensure language files are properly formatted
-
-4. **Styling issues:**
-   - Check Tailwind CSS configuration
-   - Verify PostCSS setup
-   - Ensure all CSS files are imported
-
-### Debug Mode
-
+## Local Testing
 ```bash
-# Enable debug mode
-VITE_DEBUG_MODE=true npm run dev
-
-# Check console for debug information
+npm run build
+npm run preview
 ```
 
-## 📞 Support
-
-For deployment issues:
-1. Check the troubleshooting section
-2. Review the logs
-3. Contact the development team
-4. Open an issue on GitHub
-
----
-
-**Happy Deploying! 🚀**
+This will build and serve the production version locally for testing.

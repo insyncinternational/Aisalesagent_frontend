@@ -125,9 +125,9 @@ export default function StatsOverview() {
       title: "Calls Today", 
       value: animatedValues.callsToday,
       icon: Phone,
-      color: "from-green-500 to-emerald-500",
-      bgColor: "from-green-50 to-emerald-50",
-      darkBgColor: "from-green-900/20 to-emerald-900/20",
+      color: "from-blue-500 to-purple-500",
+      bgColor: "from-blue-50 to-purple-50",
+      darkBgColor: "from-blue-900/20 to-purple-900/20",
       description: "Total calls made today",
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, campaignStats.totalCalls + Math.floor(Math.random() * 20) - 10))
     },
@@ -135,9 +135,9 @@ export default function StatsOverview() {
       title: "Success Rate",
       value: `${animatedValues.successRate}%`,
       icon: TrendingUp,
-      color: "from-purple-600 to-green-500",
-      bgColor: "from-purple-50 to-green-50",
-      darkBgColor: "from-purple-900/20 to-green-900/20",
+      color: "from-purple-600 to-pink-500",
+      bgColor: "from-purple-50 to-pink-50",
+      darkBgColor: "from-purple-900/20 to-pink-900/20",
       description: "Overall campaign success",
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, Math.min(100, campaignStats.successRate + Math.floor(Math.random() * 10) - 5)))
     },
@@ -145,9 +145,9 @@ export default function StatsOverview() {
       title: "Total Minutes",
       value: animatedValues.totalMinutes,
       icon: Clock,
-      color: "from-green-600 to-blue-500",
-      bgColor: "from-green-50 to-blue-50",
-      darkBgColor: "from-green-900/20 to-blue-900/20",
+      color: "from-pink-600 to-purple-500",
+      bgColor: "from-pink-50 to-purple-50",
+      darkBgColor: "from-pink-900/20 to-purple-900/20",
       description: "Total call duration",
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, animatedValues.totalMinutes + Math.floor(Math.random() * 50) - 25))
     },
@@ -223,7 +223,7 @@ export default function StatsOverview() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-green-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                   <BarChart3 className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -232,8 +232,8 @@ export default function StatsOverview() {
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-green-600 dark:text-green-400 font-medium">Live</span>
+                <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">Live</span>
               </div>
             </div>
             
@@ -243,7 +243,7 @@ export default function StatsOverview() {
                 {statCards[1].chartData.slice(-6).map((value, index) => (
                   <div key={index} className="flex flex-col items-center space-y-2">
                     <div 
-                      className="w-8 bg-gradient-to-t from-purple-500 to-green-500 rounded-t-lg transition-all duration-1000 ease-out"
+                      className="w-8 bg-gradient-to-t from-purple-500 to-pink-500 rounded-t-lg transition-all duration-1000 ease-out"
                       style={{ 
                         height: `${(value / Math.max(...statCards[1].chartData)) * 100}%`,
                         animationDelay: `${index * 100}ms`
@@ -262,7 +262,7 @@ export default function StatsOverview() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                   <MessageCircle className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -271,8 +271,8 @@ export default function StatsOverview() {
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-green-600 dark:text-green-400 font-medium">Active</span>
+                <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">Active</span>
               </div>
             </div>
             
@@ -281,10 +281,10 @@ export default function StatsOverview() {
               {chatMessages.map((message, index) => (
                 <div 
                   key={message.id}
-                  className="flex items-start space-x-3 p-3 bg-gradient-to-r from-green-50/50 to-blue-50/50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl border border-green-200/30 dark:border-green-700/30 fade-in"
+                  className="flex items-start space-x-3 p-3 bg-gradient-to-r from-purple-50/50 to-pink-50/50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl border border-purple-200/30 dark:border-purple-700/30 fade-in"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="h-4 w-4 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -294,8 +294,8 @@ export default function StatsOverview() {
                     </div>
                     <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{message.message}</p>
                     <div className="flex items-center space-x-1 mt-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-xs text-green-600 dark:text-green-400 font-medium">Positive</span>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                      <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">Positive</span>
                     </div>
                   </div>
                 </div>

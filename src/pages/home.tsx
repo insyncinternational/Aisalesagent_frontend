@@ -127,14 +127,14 @@ export default function Home() {
       icon: Clock,
       title: t('home.benefits.saveTime.title'),
       description: t('home.benefits.saveTime.description'),
-      color: "from-green-500 to-emerald-500",
+      color: "from-purple-500 to-pink-500",
       stats: t('home.benefits.saveTime.stats')
     },
     {
       icon: Target,
       title: t('home.benefits.qualityLeads.title'),
       description: t('home.benefits.qualityLeads.description'),
-      color: "from-blue-500 to-cyan-500",
+      color: "from-purple-500 to-pink-500",
       stats: t('home.benefits.qualityLeads.stats')
     },
     {
@@ -155,7 +155,7 @@ export default function Home() {
       icon: Shield,
       title: t('home.benefits.humanLike.title'),
       description: t('home.benefits.humanLike.description'),
-      color: "from-teal-500 to-green-500",
+      color: "from-cyan-500 to-blue-500",
       stats: t('home.benefits.humanLike.stats')
     }
   ];
@@ -216,7 +216,7 @@ export default function Home() {
           t('home.pricing.starter.features.feature5')
         ],
       popular: false,
-      color: "from-blue-500 to-cyan-500"
+      color: "from-purple-500 to-pink-500"
     },
     {
         name: t('home.pricing.professional.name'),
@@ -233,7 +233,7 @@ export default function Home() {
           t('home.pricing.professional.features.feature7')
         ],
       popular: true,
-      color: "from-purple-500 to-green-500"
+      color: "from-purple-500 to-blue-500"
     }
   ];
   };
@@ -347,7 +347,7 @@ export default function Home() {
       name: t('agents.mike.name'),
       role: t('agents.mike.role'),
       avatar: 'M',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-purple-500 to-pink-500',
       specialties: t('agents.mike.specialties', { returnObjects: true }) as string[],
       experience: t('agents.mike.experience'),
       languages: t('agents.mike.languages', { returnObjects: true }) as string[],
@@ -521,12 +521,17 @@ export default function Home() {
 
           {/* Hero Image/Animation */}
           <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-purple-500/10 to-green-500/10 rounded-3xl p-8 border border-purple-200/50 dark:border-purple-800/50">
+            <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-3xl p-8 border border-purple-200/50 dark:border-purple-800/50">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-green-500 rounded-xl flex items-center justify-center">
-                      <Bot className="h-6 w-6 text-white" />
+                    <div className="relative">
+                      <img 
+                        src="/images/ai-avatar-1.jpg" 
+                        alt="AI Sales Agent" 
+                        className="w-12 h-12 rounded-xl object-cover border-2 border-purple-200 dark:border-purple-700"
+                      />
+                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
                     </div>
                     <div>
                       <h3 className="font-semibold text-slate-800 dark:text-slate-200">{t('home.demo.aiSalesAgent')}</h3>
@@ -536,8 +541,8 @@ export default function Home() {
                   
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-sm text-green-600 dark:text-green-400">{t('home.demo.connected')}</span>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-blue-600 dark:text-blue-400">{t('home.demo.connected')}</span>
                     </div>
                     <div className="bg-white dark:bg-slate-800 rounded-lg p-3">
                       <p className="text-sm text-slate-700 dark:text-slate-300">
@@ -551,7 +556,7 @@ export default function Home() {
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.demo.callAnalytics')}</span>
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
@@ -560,7 +565,7 @@ export default function Home() {
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-slate-600 dark:text-slate-400">{t('home.demo.sentiment')}</span>
-                        <span className="text-green-600 dark:text-green-400">Positive</span>
+                        <span className="text-blue-600 dark:text-blue-400">Positive</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-slate-600 dark:text-slate-400">{t('home.demo.conversion')}</span>
@@ -585,13 +590,13 @@ export default function Home() {
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
               {/* Company Logos */}
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">M</span>
                 </div>
                 <span className="font-semibold text-slate-700 dark:text-slate-300">Microsoft</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">S</span>
                 </div>
                 <span className="font-semibold text-slate-700 dark:text-slate-300">Salesforce</span>
@@ -622,7 +627,7 @@ export default function Home() {
             {/* Testimonial 1 */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-slate-700/50">
               <div className="flex items-center space-x-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">MJ</span>
                 </div>
                 <div>
@@ -638,9 +643,9 @@ export default function Home() {
               <blockquote className="text-slate-700 dark:text-slate-300 italic mb-4">
                 {t('home.testimonials.detailed.testimonial1')}
               </blockquote>
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
-                <div className="text-sm font-semibold text-green-700 dark:text-green-400">Results:</div>
-                <div className="text-xs text-green-600 dark:text-green-300">340% sales increase • $2.3M revenue • 3 months</div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
+                <div className="text-sm font-semibold text-purple-700 dark:text-purple-400">Results:</div>
+                <div className="text-xs text-purple-600 dark:text-purple-300">340% sales increase • $2.3M revenue • 3 months</div>
               </div>
             </div>
 
@@ -663,16 +668,16 @@ export default function Home() {
               <blockquote className="text-slate-700 dark:text-slate-300 italic mb-4">
                 {t('home.testimonials.detailed.testimonial2')}
               </blockquote>
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
-                <div className="text-sm font-semibold text-blue-700 dark:text-blue-400">Results:</div>
-                <div className="text-xs text-blue-600 dark:text-blue-300">20 hrs/week saved • 85% more meetings • 6 months</div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
+                <div className="text-sm font-semibold text-purple-700 dark:text-purple-400">Results:</div>
+                <div className="text-xs text-purple-600 dark:text-purple-300">20 hrs/week saved • 85% more meetings • 6 months</div>
               </div>
             </div>
 
             {/* Testimonial 3 */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 md:col-span-2 lg:col-span-1">
               <div className="flex items-center space-x-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">DR</span>
                 </div>
                 <div>
@@ -739,7 +744,7 @@ export default function Home() {
                     {feature.description}
                   </p>
                   <div className="inline-block">
-                    <span className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {feature.stats}
                     </span>
                   </div>
@@ -765,7 +770,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* 24/7 Functionality */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 dark:border-slate-700/50 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -774,15 +779,15 @@ export default function Home() {
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 {t('benefits.availability.description')}
               </p>
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">{t('benefits.availability.stats.value')}</div>
-                <div className="text-sm text-green-700 dark:text-green-300">{t('benefits.availability.stats.label')}</div>
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">{t('benefits.availability.stats.value')}</div>
+                <div className="text-sm text-blue-700 dark:text-blue-300">{t('benefits.availability.stats.label')}</div>
               </div>
             </div>
 
             {/* Seamless Integration */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 dark:border-slate-700/50 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Settings className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -791,7 +796,7 @@ export default function Home() {
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 {t('benefits.integration.description')}
               </p>
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">{t('benefits.integration.stats.value')}</div>
                 <div className="text-sm text-blue-700 dark:text-blue-300">{t('benefits.integration.stats.label')}</div>
               </div>
@@ -817,6 +822,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Leads Success Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/10 dark:to-purple-900/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold spark-gradient-text">
+                Generate More Leads with AI
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-400">
+                Watch your lead generation skyrocket with our AI-powered calling agents. 
+                Experience the joy of seeing your business grow with every successful call.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">340%</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">More Leads</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">95%</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Success Rate</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src="/images/leads-success.jpg" 
+                alt="Happy business team celebrating leads success" 
+                className="w-full h-80 object-cover rounded-2xl shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-slate-800/50">
         <div className="max-w-7xl mx-auto">
@@ -832,7 +872,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -845,7 +885,7 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -858,7 +898,7 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -873,7 +913,7 @@ export default function Home() {
       </section>
 
       {/* Experience Zone Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50/50 to-green-50/50 dark:from-purple-900/10 dark:to-green-900/10">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50/50 to-blue-50/50 dark:from-purple-900/10 dark:to-blue-900/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold spark-gradient-text mb-4">
@@ -930,7 +970,7 @@ export default function Home() {
 
                 {/* Industry Details */}
                 {selectedSector && (
-                  <div className="mt-6 p-4 bg-gradient-to-r from-purple-50 to-green-50 dark:from-purple-900/20 dark:to-green-900/20 rounded-xl border border-purple-200/50 dark:border-purple-700/50">
+                  <div className="mt-6 p-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border border-purple-200/50 dark:border-purple-700/50">
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-3">
                       {t('experience.industryInsights')}
                     </h4>
@@ -949,7 +989,7 @@ export default function Home() {
                         <h5 className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">{t('experience.keyBenefits')}:</h5>
                         <div className="flex flex-wrap gap-1">
                           {sectors.find(s => s.id === selectedSector)?.benefits.map((benefit, index) => (
-                            <span key={index} className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded">
+                            <span key={index} className="text-xs bg-blue-100 dark:bg-blue-900/30 text-purple-700 dark:text-purple-400 px-2 py-1 rounded">
                               {benefit}
                             </span>
                           ))}
@@ -963,7 +1003,7 @@ export default function Home() {
               {/* Center - Try Call Button */}
               <div className="flex flex-col items-center space-y-6">
                 {/* Connection Lines */}
-                <div className="hidden lg:block w-32 h-0.5 bg-gradient-to-r from-purple-500 to-green-500"></div>
+                <div className="hidden lg:block w-32 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"></div>
                 
                 {/* Try Call Button */}
                 <button
@@ -992,7 +1032,7 @@ export default function Home() {
                 </button>
 
                 {/* Connection Lines */}
-                <div className="hidden lg:block w-32 h-0.5 bg-gradient-to-r from-green-500 to-purple-500"></div>
+                <div className="hidden lg:block w-32 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
               </div>
 
               {/* Right Side - Agent Selection */}
@@ -1008,9 +1048,9 @@ export default function Home() {
                       disabled={!selectedSector}
                       className={`w-full p-4 rounded-2xl border-2 transition-all duration-300 hover:scale-105 flex items-center space-x-4 ${
                         selectedAgent === agent.id
-                          ? 'border-green-500 bg-green-50 dark:bg-green-900/20 shadow-lg'
+                          ? 'border-blue-500 bg-purple-50 dark:bg-purple-900/20 shadow-lg'
                           : selectedSector
-                          ? 'border-slate-200 dark:border-slate-700 hover:border-green-300 dark:hover:border-green-600'
+                          ? 'border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600'
                           : 'border-slate-200 dark:border-slate-700 opacity-50 cursor-not-allowed'
                       }`}
                     >
@@ -1285,7 +1325,7 @@ export default function Home() {
 
             {/* AI Usage */}
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 dark:border-slate-700/50 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-2">

@@ -115,7 +115,7 @@ export default function Login() {
 
   const floatingElements = [
     { icon: Phone, text: "AI Voice Calls", color: "from-purple-500 to-pink-500" },
-    { icon: Bot, text: "Smart Agents", color: "from-green-500 to-emerald-500" },
+    { icon: Bot, text: "Smart Agents", color: "from-blue-500 to-purple-500" },
     { icon: MessageCircle, text: "Real-time Chat", color: "from-blue-500 to-cyan-500" },
     { icon: TrendingUp, text: "Analytics", color: "from-orange-500 to-red-500" }
   ];
@@ -128,7 +128,7 @@ export default function Login() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-green-50 dark:from-slate-900 dark:via-purple-900/20 dark:to-green-900/20 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-blue-900/20 dark:to-purple-900/20 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Elements */}
@@ -160,8 +160,8 @@ export default function Login() {
 
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-purple-500 to-green-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-green-500 to-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-3xl"></div>
         </div>
       </div>
 
@@ -212,17 +212,17 @@ export default function Login() {
           <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-slate-700/50">
             {isSuccess ? (
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Check className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-green-800 dark:text-green-200 mb-2">
+                <h2 className="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-2">
                   {t('auth.welcomeMessage')}
                 </h2>
-                <p className="text-green-600 dark:text-green-300 mb-4">
+                <p className="text-purple-600 dark:text-purple-300 mb-4">
                   Redirecting to your dashboard...
                 </p>
                 <div className="flex justify-center">
-                  <Loader2 className="h-6 w-6 animate-spin text-green-500" />
+                  <Loader2 className="h-6 w-6 animate-spin text-purple-500" />
                 </div>
               </div>
             ) : (
@@ -304,7 +304,7 @@ export default function Login() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -333,14 +333,14 @@ export default function Login() {
                 </form>
 
                 {/* Demo Credentials Info */}
-                <div className="mt-6 p-4 bg-gradient-to-r from-purple-50 to-green-50 dark:from-purple-900/20 dark:to-green-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                   <div className="text-center">
                     <h4 className="text-sm font-semibold text-purple-800 dark:text-purple-200 mb-2">
                       {t('auth.demoCredentials')}
                     </h4>
                     <div className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
-                      <p><strong>Email:</strong> demo@sparkai.com</p>
-                      <p><strong>Password:</strong> demo123</p>
+                      <p><strong>Email:</strong> admin@example.com</p>
+                      <p><strong>Password:</strong> admin123</p>
                     </div>
                   </div>
                 </div>
@@ -367,7 +367,7 @@ export default function Login() {
                   key={index}
                   className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                     <Icon className="h-4 w-4 text-white" />
                   </div>
                   <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">

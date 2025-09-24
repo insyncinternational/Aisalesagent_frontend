@@ -83,7 +83,8 @@ export interface ExperienceCallRequest {
   agent: string;
 }
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';  // Backend server URL
+const BASE_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.PROD ? 'https://your-backend-api.vercel.app' : 'http://localhost:8000');  // Backend server URL
 
 async function handleResponse(response: Response) {
   const data = await response.json();

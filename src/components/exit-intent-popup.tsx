@@ -39,8 +39,8 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
   if (isSubmitted) {
     return (
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center">
-          <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center border border-slate-200 dark:border-slate-700">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="h-8 w-8 text-white" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">
@@ -51,7 +51,7 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
           </p>
           <Button 
             onClick={onClose}
-            className="w-full bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
           >
             {t('exitIntent.success.button')}
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -63,7 +63,7 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl relative">
+      <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-slate-200 dark:border-slate-700">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -97,19 +97,19 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
         <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-4 mb-6">
           <div className="space-y-2 text-sm">
             <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
+              <Check className="h-4 w-4 text-purple-500" />
               <span className="text-slate-700 dark:text-slate-300">{t('exitIntent.benefits.save')}</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
+              <Check className="h-4 w-4 text-purple-500" />
               <span className="text-slate-700 dark:text-slate-300">{t('exitIntent.benefits.setup')}</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
+              <Check className="h-4 w-4 text-purple-500" />
               <span className="text-slate-700 dark:text-slate-300">{t('exitIntent.benefits.trial')}</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Check className="h-4 w-4 text-green-500" />
+              <Check className="h-4 w-4 text-purple-500" />
               <span className="text-slate-700 dark:text-slate-300">{t('exitIntent.benefits.guarantee')}</span>
             </div>
           </div>

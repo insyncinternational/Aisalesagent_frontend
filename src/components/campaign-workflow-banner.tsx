@@ -51,7 +51,7 @@ const CampaignWorkflowBanner = () => {
       title: "Configure AI",
       description: "Set up voice and knowledge base",
       icon: Settings,
-      color: "from-green-500 to-emerald-500",
+      color: "from-blue-500 to-purple-500",
       details: [
         "Select AI voice (ElevenLabs)",
         "Upload knowledge base documents",

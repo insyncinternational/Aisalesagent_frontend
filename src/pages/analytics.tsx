@@ -174,7 +174,7 @@ export default function Analytics() {
               <Card className="border border-border bg-card/50 backdrop-blur-sm shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-md">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-md">
                       <TrendingUp className="h-5 w-5 text-white" />
                     </div>
                     <span>Success Rate Trend</span>

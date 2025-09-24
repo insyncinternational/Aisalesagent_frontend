@@ -78,7 +78,7 @@ export default function Contact() {
       title: "Phone Support",
       description: "Speak with our team directly",
       contact: "+971503519350",
-      color: "from-green-500 to-emerald-500"
+      color: "from-blue-500 to-purple-500"
     },
     {
       icon: MessageCircle,
@@ -164,6 +164,20 @@ export default function Contact() {
               Ready to transform your sales process with AI? Our team is here to help you 
               get started and answer any questions you might have.
             </p>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative max-w-4xl mx-auto mb-16">
+            <img 
+              src="/images/contact-hero.jpg" 
+              alt="Professional customer service team" 
+              className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-500/30 to-transparent rounded-2xl"></div>
+            <div className="absolute bottom-6 left-6 text-white">
+              <h3 className="text-2xl font-bold mb-2">Experience Our AI Voice Agents</h3>
+              <p className="text-lg opacity-90">Professional, efficient, and always available</p>
+            </div>
           </div>
 
           {/* Contact Methods */}
