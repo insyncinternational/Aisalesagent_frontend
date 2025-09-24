@@ -860,7 +860,9 @@
       "demo": "Sizə göstərməyi çox istəyirəm! AI-miz 7/24 təbii səsli zənglər edir, müştəri namizədlərini keyfiyyətləndirir və avtomatik olaraq görüşlər planlayır. İndi interaktiv demomuzu sınaya və ya fərdiləşdirilmiş demo zəngi planlaya bilərəm. Hansı daha yaxşı gəlir?",
       "setup": "Başlamaq çox asandır! Sadəcə əlaqə siyahınızı yükləyin, AI səsinizi seçin və başladın. Quraşdırma sadəcə 5 dəqiqə çəkir və pulsuz onboarding təmin edirik. Sizə rəhbərlik etməyimi istəyirsiniz?",
       "default": "Bu əla sualdır! Sizə fərdiləşdirilmiş cavab verə biləcək AI zəng ekspertlərimizdən biri ilə sizi bağlayım. Bu vaxtda pulsuz sınağımızı sınaya və ya demomuzu yoxlaya bilərsiniz. Hansını üstün tutursunuz?"
-    }
+    },
+    "clearChat": "Söhbəti Təmizlə",
+    "backToMain": "Əsas Səhifəyə Qayıt"
   },
   "exitIntent": {
     "title": "Gözlə! Qaçırma! 🚨",

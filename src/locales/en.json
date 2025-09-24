@@ -634,7 +634,9 @@
     "voiceInput": "Voice Input",
     "listenToMessage": "Listen to message",
     "stopSpeaking": "Stop Speaking",
-    "aiVoice": "AI Voice"
+    "aiVoice": "AI Voice",
+    "clearChat": "Clear Chat",
+    "backToMain": "Back to Main"
   },
   "exitIntent": {
     "title": "Wait! Don't Miss Out! 🚨",

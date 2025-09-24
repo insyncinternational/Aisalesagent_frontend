@@ -3,7 +3,8 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { Plus, Search } from "lucide-react";
+import { Plus, Search, Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { api, type Campaign } from "@/lib/api";
 import Sidebar from "@/components/sidebar";
 import { useToast } from "@/hooks/use-toast";
@@ -24,6 +25,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [campaignToDelete, setCampaignToDelete] = useState<Campaign | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -87,9 +89,13 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
 
   return (
     <div className="flex h-screen bg-slate-50 dark:bg-slate-900">
-      <Sidebar />
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="relative bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 py-6 overflow-hidden">
+        <header className="relative bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
@@ -107,23 +113,41 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
           {/* Floating Elements */}
           <div className="absolute top-4 right-28 w-5 h-5 bg-purple-500/20 rounded-full animate-pulse"></div>
           <div className="absolute bottom-4 left-28 w-4 h-4 bg-purple-500/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{t('campaigns.title')}</h2>
-              <p className="text-slate-600 dark:text-slate-300 mt-2">{t('campaigns.subtitle')}</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <LanguageSwitcher />
-              <ThemeToggle />
-            </div>
-          </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  {/* Mobile Menu Button */}
+                  <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                    <SheetTrigger asChild>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="lg:hidden hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white transition-all duration-300"
+                      >
+                        <Menu className="h-5 w-5" />
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="w-80 p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                      <Sidebar />
+                    </SheetContent>
+                  </Sheet>
+                  
+                  <div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{t('campaigns.title')}</h2>
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 sm:mt-2">{t('campaigns.subtitle')}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 sm:space-x-4">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                </div>
+              </div>
         </header>
-        <main className="flex-1 overflow-auto p-8">
-          <div className="max-w-7xl mx-auto space-y-6">
+        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
+          <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
             {/* Campaign Workflow Banner */}
             <CampaignWorkflowBanner />
             
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
@@ -151,7 +175,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredCampaigns?.map((campaign: Campaign) => (
                   <CampaignCard
                     key={campaign.id}

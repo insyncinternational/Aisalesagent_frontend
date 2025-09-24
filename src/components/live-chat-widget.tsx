@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, X, Send, Phone, Mail, Clock, CheckCircle, Mic, MicOff, Volume2, VolumeX, User, Building2, Zap } from 'lucide-react';
+import { MessageCircle, X, Send, Phone, Mail, Clock, CheckCircle, Mic, MicOff, Volume2, VolumeX, User, Building2, Zap, Trash2, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 
@@ -43,6 +43,28 @@ export default function LiveChatWidget() {
     company: ''
   });
   const [isSubmittingCall, setIsSubmittingCall] = useState(false);
+
+  // Cleanup effect when component unmounts or chat is closed
+  useEffect(() => {
+    return () => {
+      // Stop any ongoing speech synthesis when component unmounts
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  // Cleanup when chat is closed
+  useEffect(() => {
+    if (!isOpen) {
+      // Stop any ongoing speech synthesis when chat is closed
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      }
+      // Reset speaking state
+      setIsSpeaking(false);
+    }
+  }, [isOpen]);
 
   const quickReplies = [
     t('chat.quickReplies.cost'),
@@ -131,14 +153,22 @@ export default function LiveChatWidget() {
 
   const speakText = (text: string) => {
     if ('speechSynthesis' in window) {
+      // Cancel any ongoing speech first
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      }
+      
       setIsSpeaking(true);
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.rate = 0.9;
       utterance.pitch = 1.1;
       utterance.volume = 0.8;
       
+      utterance.onstart = () => setIsSpeaking(true);
       utterance.onend = () => setIsSpeaking(false);
       utterance.onerror = () => setIsSpeaking(false);
+      utterance.onpause = () => setIsSpeaking(false);
+      utterance.onresume = () => setIsSpeaking(true);
       
       speechSynthesis.speak(utterance);
     }
@@ -207,6 +237,53 @@ export default function LiveChatWidget() {
     }
   };
 
+  const clearChat = () => {
+    setMessages([
+      {
+        id: 1,
+        text: t('chat.welcomeMessage'),
+        isUser: false,
+        timestamp: new Date(),
+        type: 'text'
+      }
+    ]);
+    setShowCallForm(false);
+    setCallRequest({
+      name: '',
+      phone: '',
+      industry: '',
+      company: ''
+    });
+  };
+
+  const backToMain = () => {
+    clearChat();
+    // Reset any other states to initial values
+    setIsTyping(false);
+    setIsListening(false);
+    setIsSpeaking(false);
+    setIsSubmittingCall(false);
+  };
+
+  const handleCloseChat = () => {
+    // Stop any ongoing speech synthesis
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel();
+    }
+    
+    // Clear the chat
+    clearChat();
+    
+    // Reset all states
+    setIsTyping(false);
+    setIsListening(false);
+    setIsSpeaking(false);
+    setIsSubmittingCall(false);
+    
+    // Close the chat
+    setIsOpen(false);
+  };
+
   return (
     <>
       {/* Chat Toggle Button */}
@@ -244,9 +321,28 @@ export default function LiveChatWidget() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1">
               <button
-                onClick={() => setIsSpeaking ? speechSynthesis.cancel() : null}
+                onClick={clearChat}
+                className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                title={t('chat.clearChat')}
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
+              <button
+                onClick={backToMain}
+                className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                title={t('chat.backToMain')}
+              >
+                <Home className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => {
+                  if (speechSynthesis.speaking) {
+                    speechSynthesis.cancel();
+                    setIsSpeaking(false);
+                  }
+                }}
                 className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
                 title={isSpeaking ? t('chat.stopSpeaking') : t('chat.aiVoice')}
               >
@@ -257,7 +353,7 @@ export default function LiveChatWidget() {
                 )}
               </button>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleCloseChat}
                 className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
               >
                 <X className="h-4 w-4" />

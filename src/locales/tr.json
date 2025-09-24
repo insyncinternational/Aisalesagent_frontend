@@ -570,7 +570,9 @@
       "demo": "Size göstermeyi çok isterim! AI'miz 7/24 doğal sesli aramalar yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Şimdi interaktif demomuzu deneyebilir veya kişiselleştirilmiş demo araması planlayabilirim. Hangisi daha iyi geliyor?",
       "setup": "Başlamak çok kolay! Sadece iletişim listenizi yükleyin, AI sesinizi seçin ve başlatın. Kurulum sadece 5 dakika sürer ve ücretsiz onboarding sağlıyoruz. Size rehberlik etmemi ister misiniz?",
       "default": "Bu harika bir soru! Size kişiselleştirilmiş bir yanıt verebilecek AI arama uzmanlarımızdan biriyle sizi bağlayayım. Bu arada ücretsiz denememizi deneyebilir veya demomuzu kontrol edebilirsiniz. Hangisini tercih edersiniz?"
-    }
+    },
+    "clearChat": "Sohbeti Temizle",
+    "backToMain": "Ana Sayfaya Dön"
   },
   "exitIntent": {
     "title": "Bekle! Kaçırma! 🚨",
