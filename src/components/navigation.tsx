@@ -24,13 +24,18 @@ export default function Navigation() {
     if (path === '/') {
       return location === '/' || location === '/home';
     }
+    if (path === '/#benefits' || path === '/#pricing') {
+      return location === path;
+    }
     return location === path;
   };
 
   const navigationItems = [
     { name: t('navigation.home'), path: '/' },
     { name: t('navigation.benefits'), path: '/#benefits' },
-    { name: t('navigation.pricing'), path: '/#pricing' }
+    { name: t('navigation.pricing'), path: '/#pricing' },
+    { name: t('navigation.about'), path: '/about' },
+    { name: t('navigation.contact'), path: '/contact' }
   ];
 
   return (
@@ -47,17 +52,31 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.path}
-                className={`transition-colors ${
-                  isActive(item.path)
-                    ? 'text-purple-600 dark:text-purple-400 font-semibold'
-                    : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
-                }`}
-              >
-                {item.name}
-              </a>
+              item.path.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.path}
+                  className={`transition-colors ${
+                    isActive(item.path)
+                      ? 'text-purple-600 dark:text-purple-400 font-semibold'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.path}
+                  className={`transition-colors ${
+                    isActive(item.path)
+                      ? 'text-purple-600 dark:text-purple-400 font-semibold'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
 
@@ -90,7 +109,7 @@ export default function Navigation() {
               </Button>
             </Link>
             <Link href="/login">
-              <Button className="bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white">
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
                 Try for Free
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -131,18 +150,33 @@ export default function Navigation() {
           <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-700">
             <div className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.path}
-                  className={`px-3 py-2 rounded-lg transition-colors ${
-                    isActive(item.path)
-                      ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 font-semibold'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.path.startsWith('#') ? (
+                  <a
+                    key={item.name}
+                    href={item.path}
+                    className={`px-3 py-2 rounded-lg transition-colors ${
+                      isActive(item.path)
+                        ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 font-semibold'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.path}
+                    className={`px-3 py-2 rounded-lg transition-colors ${
+                      isActive(item.path)
+                        ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 font-semibold'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
               <div className="pt-4 space-y-2 border-t border-slate-200 dark:border-slate-700">
                 <Link href="/login">
@@ -152,7 +186,7 @@ export default function Navigation() {
                 </Link>
                 <Link href="/login">
                   <Button 
-                    className="w-full bg-gradient-to-r from-purple-500 to-green-500 hover:from-purple-600 hover:to-green-600 text-white"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Try for Free
