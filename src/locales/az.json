@@ -376,6 +376,10 @@
     "completeRequirements": "Başlatmadan əvvəl zəhmət olmasa bütün tələbləri tamamlayın."
   },
   "stats": {
+    "aiCallsMade": "AI Zəngləri Edildi",
+    "happyCustomers": "Məmnun Müştərilər",
+    "languagesSupported": "Dəstəklənən Dillər",
+    "uptime": "İş Vaxtı",
     "activeCampaigns": "Aktiv Kampaniyalar",
     "callsToday": "Bugünkü Zənglər",
     "successRate": "Uğur Dərəcəsi",

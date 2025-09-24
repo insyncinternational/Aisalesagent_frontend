@@ -490,10 +490,10 @@ export default function AnimatedBanner() {
         {/* Bottom Stats */}
         <div className="mt-2 sm:mt-4 lg:mt-6 grid grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 lg:gap-4 flex-shrink-0">
           {[
-            { label: t('stats.activeCampaigns'), value: "12", icon: Target },
-            { label: t('stats.callsToday'), value: "1,247", icon: Phone },
-            { label: t('stats.successRate'), value: "94.2%", icon: TrendingUp },
-            { label: t('stats.languages'), value: "95+", icon: Users }
+            { label: t('stats.aiCallsMade'), value: "10M+", icon: Phone },
+            { label: t('stats.happyCustomers'), value: "500+", icon: Users },
+            { label: t('stats.languagesSupported'), value: "95+", icon: Globe },
+            { label: t('stats.uptime'), value: "99.9%", icon: TrendingUp }
           ].map((stat, index) => {
             const StatIcon = stat.icon;
             return (
