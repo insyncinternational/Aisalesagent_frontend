@@ -61,14 +61,14 @@ export default function HomeOption1() {
   });
 
   const industries = [
-    { name: 'Healthcare', icon: Heart, color: 'from-red-500 to-pink-500' },
-    { name: 'E-commerce', icon: ShoppingCart, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Real Estate', icon: Building2, color: 'from-green-500 to-emerald-500' },
-    { name: 'Education', icon: GraduationCap, color: 'from-purple-500 to-violet-500' },
-    { name: 'Automotive', icon: Car, color: 'from-orange-500 to-red-500' },
-    { name: 'Legal', icon: Scale, color: 'from-indigo-500 to-blue-500' },
-    { name: 'Restaurant', icon: Utensils, color: 'from-yellow-500 to-orange-500' },
-    { name: 'Services', icon: Briefcase, color: 'from-teal-500 to-green-500' }
+    { name: 'Healthcare', icon: Heart, color: 'from-blue-500 to-purple-500' },
+    { name: 'E-commerce', icon: ShoppingCart, color: 'from-blue-500 to-purple-500' },
+    { name: 'Real Estate', icon: Building2, color: 'from-blue-500 to-purple-500' },
+    { name: 'Education', icon: GraduationCap, color: 'from-blue-500 to-purple-500' },
+    { name: 'Automotive', icon: Car, color: 'from-blue-500 to-purple-500' },
+    { name: 'Legal', icon: Scale, color: 'from-blue-500 to-purple-500' },
+    { name: 'Restaurant', icon: Utensils, color: 'from-blue-500 to-purple-500' },
+    { name: 'Services', icon: Briefcase, color: 'from-blue-500 to-purple-500' }
   ];
 
   const benefits = [
@@ -82,7 +82,7 @@ export default function HomeOption1() {
       icon: TrendingUp,
       title: '300% More Conversions',
       description: 'Transform your sales process with AI agents that qualify leads, follow up automatically, and close deals while you sleep.',
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-blue-500 to-purple-500'
     },
     {
       icon: Zap,
@@ -580,7 +580,7 @@ export default function HomeOption1() {
                 title: 'Execute Outreach',
                 description: 'Emails, LinkedIn, carrier pigeon (ok, maybe not that last one). We hit all the right channels while you hit "snooze."',
                 icon: Phone,
-                color: 'from-green-500 to-emerald-500'
+                color: 'from-blue-500 to-purple-500'
               }
             ].map((feature, index) => {
               const Icon = feature.icon;

@@ -175,14 +175,14 @@ export default function HomeOption2() {
   }, []);
 
   const industries = [
-    { name: 'Healthcare', icon: Heart, color: 'from-red-500 to-pink-500' },
-    { name: 'E-commerce', icon: ShoppingCart, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Real Estate', icon: Building2, color: 'from-green-500 to-emerald-500' },
-    { name: 'Education', icon: GraduationCap, color: 'from-purple-500 to-violet-500' },
-    { name: 'Automotive', icon: Car, color: 'from-orange-500 to-red-500' },
-    { name: 'Legal', icon: Scale, color: 'from-indigo-500 to-blue-500' },
-    { name: 'Restaurant', icon: Utensils, color: 'from-yellow-500 to-orange-500' },
-    { name: 'Services', icon: Briefcase, color: 'from-teal-500 to-green-500' }
+    { name: 'Healthcare', icon: Heart, color: 'from-blue-500 to-purple-500' },
+    { name: 'E-commerce', icon: ShoppingCart, color: 'from-blue-500 to-purple-500' },
+    { name: 'Real Estate', icon: Building2, color: 'from-blue-500 to-purple-500' },
+    { name: 'Education', icon: GraduationCap, color: 'from-blue-500 to-purple-500' },
+    { name: 'Automotive', icon: Car, color: 'from-blue-500 to-purple-500' },
+    { name: 'Legal', icon: Scale, color: 'from-blue-500 to-purple-500' },
+    { name: 'Restaurant', icon: Utensils, color: 'from-blue-500 to-purple-500' },
+    { name: 'Services', icon: Briefcase, color: 'from-blue-500 to-purple-500' }
   ];
 
   const solutions = [
@@ -196,13 +196,13 @@ export default function HomeOption2() {
       icon: Target,
       title: 'Lead Qualification',
       description: 'AI agents that qualify leads and book appointments',
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-blue-500 to-purple-500'
     },
     {
       icon: TrendingUp,
       title: 'Sales Automation',
       description: 'Automated follow-ups that convert prospects to customers',
-      color: 'from-orange-500 to-red-500'
+      color: 'from-blue-500 to-purple-500'
     }
   ];
 
@@ -770,10 +770,10 @@ export default function HomeOption2() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%239ca3af%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10zm10%200c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
               ✨ BENEFITS
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
               Why Choose Us?
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
@@ -787,19 +787,19 @@ export default function HomeOption2() {
               return (
                 <div key={index} className={`group relative animate-fade-in-up animate-delay-${(index + 1) * 150}`}>
                   <div className="relative p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-200 dark:border-slate-700 overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     <div className="relative">
-                      <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-fade-in-scale animate-delay-300 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-fade-in-scale animate-delay-300 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 animate-fade-in-left animate-delay-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                         {benefit.title}
                       </h3>
                       <p className="text-slate-600 dark:text-slate-400 text-sm animate-fade-in-right animate-delay-500 leading-relaxed">
                         {benefit.description}
                       </p>
                     </div>
-                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce"></div>
+                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce"></div>
                   </div>
                 </div>
               );
@@ -1022,20 +1022,39 @@ export default function HomeOption2() {
           </div>
 
           {/* Call-to-Action */}
-          <div className="text-center bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-12 text-white animate-fade-in-up animate-delay-800">
-            <h3 className="text-3xl font-bold mb-4">Ready to See Your AI Agent in Action?</h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <div className="text-center bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-white animate-fade-in-up animate-delay-800 mx-2 sm:mx-0">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight">Ready to See Your AI Agent in Action?</h3>
+            <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
               Book a personalized demo and watch our AI handle your specific use case in real-time.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold">
-                <Play className="mr-2 w-5 h-5" />
-                Book Live Demo
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="group bg-white text-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-blue-200 relative overflow-hidden w-full sm:w-auto"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+                  Book Live Demo
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold">
-                <Phone className="mr-2 w-5 h-5" />
-                Try Free Call
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="group border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-2xl backdrop-blur-sm bg-white/10 hover:bg-white relative overflow-hidden w-full sm:w-auto"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+                  Try Free Call
+                </span>
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
+            </div>
+            
+            {/* Trust Badge */}
+            <div className="mt-6 sm:mt-8 flex items-center justify-center space-x-2 text-white/80 text-xs sm:text-sm px-4">
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Trusted by 500+ companies worldwide</span>
             </div>
           </div>
         </div>
@@ -1362,12 +1381,12 @@ export default function HomeOption2() {
                         </div>
                       </td>
                       <td className="text-center py-4 sm:py-6 px-3 sm:px-6 lg:px-8">
-                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg">
+                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
                       </td>
                       <td className="text-center py-4 sm:py-6 px-3 sm:px-6 lg:px-8">
-                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full shadow-lg">
+                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg">
                           <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
                       </td>
@@ -1388,14 +1407,14 @@ export default function HomeOption2() {
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">SOC 2 compliant with military-grade encryption</p>
             </div>
             <div className="text-center animate-fade-in-up animate-delay-900">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
                 <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Proven Results</h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">Average 300% increase in lead conversion rates</p>
             </div>
             <div className="text-center animate-fade-in-up animate-delay-1000 sm:col-span-2 lg:col-span-1">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
                 <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">5-Star Support</h3>
@@ -1479,35 +1498,35 @@ export default function HomeOption2() {
                  name: 'Tooba',
                  title: 'Head of AI',
                  image: '/images/Tooba.png',
-                 color: 'from-green-500 to-emerald-500',
+                 color: 'from-blue-500 to-purple-500',
                  description: 'Leading AI strategy and machine learning implementation'
                },
                {
                  name: 'Sagar',
                  title: 'AI Strategist',
                  image: '/images/Sagar.png',
-                 color: 'from-purple-500 to-pink-500',
+                 color: 'from-blue-500 to-purple-500',
                  description: 'Expert in AI solutions and strategic technology planning'
                },
                {
                  name: 'Ananya',
                  title: 'Project Manager',
                  image: '/images/Ananya.png',
-                 color: 'from-orange-500 to-red-500',
+                 color: 'from-blue-500 to-purple-500',
                  description: 'Ensuring seamless project delivery and team coordination'
                },
                {
                  name: 'Ersham',
                  title: 'Creative Head',
                  image: '/images/Ersham.png',
-                 color: 'from-teal-500 to-cyan-500',
+                 color: 'from-blue-500 to-purple-500',
                  description: 'Designing innovative user experiences and creative solutions'
                },
                {
                  name: 'Saleem',
                  title: 'HR Manager',
                  image: '/images/Saleem.png',
-                 color: 'from-indigo-500 to-blue-500',
+                 color: 'from-blue-500 to-purple-500',
                  description: 'Building and nurturing our talented team culture'
                }
              ].map((member, index) => (
