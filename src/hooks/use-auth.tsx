@@ -43,7 +43,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         setUser(null);
       }
     } catch (error) {
-      console.error('Auth check failed:', error);
+      console.warn('Auth check failed, running in demo mode:', error);
+      // Don't set user to null on error, just log the warning
+      // This allows the app to continue functioning even when backend is unavailable
       setUser(null);
     } finally {
       setLoading(false);

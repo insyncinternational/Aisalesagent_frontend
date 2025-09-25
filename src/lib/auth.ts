@@ -150,15 +150,29 @@ class AuthService {
       }
     }
 
-    const response = await fetch(`${this.baseUrl}/status`, {
-      credentials: 'include',
-    });
+    try {
+      // Add timeout to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
-    if (!response.ok) {
+      const response = await fetch(`${this.baseUrl}/status`, {
+        credentials: 'include',
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        return { authenticated: false };
+      }
+
+      return await response.json();
+    } catch (error) {
+      // If network request fails (backend not available), return unauthenticated
+      // This prevents the app from crashing when backend is not available
+      console.warn('Backend not available, running in demo mode');
       return { authenticated: false };
     }
-
-    return await response.json();
   }
 }
 
