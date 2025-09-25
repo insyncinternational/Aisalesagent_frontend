@@ -1264,62 +1264,187 @@ export default function HomeOption2() {
       </section>
 
       {/* Why Top Companies Choose Spark AI */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%235965f0%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              WORLD-CLASS VOICE AI AGENTS
+            <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-fade-in-up">
+              🏆 TRUSTED BY INDUSTRY LEADERS
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 leading-tight">
               Why top companies choose Spark AI
             </h2>
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
+              Join 500+ companies that trust Spark AI to transform their customer engagement and drive unprecedented growth
+            </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-700 rounded-3xl shadow-2xl overflow-hidden">
+          {/* Enhanced Comparison Table */}
+          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 animate-fade-in-up animate-delay-600">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-600">
-                    <th className="text-left py-6 px-8 text-lg font-semibold text-slate-900 dark:text-white">
-                      Benefits
+                  <tr className="border-b border-slate-200 dark:border-slate-600 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-700 dark:to-slate-600">
+                    <th className="text-left py-8 px-6 sm:px-8 text-lg font-bold text-slate-900 dark:text-white">
+                      Key Features & Benefits
                     </th>
-                    <th className="text-center py-6 px-8">
-                      <div className="inline-flex items-center justify-center w-32 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg">
+                    <th className="text-center py-8 px-6 sm:px-8">
+                      <div className="inline-flex items-center justify-center w-36 h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-xl shadow-lg">
+                        <Sparkles className="w-6 h-6 text-white mr-2" />
                         <span className="text-white font-bold text-lg">SPARK AI</span>
                       </div>
                     </th>
-                    <th className="text-center py-6 px-8 text-lg font-semibold text-slate-900 dark:text-white">
+                    <th className="text-center py-8 px-6 sm:px-8 text-lg font-semibold text-slate-600 dark:text-slate-400">
                       Other AI Platforms
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    'Experienced AI Engineers & Voice Specialists',
-                    'Innovative Development Practices',
-                    'Complete Custom Development',
-                    'Client-Centric Approach',
-                    'Rigorous Testing and Validation',
-                    'Connections With All Major AI Platforms'
-                  ].map((benefit, index) => (
-                    <tr key={index} className="border-b border-slate-100 dark:border-slate-600">
-                      <td className="py-6 px-8 text-slate-700 dark:text-slate-300 font-medium">
-                        {benefit}
-                      </td>
-                      <td className="text-center py-6 px-8">
-                        <div className="inline-flex items-center justify-center w-8 h-8 bg-green-500 rounded-full">
-                          <CheckCircle className="w-5 h-5 text-white" />
+                    {
+                      feature: 'Advanced AI Voice Technology',
+                      description: 'State-of-the-art natural language processing',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: '24/7 Customer Support',
+                      description: 'Round-the-clock availability and monitoring',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Custom Voice Cloning',
+                      description: 'Personalized brand voice creation',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Multi-language Support',
+                      description: '95+ languages with native accents',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Real-time Analytics',
+                      description: 'Comprehensive performance insights',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Enterprise Security',
+                      description: 'SOC 2 compliant with end-to-end encryption',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Easy Integration',
+                      description: 'Seamless API integration with existing systems',
+                      spark: true,
+                      others: false
+                    },
+                    {
+                      feature: 'Dedicated Account Manager',
+                      description: 'Personal support and optimization',
+                      spark: true,
+                      others: false
+                    }
+                  ].map((item, index) => (
+                    <tr key={index} className={`border-b border-slate-100 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors duration-200 animate-fade-in-up animate-delay-${(index + 1) * 100}`}>
+                      <td className="py-6 px-6 sm:px-8">
+                        <div>
+                          <div className="text-slate-900 dark:text-white font-semibold text-base mb-1">
+                            {item.feature}
+                          </div>
+                          <div className="text-slate-500 dark:text-slate-400 text-sm">
+                            {item.description}
+                          </div>
                         </div>
                       </td>
-                      <td className="text-center py-6 px-8">
-                        <div className="inline-flex items-center justify-center w-8 h-8 bg-red-500 rounded-full">
-                          <X className="w-5 h-5 text-white" />
+                      <td className="text-center py-6 px-6 sm:px-8">
+                        <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg">
+                          <CheckCircle className="w-6 h-6 text-white" />
+                        </div>
+                      </td>
+                      <td className="text-center py-6 px-6 sm:px-8">
+                        <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full shadow-lg">
+                          <X className="w-6 h-6 text-white" />
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center animate-fade-in-up animate-delay-800">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise Security</h3>
+              <p className="text-slate-600 dark:text-slate-400">SOC 2 compliant with military-grade encryption</p>
+            </div>
+            <div className="text-center animate-fade-in-up animate-delay-900">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Proven Results</h3>
+              <p className="text-slate-600 dark:text-slate-400">Average 300% increase in lead conversion rates</p>
+            </div>
+            <div className="text-center animate-fade-in-up animate-delay-1000">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Star className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">5-Star Support</h3>
+              <p className="text-slate-600 dark:text-slate-400">24/7 dedicated support with 99.9% uptime</p>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-16 text-center">
+            <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-8 sm:p-12 text-white animate-fade-in-up animate-delay-1100 overflow-hidden">
+              {/* Background Animation */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 opacity-50 animate-pulse"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ready to join industry leaders?</h3>
+                <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+                  Experience the same AI technology that's helping Fortune 500 companies transform their customer engagement
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    size="lg" 
+                    className="group bg-white text-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-blue-200 relative overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Start Free Trial
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="group border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-2xl backdrop-blur-sm bg-white/10 hover:bg-white relative overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      <Phone className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                      Book Demo Call
+                    </span>
+                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                </div>
+                
+                {/* Trust Badge */}
+                <div className="mt-8 flex items-center justify-center space-x-2 text-white/80 text-sm">
+                  <Shield className="w-4 h-4" />
+                  <span>Trusted by 500+ companies worldwide</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
