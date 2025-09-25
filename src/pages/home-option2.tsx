@@ -144,6 +144,30 @@ export default function HomeOption2() {
     company: ''
   });
 
+  // Animation observer for scroll-triggered animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    const animatedElements = document.querySelectorAll('.text-reveal, .team-card, .fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   const industries = [
     { name: 'Healthcare', icon: Heart, color: 'from-red-500 to-pink-500' },
     { name: 'E-commerce', icon: ShoppingCart, color: 'from-blue-500 to-cyan-500' },
@@ -644,47 +668,69 @@ export default function HomeOption2() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <p className="text-slate-600 dark:text-slate-400 mb-6">Trusted by leading companies</p>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 text-reveal">Trusted by leading companies</p>
           </div>
-          <div className="flex justify-center items-center space-x-8 opacity-60 flex-wrap gap-4">
-            {/* Company Logos */}
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Amazon_logo.svg" alt="Amazon" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Azure" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Salesforce_logo.svg" alt="Salesforce" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-6" />
-            </div>
-            <div className="w-20 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logitech_logo.svg" alt="Logitech" className="h-6" />
+          
+          {/* Running Logo Animation */}
+          <div className="logo-container">
+            <div className="logo-scroll">
+              {/* First set of logos */}
+              {[
+                { name: 'Google', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
+                { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+                { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
+                { name: 'Apple', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
+                { name: 'Meta', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
+                { name: 'Tesla', src: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
+                { name: 'Shopify', src: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
+                { name: 'Slack', src: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg' },
+                { name: 'Netflix', src: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+                { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
+                { name: 'Uber', src: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Uber_logo_2018.svg' },
+                { name: 'Airbnb', src: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' }
+              ].map((logo, index) => (
+                <div key={`first-${index}`} className="logo-item w-32 h-20 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center shadow-lg border border-slate-200 dark:border-slate-600 opacity-70 hover:opacity-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700">
+                  <img src={logo.src} alt={logo.name} className="h-10 max-w-24 object-contain filter drop-shadow-sm" />
+                </div>
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {[
+                { name: 'Google', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
+                { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
+                { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
+                { name: 'Apple', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
+                { name: 'Meta', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
+                { name: 'Tesla', src: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
+                { name: 'Shopify', src: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
+                { name: 'Slack', src: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg' },
+                { name: 'Netflix', src: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
+                { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
+                { name: 'Uber', src: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Uber_logo_2018.svg' },
+                { name: 'Airbnb', src: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' }
+              ].map((logo, index) => (
+                <div key={`second-${index}`} className="logo-item w-32 h-20 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center shadow-lg border border-slate-200 dark:border-slate-600 opacity-70 hover:opacity-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700">
+                  <img src={logo.src} alt={logo.name} className="h-10 max-w-24 object-contain filter drop-shadow-sm" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Solutions */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%235965f0%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
-              Solutions
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
+              🚀 SOLUTIONS
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
+              Powerful AI Solutions
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-              Focus on what your audience gains. Use short, outcome-driven statements with icons to emphasize key improvements.
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
+              Transform your business with cutting-edge AI technology that delivers real results
             </p>
           </div>
 
@@ -692,16 +738,20 @@ export default function HomeOption2() {
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
               return (
-                <div key={index} className={`text-center animate-fade-in-scale animate-delay-${(index + 1) * 300}`}>
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${solution.color} rounded-2xl mb-6 animate-fade-in-scale animate-delay-400`}>
-                    <Icon className="w-8 h-8 text-white" />
+                <div key={index} className={`group relative text-center animate-fade-in-scale animate-delay-${(index + 1) * 200}`}>
+                  <div className="relative p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className={`relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${solution.color} rounded-2xl mb-6 animate-fade-in-scale animate-delay-300 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <Icon className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {solution.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-500 leading-relaxed">
+                      {solution.description}
+                    </p>
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-500">
-                    {solution.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-600">
-                    {solution.description}
-                  </p>
                 </div>
               );
             })}
@@ -710,31 +760,41 @@ export default function HomeOption2() {
       </section>
 
       {/* Benefits */}
-      <section id="benefits" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="benefits" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%239ca3af%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10zm10%200c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
-              Benefits
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
+              ✨ BENEFITS
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
+              Why Choose Us?
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-              Highlight your product's key advantages - 24/7 functionality, seamless integration, and superior efficiency.
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
+              Experience the advantages that set us apart from the competition
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <div key={index} className={`text-center p-6 bg-slate-50 dark:bg-slate-700 rounded-xl animate-fade-in-up animate-delay-${(index + 1) * 200}`}>
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-fade-in-scale animate-delay-300">
-                    <Icon className="w-8 h-8 text-white" />
+                <div key={index} className={`group relative animate-fade-in-up animate-delay-${(index + 1) * 150}`}>
+                  <div className="relative p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-fade-in-scale animate-delay-300 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 animate-fade-in-left animate-delay-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm animate-fade-in-right animate-delay-500 leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce"></div>
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 animate-fade-in-left animate-delay-400">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm animate-fade-in-right animate-delay-500">
-                    {benefit.description}
-                  </p>
                 </div>
               );
             })}
@@ -743,30 +803,52 @@ export default function HomeOption2() {
       </section>
 
       {/* How it Works */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <AIParticles />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23a855f7%22%20fill-opacity%3D%220.04%22%3E%3Cpath%20d%3D%22M40%2040c0-11-9-20-20-20s-20%209-20%2020%209%2020%2020%2020%2020-9%2020-20zm20%200c0-11-9-20-20-20s-20%209-20%2020%209%2020%2020%2020%2020-9%2020-20z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
-              How it Works?
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
+              🔄 HOW IT WORKS
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
+              Simple 3-Step Process
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-              Show that your solution is easy to implement. Describe the process in 3 steps.
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
+              Get started in minutes with our streamlined implementation process
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {howItWorks.map((step, index) => (
-              <div key={index} className={`text-center animate-fade-in-up animate-delay-${(index + 1) * 200}`}>
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-fade-in-scale animate-delay-300">
-                  <span className="text-2xl font-bold text-white">{step.step}</span>
+              <div key={index} className={`group relative text-center animate-fade-in-up animate-delay-${(index + 1) * 200}`}>
+                <div className="relative">
+                  {/* Connection Line */}
+                  {index < howItWorks.length - 1 && (
+                    <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 transform translate-x-4 z-0"></div>
+                  )}
+                  
+                  <div className="relative p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative">
+                      <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-fade-in-scale animate-delay-300 group-hover:scale-110 transition-transform duration-300 shadow-lg relative">
+                        <span className="text-3xl font-bold text-white">{step.step}</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-ping opacity-20"></div>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      
+                      <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-500 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                    
+                    <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-400">
-                  {step.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-500">
-                  {step.description}
-                </p>
               </div>
             ))}
           </div>
@@ -811,44 +893,144 @@ export default function HomeOption2() {
         </div>
       </section>
 
-      {/* Demo Calls Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* See Spark AI in Action */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
         <SoundWaveAnimation />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%235965f0%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
+              🎬 LIVE DEMOS
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
               See Spark AI in Action
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-              Watch real demo calls across different industries and use cases
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
+              Watch our AI voice agents handle real phone calls across different industries. No scripts, no pre-recorded responses - just pure AI intelligence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {demoCalls.map((demo, index) => {
+          {/* Main Demo Showcase */}
+          <div className="mb-16">
+            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 animate-fade-in-up animate-delay-600">
+              <div className="relative">
+                <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                      <Play className="w-10 h-10 ml-1" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Live AI Call Demo</h3>
+                    <p className="text-white/80 mb-6">Watch our AI agent handle a real customer service call</p>
+                    <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg font-semibold">
+                      <Play className="mr-2 w-5 h-5" />
+                      Play Full Demo
+                    </Button>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
+                  🔴 LIVE
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Demo Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                title: "Customer Support",
+                industry: "E-commerce",
+                duration: "2:30 min",
+                description: "AI agent handles order tracking, returns, and customer inquiries with natural conversation flow.",
+                icon: Headphones,
+                color: "from-blue-500 to-purple-500",
+                features: ["24/7 Availability", "Multi-language Support", "CRM Integration"]
+              },
+              {
+                title: "Appointment Booking",
+                industry: "Healthcare",
+                duration: "1:45 min", 
+                description: "Automated scheduling for dental clinics, beauty salons, and service providers with calendar sync.",
+                icon: Calendar,
+                color: "from-blue-500 to-purple-500",
+                features: ["Calendar Integration", "Smart Scheduling", "Reminder Calls"]
+              },
+              {
+                title: "Sales & Lead Generation",
+                industry: "Real Estate",
+                duration: "3:15 min",
+                description: "AI agent qualifies leads, books appointments, and follows up with prospects automatically.",
+                icon: TrendingUp,
+                color: "from-blue-500 to-purple-500",
+                features: ["Lead Qualification", "Follow-up Automation", "CRM Integration"]
+              }
+            ].map((demo, index) => {
               const Icon = demo.icon;
               return (
-                <div key={index} className={`bg-slate-50 dark:bg-slate-700 rounded-2xl p-6 border border-slate-200 dark:border-slate-600 animate-fade-in-up animate-delay-${(index + 1) * 300}`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center animate-fade-in-scale animate-delay-400">
-                        <Icon className="w-5 h-5 text-white" />
+                <div key={index} className={`group relative animate-fade-in-up animate-delay-${(index + 1) * 200}`}>
+                  <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-12 h-12 bg-gradient-to-r ${demo.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                            <Icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                              {demo.title}
+                            </h3>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">{demo.industry}</p>
+                          </div>
+                        </div>
+                        <div className="bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300">
+                          {demo.duration}
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-slate-900 dark:text-white animate-fade-in-left animate-delay-500">{demo.title}</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 animate-fade-in-right animate-delay-600">{demo.industry}</p>
+                      
+                      <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                        {demo.description}
+                      </p>
+                      
+                      <div className="space-y-2 mb-6">
+                        {demo.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-sm text-slate-500 dark:text-slate-400">
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2"></div>
+                            {feature}
+                          </div>
+                        ))}
                       </div>
+                      
+                      <Button variant="outline" className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
+                        <Play className="mr-2 w-4 h-4" />
+                        Watch Demo
+                      </Button>
                     </div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400 animate-fade-in-up animate-delay-700">{demo.duration}</div>
+                    
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4 animate-fade-in-up animate-delay-800">{demo.description}</p>
-                  <Button variant="outline" className="w-full animate-fade-in-up animate-delay-900">
-                    <Play className="mr-2 w-4 h-4" />
-                    Watch Demo
-                  </Button>
                 </div>
               );
             })}
+          </div>
+
+          {/* Call-to-Action */}
+          <div className="text-center bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-12 text-white animate-fade-in-up animate-delay-800">
+            <h3 className="text-3xl font-bold mb-4">Ready to See Your AI Agent in Action?</h3>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Book a personalized demo and watch our AI handle your specific use case in real-time.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold">
+                <Play className="mr-2 w-5 h-5" />
+                Book Live Demo
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold">
+                <Phone className="mr-2 w-5 h-5" />
+                Try Free Call
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -1153,60 +1335,67 @@ export default function HomeOption2() {
              </p>
            </div>
 
-           <div className="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
+           <div className="team-container">
              {[
                {
-                 name: 'Brendan',
-                 title: 'Founder',
-                 image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=face&auto=format&q=80',
+                 name: 'Jay Sir',
+                 title: 'CEO / Founder',
+                 image: '/images/JAY.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'AI strategy and business development expert'
+                 description: 'Visionary leader driving AI innovation and business growth'
                },
                {
-                 name: 'Tyler',
-                 title: 'Consultant',
-                 image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format&q=80',
+                 name: 'Tooba',
+                 title: 'Head of AI',
+                 image: '/images/Tooba.png',
                  color: 'from-green-500 to-emerald-500',
-                 description: 'Voice AI implementation specialist'
+                 description: 'Leading AI strategy and machine learning implementation'
                },
                {
-                 name: 'Nathan',
-                 title: 'Head Of Dev',
-                 image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face&auto=format&q=80',
+                 name: 'Sagar',
+                 title: 'AI Strategist',
+                 image: '/images/Sagar.png',
                  color: 'from-purple-500 to-pink-500',
-                 description: 'Lead AI engineer and platform architect'
+                 description: 'Expert in AI solutions and strategic technology planning'
                },
                {
-                 name: 'Logan',
-                 title: 'Engineer',
-                 image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=face&auto=format&q=80',
+                 name: 'Ananya',
+                 title: 'Project Manager',
+                 image: '/images/Ananya.png',
                  color: 'from-orange-500 to-red-500',
-                 description: 'Full-stack developer and AI integration expert'
+                 description: 'Ensuring seamless project delivery and team coordination'
                },
                {
-                 name: 'Zach',
-                 title: 'SDR',
-                 image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face&auto=format&q=80',
+                 name: 'Ersham',
+                 title: 'Creative Head',
+                 image: '/images/Ersham.png',
                  color: 'from-teal-500 to-cyan-500',
-                 description: 'Sales development and client success manager'
+                 description: 'Designing innovative user experiences and creative solutions'
+               },
+               {
+                 name: 'Saleem',
+                 title: 'HR Manager',
+                 image: '/images/Saleem.png',
+                 color: 'from-indigo-500 to-blue-500',
+                 description: 'Building and nurturing our talented team culture'
                }
              ].map((member, index) => (
-               <div key={index} className={`team-card group bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-600 w-64 ${index > 0 ? '-ml-4' : ''}`}>
-                 <div className="text-center">
-                   <div className="avatar-3d w-24 h-24 rounded-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl overflow-hidden bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-600">
+               <div key={index} className="team-card group bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-600">
+                 <div className="flex flex-col items-center justify-center text-center h-full">
+                   <div className="avatar-3d w-24 h-24 rounded-2xl mb-4 shadow-lg group-hover:shadow-xl overflow-hidden bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-600">
                      <img 
                        src={member.image} 
                        alt={member.name}
                        className="w-full h-full object-cover rounded-xl"
                      />
                    </div>
-                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                      {member.name}
                    </h3>
-                   <p className="text-blue-600 dark:text-blue-400 font-semibold mb-3">
+                   <p className="text-blue-600 dark:text-blue-400 font-semibold text-base mb-3">
                      {member.title}
                    </p>
-                   <p className="text-sm text-slate-600 dark:text-slate-400">
+                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed px-2">
                      {member.description}
                    </p>
                  </div>
@@ -1215,22 +1404,24 @@ export default function HomeOption2() {
           </div>
 
           {/* Team Stats */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
-              <div className="text-slate-600 dark:text-slate-400">Years Combined Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
-              <div className="text-slate-600 dark:text-slate-400">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">95%</div>
-              <div className="text-slate-600 dark:text-slate-400">Client Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">24/7</div>
-              <div className="text-slate-600 dark:text-slate-400">Support Available</div>
+          <div className="mt-16 flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
+                <div className="text-slate-600 dark:text-slate-400">Years Combined Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
+                <div className="text-slate-600 dark:text-slate-400">Projects Delivered</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">95%</div>
+                <div className="text-slate-600 dark:text-slate-400">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">24/7</div>
+                <div className="text-slate-600 dark:text-slate-400">Support Available</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1287,7 +1478,7 @@ export default function HomeOption2() {
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg"
             >
               Try for Free - Save 10+ Hours/Week
               <ArrowRight className="ml-2 w-5 h-5" />
