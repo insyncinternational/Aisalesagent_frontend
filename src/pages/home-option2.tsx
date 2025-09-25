@@ -46,7 +46,13 @@ import {
   Video,
   Radio,
   Activity,
-  Cpu
+  Cpu,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Check
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/use-theme';
@@ -481,7 +487,7 @@ export default function HomeOption2() {
             </div>
             
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up leading-tight">
               Transform Your Business with{' '}
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 bg-clip-text text-transparent animate-typewriter">
                 AI Voice Agents
@@ -489,7 +495,7 @@ export default function HomeOption2() {
             </h1>
             
             {/* Subheading */}
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto animate-fade-in-up animate-delay-200 px-4">
               Never miss another call. Our AI agents work 24/7 to qualify leads, 
               book appointments, and provide customer support that converts.
             </p>
@@ -497,19 +503,19 @@ export default function HomeOption2() {
             {/* CTA Button */}
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white px-8 py-4 text-lg mb-12 animate-voice-pulse animate-fade-in-up animate-delay-400"
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg mb-12 animate-voice-pulse animate-fade-in-up animate-delay-400 w-full sm:w-auto"
             >
               Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
 
             {/* Video Placeholder */}
-            <div className="bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl p-8 max-w-4xl mx-auto animate-ai-glow animate-fade-in-scale animate-delay-600">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-12 text-center">
-                <Play className="w-16 h-16 text-white mx-auto mb-4 animate-voice-pulse" />
-                <h3 className="text-2xl font-bold text-white mb-2 animate-fade-in-up animate-delay-700">See Spark AI in Action</h3>
-                <p className="text-white/80 mb-6 animate-fade-in-up animate-delay-800">Watch our AI agent handle real customer calls</p>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 animate-fade-in-up animate-delay-900">
+            <div className="bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto animate-ai-glow animate-fade-in-scale animate-delay-600 mx-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 lg:p-12 text-center">
+                <Play className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4 animate-voice-pulse" />
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 animate-fade-in-up animate-delay-700">See Spark AI in Action</h3>
+                <p className="text-white/80 mb-6 animate-fade-in-up animate-delay-800 text-sm sm:text-base">Watch our AI agent handle real customer calls</p>
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 animate-fade-in-up animate-delay-900 w-full sm:w-auto">
                   Play Demo Video
                 </Button>
               </div>
@@ -525,10 +531,10 @@ export default function HomeOption2() {
             <div className="inline-block bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
               24/7 Call Handling
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
               Missed Calls = Missed Revenue
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto px-4">
               Every missed call costs your company money. Answer every call 24/7/365.
             </p>
           </div>
@@ -537,12 +543,12 @@ export default function HomeOption2() {
             {/* Problem Section */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
-                  <X className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Problem</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Problem</h3>
               </div>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8">
                 Overwhelmed by repetitive calls?
               </p>
               
@@ -600,12 +606,12 @@ export default function HomeOption2() {
             {/* Solution Section */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                  <CheckCircle className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Solution</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Solution</h3>
               </div>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8">
                 Automate calls with AI Voice Agents
               </p>
               
@@ -1468,20 +1474,20 @@ export default function HomeOption2() {
       {/* Call To Action */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <VoiceWaveAnimation />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-12 text-white animate-ai-glow">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+        <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
+          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-6 sm:p-8 lg:p-12 text-white animate-ai-glow">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-lg sm:text-xl mb-8 opacity-90 px-2">
               Use action-driven CTAs like 'Try for Free' or 'Book a Demo' with a short benefit (e.g., 'Save 10+ hours a week').
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
             >
               Try for Free - Save 10+ Hours/Week
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>
@@ -1525,22 +1531,94 @@ export default function HomeOption2() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900 dark:bg-slate-950">
+      <footer id="contact" className="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <Logo size="md" showText={true} />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                  <Sparkles className="h-5 w-5 text-white" />
+                </div>
+                <span className="text-xl font-bold">Spark AI</span>
+              </div>
+              <p className="text-slate-400 mb-6 max-w-md">
+                {t('footer.companyDescription')}
+              </p>
+              <div className="text-slate-400 text-sm space-y-1">
+                <p>📍 {t('footer.address')}</p>
+                <p>📧 {t('footer.email')}</p>
+                <p>📞 {t('footer.phone')}</p>
+              </div>
+              
+              {/* Trust Elements */}
+              <div className="mt-6 flex flex-wrap gap-4">
+                <div className="flex items-center space-x-2 bg-slate-800 rounded-lg px-3 py-2">
+                  <Shield className="h-4 w-4 text-green-400" />
+                  <span className="text-xs text-slate-300">SSL Secured</span>
+                </div>
+                <div className="flex items-center space-x-2 bg-slate-800 rounded-lg px-3 py-2">
+                  <Check className="h-4 w-4 text-green-400" />
+                  <span className="text-xs text-slate-300">GDPR Compliant</span>
+                </div>
+                <div className="flex items-center space-x-2 bg-slate-800 rounded-lg px-3 py-2">
+                  <Star className="h-4 w-4 text-yellow-400" />
+                  <span className="text-xs text-slate-300">4.9/5 Rating</span>
+                </div>
+              </div>
+              
+              <div className="flex space-x-4 mt-6">
+                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </a>
+              </div>
             </div>
-            <div className="flex space-x-8 mb-6 md:mb-0">
-              <Link href="/" className="text-slate-400 hover:text-white transition-colors">Home</Link>
-              <a href="#benefits" className="text-slate-400 hover:text-white transition-colors">Benefits</a>
-              <a href="#pricing" className="text-slate-400 hover:text-white transition-colors">Pricing</a>
-              <Link href="/about" className="text-slate-400 hover:text-white transition-colors">About</Link>
-              <Link href="/contact" className="text-slate-400 hover:text-white transition-colors">Contact</Link>
+
+            {/* Product Links */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.product')}</h3>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="#solutions" className="hover:text-white transition-colors">{t('footer.features')}</a></li>
+                <li><a href="#pricing" className="hover:text-white transition-colors">{t('footer.pricing')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.api')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.integrations')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.voiceLibrary')}</a></li>
+              </ul>
             </div>
-            <div className="text-center md:text-right">
-              <p className="text-slate-400 text-sm">© 2024 Spark AI. All rights reserved.</p>
-              <p className="text-slate-500 text-xs mt-1">wecreatebrand.com</p>
+
+            {/* Company Links */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
+              <ul className="space-y-2 text-slate-400">
+                <li><a href="/about" className="hover:text-white transition-colors">{t('footer.about')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.blog')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.careers')}</a></li>
+                <li><a href="/contact" className="hover:text-white transition-colors">{t('footer.contact')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('footer.helpCenter')}</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-slate-400 text-sm">
+              {t('footer.copyright')}
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.privacyPolicy')}</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.termsOfService')}</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.cookiePolicy')}</a>
             </div>
           </div>
         </div>
