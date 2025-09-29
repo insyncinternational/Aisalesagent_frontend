@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FileText, Upload, X, Save, Bot, Trash2, Sparkles, Zap } from "lucide-react";
 import { api } from "@/lib/api";
+import { useTranslation } from "react-i18next";
 
 interface CampaignSetupProps {
   campaign: any;
@@ -14,6 +15,7 @@ interface CampaignSetupProps {
 }
 
 export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSetupProps) {
+  const { t } = useTranslation();
   const [firstPrompt, setFirstPrompt] = useState(
     campaign?.firstPrompt || "Hi {{first_name}}, I'm Sarah from Mathify. I hope you're having a great day!"
   );
@@ -182,10 +184,10 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
             </div>
             <div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                Knowledge Base
+                {t('dashboard.knowledgeBase')}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
-                Upload PDF files to train your AI agent with precision
+                {t('dashboard.uploadPdfFiles')}
               </p>
             </div>
           </CardTitle>
@@ -309,10 +311,10 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
             </div>
             <div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                AI Configuration
+                {t('dashboard.aiConfiguration')}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
-                Set up your AI agent's personality and behavior patterns
+                {t('dashboard.setupAiAgent')}
               </p>
             </div>
           </CardTitle>

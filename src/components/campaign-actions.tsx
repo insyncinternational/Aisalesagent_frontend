@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { Rocket, Phone, Play, AlertCircle } from "lucide-react";
 import { api } from "@/lib/api";
+import { useTranslation } from "react-i18next";
 
 interface CampaignActionsProps {
   campaign: any;
@@ -14,6 +15,7 @@ interface CampaignActionsProps {
 }
 
 export default function CampaignActions({ campaign, selectedVoiceId, uploadedLeads }: CampaignActionsProps) {
+  const { t } = useTranslation();
   const [testPhoneNumber, setTestPhoneNumber] = useState("");
   const [testFirstName, setTestFirstName] = useState("");
   const [testCallStatus, setTestCallStatus] = useState<"idle" | "calling" | "completed" | "failed">("idle");
@@ -120,7 +122,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
 
     if (!campaign?.knowledgeBaseId) {
       toast({
-        title: "Knowledge Base Required",
+        title: t('dashboard.knowledgeBaseRequired'),
         description: "Please upload a knowledge base PDF file.",
         variant: "destructive",
       });
@@ -281,7 +283,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
                     <div className={`w-5 h-5 rounded-full mr-3 flex items-center justify-center ${campaign?.knowledgeBaseId ? 'bg-green-500' : 'bg-slate-300'}`}>
                       {campaign?.knowledgeBaseId && <span className="text-white">✓</span>}
                     </div>
-                    Knowledge Base {campaign?.knowledgeBaseId ? 'Uploaded' : 'Required'}
+                    {t('dashboard.knowledgeBase')} {campaign?.knowledgeBaseId ? t('dashboard.knowledgeBaseUploaded') : t('dashboard.knowledgeBaseRequired')}
                   </li>
                   <li className="flex items-center text-sm">
                     <div className={`w-5 h-5 rounded-full mr-3 flex items-center justify-center ${uploadedLeads.length > 0 ? 'bg-green-500' : 'bg-slate-300'}`}>

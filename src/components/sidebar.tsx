@@ -26,10 +26,30 @@ export default function Sidebar() {
   const { toast } = useToast();
 
   const navigation = [
-    { name: t('common.dashboard'), href: "/dashboard", icon: BarChart3, current: location === "/" || location === "/dashboard" },
-    { name: t('common.campaigns'), href: "/campaigns", icon: Megaphone, current: location === "/campaigns" },
-    { name: t('common.voices'), href: "/voices", icon: MicOff, current: location === "/voices" },
-    { name: t('common.analytics'), href: "/analytics", icon: TrendingUp, current: location === "/analytics" },
+    { 
+      name: t('common.dashboard'), 
+      href: "/dashboard", 
+      icon: BarChart3, 
+      current: location === "/" || location === "/dashboard" || location.startsWith("/dashboard")
+    },
+    { 
+      name: t('common.campaigns'), 
+      href: "/campaigns", 
+      icon: Megaphone, 
+      current: location === "/campaigns" || location.startsWith("/campaign") || location.startsWith("/campaigns")
+    },
+    { 
+      name: t('common.voices'), 
+      href: "/voices", 
+      icon: MicOff, 
+      current: location === "/voices" || location.startsWith("/voices")
+    },
+    { 
+      name: t('common.analytics'), 
+      href: "/analytics", 
+      icon: TrendingUp, 
+      current: location === "/analytics" || location.startsWith("/analytics")
+    },
   ];
 
   const handleLogout = async () => {
@@ -49,7 +69,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-72 bg-white/90 dark:bg-brand-900/90 backdrop-blur-xl border-r border-brand-200/50 dark:border-brand-800/50 flex flex-col shadow-2xl">
+    <div className="w-[287.27px] h-[792.36px] bg-white/90 dark:bg-brand-900/90 backdrop-blur-xl border-r border-brand-200/50 dark:border-brand-800/50 flex flex-col shadow-2xl">
       {/* Enhanced Brand */}
       <div className="p-8 border-b border-brand-200/50 dark:border-brand-800/50 bg-gradient-to-br from-brand-50/50 to-brand-100/50 dark:from-brand-900/20 dark:to-brand-800/20">
         <div className="flex items-center space-x-4">

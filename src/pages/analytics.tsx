@@ -79,6 +79,7 @@ export default function Analytics() {
         <Sidebar />
       </div>
       
+      
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden">
           {/* Background Pattern */}
@@ -111,7 +112,7 @@ export default function Analytics() {
                     <Menu className="h-5 w-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-80 p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
                   <Sidebar />
                 </SheetContent>
               </Sheet>

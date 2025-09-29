@@ -92,12 +92,12 @@ export default function AnimatedBanner() {
       metric: t('features.analytics.stats'),
       color: "from-indigo-500 to-purple-500",
       chatMessages: [
-        { type: "user", text: currentLanguage === 'ar' ? "كيف يؤدّي حملتي؟" : currentLanguage === 'tr' ? "Kampanyam nasıl performans gösteriyor?" : currentLanguage === 'az' ? "Kampaniyam necə performans göstərir?" : "How's my campaign performing?" },
-        { type: "ai", text: currentLanguage === 'ar' ? "إليك أداءك في الوقت الفعلي:" : currentLanguage === 'tr' ? "İşte gerçek zamanlı performansınız:" : currentLanguage === 'az' ? "Budur real vaxt performansınız:" : "Here's your real-time performance:", 
-          features: currentLanguage === 'ar' ? ["معدل التحويل: 16.3%", "المكالمات اليوم: 1,247", "معدل النجاح: 94.2%", "الإيرادات: $12,450"] : 
-                   currentLanguage === 'tr' ? ["Dönüşüm Oranı: %16.3", "Bugünkü Aramalar: 1,247", "Başarı Oranı: %94.2", "Gelir: $12,450"] : 
-                   currentLanguage === 'az' ? ["Çevrilmə Dərəcəsi: %16.3", "Bu Günkü Zənglər: 1,247", "Uğur Dərəcəsi: %94.2", "Gəlir: $12,450"] : 
-                   ["Conversion Rate: 16.3%", "Calls Today: 1,247", "Success Rate: 94.2%", "Revenue: $12,450"] },
+        { type: "user", text: currentLanguage === 'ar' ? "ما هي نتائج حملتي التسويقية؟" : currentLanguage === 'tr' ? "Pazarlama kampanyamın sonuçları neler?" : currentLanguage === 'az' ? "Marketinq kampaniyamın nəticələri nədir?" : "What are my marketing campaign results?" },
+        { type: "ai", text: currentLanguage === 'ar' ? "إليك أحدث إحصائياتك المباشرة:" : currentLanguage === 'tr' ? "İşte en güncel canlı istatistikleriniz:" : currentLanguage === 'az' ? "Budur ən aktual canlı statistikalarınız:" : "Here are your latest live statistics:", 
+          features: currentLanguage === 'ar' ? ["معدل التحويل: 18.7%", "المكالمات اليوم: 1,523", "معدل النجاح: 96.8%", "الإيرادات: $15,230"] : 
+                   currentLanguage === 'tr' ? ["Dönüşüm Oranı: %18.7", "Bugünkü Aramalar: 1,523", "Başarı Oranı: %96.8", "Gelir: $15,230"] : 
+                   currentLanguage === 'az' ? ["Çevrilmə Dərəcəsi: %18.7", "Bu Günkü Zənglər: 1,523", "Uğur Dərəcəsi: %96.8", "Gəlir: $15,230"] : 
+                   ["Conversion Rate: 18.7%", "Calls Today: 1,523", "Success Rate: 96.8%", "Revenue: $15,230"] },
         { type: "typing", text: "" }
       ]
     },
@@ -108,12 +108,12 @@ export default function AnimatedBanner() {
       metric: t('features.leadQualification.stats'),
       color: "from-pink-500 to-purple-500",
       chatMessages: [
-        { type: "user", text: currentLanguage === 'ar' ? "هل أنت مؤهل لاتخاذ القرارات؟" : currentLanguage === 'tr' ? "Karar verme konusunda yetkili misiniz?" : currentLanguage === 'az' ? "Qərar vermək üçün səlahiyyətlisinizmi?" : "Are you qualified to make decisions?" },
-        { type: "ai", text: currentLanguage === 'ar' ? "نعم! أستخدم الذكاء الاصطناعي المتقدم لتأهيل العملاء المحتملين:" : currentLanguage === 'tr' ? "Evet! Müşteri adaylarını nitelendirmek için gelişmiş AI kullanıyorum:" : currentLanguage === 'az' ? "Bəli! Potensial müştəriləri kvalifikasiya etmək üçün inkişaf etmiş AI istifadə edirəm:" : "Yes! I use advanced AI to qualify leads:", 
-          features: currentLanguage === 'ar' ? ["تحليل الميزانية", "سلطة القرار", "تقييم الجدول الزمني", "تحديد الحاجة"] : 
-                   currentLanguage === 'tr' ? ["Bütçe Analizi", "Karar Yetkisi", "Zaman Çizelgesi Değerlendirmesi", "İhtiyaç Belirleme"] : 
-                   currentLanguage === 'az' ? ["Büdcə Analizi", "Qərar Səlahiyyəti", "Vaxt Cədvəli Qiymətləndirməsi", "Ehtiyac Müəyyənləşdirmə"] : 
-                   ["Budget Analysis", "Decision Authority", "Timeline Assessment", "Need Identification"] },
+        { type: "user", text: currentLanguage === 'ar' ? "هل يمكنك تقييم جودة العملاء المحتملين؟" : currentLanguage === 'tr' ? "Potansiyel müşteri kalitesini değerlendirebilir misiniz?" : currentLanguage === 'az' ? "Potensial müştəri keyfiyyətini qiymətləndirə bilərsinizmi?" : "Can you assess lead quality?" },
+        { type: "ai", text: currentLanguage === 'ar' ? "بالطبع! أقوم بتقييم العملاء المحتملين باستخدام الذكاء الاصطناعي:" : currentLanguage === 'tr' ? "Tabii ki! AI kullanarak müşteri adaylarını değerlendiriyorum:" : currentLanguage === 'az' ? "Əlbəttə! AI istifadə edərək müştəri namizədlərini qiymətləndirirəm:" : "Absolutely! I evaluate prospects using AI:", 
+          features: currentLanguage === 'ar' ? ["تحليل الميزانية المتاحة", "سلطة اتخاذ القرار", "تقييم الجدول الزمني", "تحديد الحاجة الفعلية"] : 
+                   currentLanguage === 'tr' ? ["Mevcut Bütçe Analizi", "Karar Verme Yetkisi", "Zaman Çizelgesi Değerlendirmesi", "Gerçek İhtiyaç Belirleme"] : 
+                   currentLanguage === 'az' ? ["Mövcud Büdcə Analizi", "Qərar Vermək Səlahiyyəti", "Vaxt Cədvəli Qiymətləndirməsi", "Həqiqi Ehtiyac Müəyyənləşdirmə"] : 
+                   ["Available Budget Analysis", "Decision-Making Authority", "Timeline Assessment", "Real Need Identification"] },
         { type: "typing", text: "" }
       ]
     },
@@ -124,12 +124,12 @@ export default function AnimatedBanner() {
       metric: t('features.globalReach.stats'),
       color: "from-violet-500 to-purple-500",
       chatMessages: [
-        { type: "user", text: currentLanguage === 'ar' ? "هل تعمل دولياً؟" : currentLanguage === 'tr' ? "Uluslararası çalışıyor musunuz?" : currentLanguage === 'az' ? "Beynəlxalq işləyirsinizmi?" : "Do you work internationally?" },
-        { type: "ai", text: currentLanguage === 'ar' ? "بالتأكيد! يمكنني الوصول إلى العملاء المحتملين عالمياً:" : currentLanguage === 'tr' ? "Kesinlikle! Potansiyel müşterilere küresel olarak ulaşabilirim:" : currentLanguage === 'az' ? "Əlbəttə! Potensial müştərilərə qlobal olaraq çata bilərəm:" : "Absolutely! I can reach prospects globally:", 
-          features: currentLanguage === 'ar' ? ["لهجات محلية", "وعي ثقافي", "معالجة المنطقة الزمنية", "الامتثال الإقليمي"] : 
-                   currentLanguage === 'tr' ? ["Yerel Lehçeler", "Kültürel Farkındalık", "Saat Dilimi Yönetimi", "Bölgesel Uyumluluk"] : 
-                   currentLanguage === 'az' ? ["Yerli Dialektlər", "Mədəni Şüurlu", "Vaxt Zonası İdarəetməsi", "Regional Uyğunluq"] : 
-                   ["Local Dialects", "Cultural Awareness", "Time Zone Handling", "Regional Compliance"] },
+        { type: "user", text: currentLanguage === 'ar' ? "هل يمكنك العمل مع العملاء في جميع أنحاء العالم؟" : currentLanguage === 'tr' ? "Dünya çapındaki müşterilerle çalışabilir misiniz?" : currentLanguage === 'az' ? "Dünya miqyasında müştərilərlə işləyə bilərsinizmi?" : "Can you work with clients worldwide?" },
+        { type: "ai", text: currentLanguage === 'ar' ? "نعم! أقدم خدماتي للعملاء في جميع أنحاء العالم:" : currentLanguage === 'tr' ? "Evet! Dünya çapında müşterilere hizmet veriyorum:" : currentLanguage === 'az' ? "Bəli! Dünya miqyasında müştərilərə xidmət göstərirəm:" : "Yes! I serve clients worldwide:", 
+          features: currentLanguage === 'ar' ? ["لهجات محلية أصيلة", "وعي ثقافي عميق", "إدارة المناطق الزمنية", "الامتثال للقوانين المحلية"] : 
+                   currentLanguage === 'tr' ? ["Otantik Yerel Lehçeler", "Derin Kültürel Farkındalık", "Saat Dilimi Yönetimi", "Yerel Yasalara Uyum"] : 
+                   currentLanguage === 'az' ? ["Əsl Yerli Dialektlər", "Dərin Mədəni Şüurlu", "Vaxt Zonası İdarəetməsi", "Yerli Qanunlara Uyğunluq"] : 
+                   ["Authentic Local Dialects", "Deep Cultural Awareness", "Time Zone Management", "Local Legal Compliance"] },
         { type: "typing", text: "" }
       ]
     },
@@ -140,12 +140,12 @@ export default function AnimatedBanner() {
       metric: t('features.personalization.stats'),
       color: "from-yellow-500 to-orange-500",
       chatMessages: [
-        { type: "user", text: currentLanguage === 'ar' ? "كيف تخصص المكالمات؟" : currentLanguage === 'tr' ? "Aramaları nasıl kişiselleştiriyorsunuz?" : currentLanguage === 'az' ? "Zəngləri necə fərdiləşdirirsiniz?" : "How do you personalize calls?" },
-        { type: "ai", text: currentLanguage === 'ar' ? "أتكيف بناءً على تفضيلاتك:" : currentLanguage === 'tr' ? "Tercihlerinize göre uyarlanıyorum:" : currentLanguage === 'az' ? "Üstünlüklərinizə əsaslanaraq uyğunlaşıram:" : "I adapt based on your preferences:", 
-          features: currentLanguage === 'ar' ? ["التفاعلات السابقة", "المعرفة الصناعية", "الاهتمامات الشخصية", "أسلوب التواصل"] : 
-                   currentLanguage === 'tr' ? ["Önceki Etkileşimler", "Sektör Bilgisi", "Kişisel İlgi Alanları", "İletişim Tarzı"] : 
-                   currentLanguage === 'az' ? ["Əvvəlki Qarşılıqlı Əlaqələr", "Sənaye Bilikləri", "Şəxsi Maraqlar", "Ünsiyyət Üslubu"] : 
-                   ["Previous Interactions", "Industry Knowledge", "Personal Interests", "Communication Style"] },
+        { type: "user", text: currentLanguage === 'ar' ? "كيف تجعل كل مكالمة فريدة ومخصصة؟" : currentLanguage === 'tr' ? "Her aramayı nasıl benzersiz ve kişiselleştirilmiş yapıyorsunuz?" : currentLanguage === 'az' ? "Hər zəngi necə unikal və fərdiləşdirilmiş edirsiniz?" : "How do you make each call unique and personalized?" },
+        { type: "ai", text: currentLanguage === 'ar' ? "أستخدم الذكاء الاصطناعي المتقدم للتخصيص:" : currentLanguage === 'tr' ? "Kişiselleştirme için gelişmiş AI kullanıyorum:" : currentLanguage === 'az' ? "Fərdiləşdirmə üçün inkişaf etmiş AI istifadə edirəm:" : "I use advanced AI for personalization:", 
+          features: currentLanguage === 'ar' ? ["تحليل التفاعلات السابقة", "المعرفة المتخصصة بالصناعة", "الاهتمامات الشخصية المحددة", "أسلوب التواصل المفضل"] : 
+                   currentLanguage === 'tr' ? ["Önceki Etkileşim Analizi", "Sektörel Uzmanlık Bilgisi", "Spesifik Kişisel İlgi Alanları", "Tercih Edilen İletişim Tarzı"] : 
+                   currentLanguage === 'az' ? ["Əvvəlki Qarşılıqlı Əlaqə Analizi", "Sənaye Ekspert Bilikləri", "Xüsusi Şəxsi Maraqlar", "Üstünlük Verilən Ünsiyyət Üslubu"] : 
+                   ["Previous Interaction Analysis", "Industry Expertise Knowledge", "Specific Personal Interests", "Preferred Communication Style"] },
         { type: "typing", text: "" }
       ]
     }

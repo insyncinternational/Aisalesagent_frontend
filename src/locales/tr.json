@@ -125,6 +125,15 @@
     "changeCampaign": "Kampanya Değiştir",
     "voiceSelection": "Ses Seçimi",
     "leadsManagement": "Müşteri Yönetimi",
+    "knowledgeBase": "Bilgi Tabanı",
+    "uploadPdfFiles": "AI ajanınızı eğitmek için PDF dosyalarını yükleyin.",
+    "aiConfiguration": "AI Yapılandırması",
+    "setupAiAgent": "AI ajanınızın kişiliğini ve davranışını ayarlayın.",
+    "aiVoiceSelection": "AI Ses Seçimi",
+    "chooseFromPremium": "Premium veya özel seslerden seçin.",
+    "uploadAndManageLeads": "Arama listelerinizi yükleyin ve yönetin.",
+    "knowledgeBaseRequired": "Bilgi Tabanı Gerekli",
+    "knowledgeBaseUploaded": "Bilgi Tabanı Yüklendi",
     "campaignLaunch": "Kampanya Başlatma",
     "notifications": "Bildirimler",
     "noNotifications": "Bildirim yok",
@@ -498,8 +507,22 @@
     "hero": {
       "title": "Gerçekten Dönüştüren AI Satış Aramaları",
       "subtitle": "Kaçırılan aramalar nedeniyle müşteri adaylarını kaybetmeyi bırakın. AI ajanlarımız 7/24 insan gibi ses çıkaran satış aramaları yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Haftada 10+ saat tasarruf ederken dönüşümleri %300 artırın.",
+      "startFreeTrial": "Ücretsiz Deneme Başlat",
+      "seeInAction": "Spark AI'yı Aksiyonda Görün",
+      "watchDescription": "AI ajanımızın gerçek müşteri aramalarını doğal konuşma ve akıllı yanıtlarla nasıl hallettiğini izleyin",
+      "tryLiveDemo": "Canlı Demo Dene",
+      "enterPhoneNumber": "Telefon numaranızı girin",
+      "playDemoVideo": "Demo Videosunu Oynat",
       "tryForFree": "Ücretsiz Dene - Haftada 10+ Saat Tasarruf Et",
-      "tryInteractiveDemo": "Etkileşimli Demo Dene"
+      "tryInteractiveDemo": "Etkileşimli Demo Dene",
+      "stats": {
+        "successRate": "%98",
+        "successRateLabel": "Başarı Oranı",
+        "availability": "7/24",
+        "availabilityLabel": "Erişilebilirlik",
+        "languages": "100+",
+        "languagesLabel": "Dil"
+      }
     },
     "benefits": {
       "moreSalesCalls": {
@@ -666,9 +689,168 @@
         "title": "Daha Fazla Anlaşma Kapatın",
         "description": "Nitelikli müşteri adaylarına odaklanın ve daha fazla anlaşma kapatın. Her arama ve dönüşüm hakkında detaylı raporlar alın."
       }
-    }
-  },
-  "benefits": {
+      }
+    },
+    "industries": {
+      "healthcare": "Sağlık",
+      "ecommerce": "E-ticaret", 
+      "realEstate": "Emlak",
+      "education": "Eğitim",
+      "automotive": "Otomotiv",
+      "legal": "Hukuk",
+      "restaurant": "Restoran",
+      "services": "Hizmetler"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "description": "Hiç uyumayan 24/7 otomatik müşteri hizmeti"
+      },
+      "leadQualification": {
+        "title": "Müşteri Adayı Değerlendirme", 
+        "description": "AI destekli müşteri adayı puanlama ve değerlendirme"
+      },
+      "salesAutomation": {
+        "title": "Satış Otomasyonu",
+        "description": "Müşteri adaylarını müşteriye dönüştüren otomatik takipler"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Erişilebilirlik",
+        "description": "7/24 AI ajanlarla bir daha asla arama kaçırmayın"
+      },
+      "lightningFast": {
+        "title": "Şimşek Hızında",
+        "description": "Anında yanıtlar ve acil müşteri adayı değerlendirme"
+      },
+      "scalableTeam": {
+        "title": "Ölçeklenebilir Ekip",
+        "description": "İşe almadan aynı anda sınırsız arama yapın"
+      },
+      "dataDriven": {
+        "title": "Veri Odaklı",
+        "description": "Gerçek zamanlı analitik ve performans içgörüleri"
+      },
+      "uploadData": {
+        "title": "Verilerinizi Yükleyin",
+        "description": "İş bilgilerinizi, senaryolarınızı ve bilgi tabanınızı ekleyin"
+      },
+      "trainAi": {
+        "title": "AI'nizi Eğitin",
+        "description": "AI'mız sesinizi, tonunuzu ve iş süreçlerinizi öğrenir"
+      },
+      "goLive": {
+        "title": "Canlı Yayına Geçin",
+        "description": "AI ajanınızla arama almayı ve yapmayı başlatın"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Temel",
+        "description": "Başlayan küçük işletmeler için mükemmel",
+        "features": [
+          "Temel analitik",
+          "E-posta desteği"
+        ],
+        "cta": "Başla"
+      },
+      "pro": {
+        "name": "Profesyonel",
+        "description": "Büyüyen işletmeler için gelişmiş özellikler",
+        "features": [
+          "Gelişmiş analitik",
+          "Öncelikli destek", 
+          "Özel entegrasyonlar"
+        ],
+        "cta": "Başla"
+      }
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "Spark AI müşteri adayı değerlendirme sürecimizi dönüştürdü. Sadece 3 ayda %20'den %65'e dönüşüm oranına çıktık."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Satış Müdürü, RealEstate Pro",
+        "content": "AI ajanlar randevu planlamamızı kusursuz şekilde hallediyor. Ekibimiz artık takvim yönetmek yerine anlaşma kapatmaya odaklanabiliyor."
+      },
+      "emily": {
+        "name": "Emily Rodriguez", 
+        "role": "Kurucu, HealthCare Plus",
+        "content": "Spark AI'ı uyguladığımızdan beri hasta memnuniyeti %40 arttı. Hastalarımız anında, kişiselleştirilmiş desteği seviyor."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Müşteri Desteği Demo",
+        "description": "AI'mızın müşteri sorularını nasıl hallettiğini ve sorunları anında nasıl çözdüğünü görün."
+      },
+      "appointmentBooking": {
+        "title": "Randevu Rezervasyon Demo",
+        "description": "AI ajanımızın randevuları nasıl planladığını ve takvimleri sorunsuz şekilde nasıl yönettiğini izleyin.",
+        "industry": "Sağlık"
+      },
+      "salesQualification": {
+        "title": "Satış Değerlendirme Demo",
+        "description": "AI'mızın müşteri adaylarını nasıl değerlendirdiğini ve toplantıları otomatik olarak nasıl planladığını deneyimleyin."
+      }
+    },
+    "solutionsSection": {
+      "title": "Güçlü AI Çözümleri",
+      "subtitle": "Gerçek sonuçlar veren son teknoloji AI teknolojisi ile işinizi dönüştürün"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "Spark AI nasıl çalışır?",
+        "answer": "Spark AI, müşteri aramalarını halledebilen, müşteri adaylarını değerlendiren ve otomatik olarak randevu planlayan akıllı ses ajanları oluşturmak için gelişmiş doğal dil işleme ve makine öğrenmesi kullanır."
+      },
+      "customization": {
+        "question": "AI ajanını özelleştirebilir miyim?",
+        "answer": "Evet! AI'yı iş bilgileriniz, senaryolarınız ve bilgi tabanınızla eğitebilirsiniz. AI sesinizi, tonunuzu ve iş süreçlerinizi öğrenecek."
+      },
+      "languages": {
+        "question": "Hangi diller destekleniyor?",
+        "answer": "Spark AI doğal sesli ve aksanlı 100'den fazla dili destekler. Kişiselleştirilmiş bir deneyim için kendi sesinizi de klonlayabilirsiniz."
+      },
+      "pricing": {
+        "question": "Maliyeti ne kadar?",
+        "answer": "Fiyatlarımız 100 arama ile Temel plan için ayda 150$'dan başlıyor. Ayrıca gelişmiş özellikler ve daha yüksek arama hacimleri ile Pro plan da sunuyoruz."
+      },
+      "freeTrial": {
+        "question": "Ücretsiz deneme var mı?",
+        "answer": "Evet! Kredi kartı gerektirmeyen 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri test edebilir ve taahhüt etmeden önce sonuçları görebilirsiniz."
+      }
+    },
+    "callForm": {
+      "callInitiated": "Arama Başlatıldı!",
+      "callDescription": "AI ajanımız yeteneklerimizi göstermek için yakında sizi arayacak."
+    },
+    "companies": {
+      "trustedBy": "Önde gelen şirketler tarafından güveniliyor"
+    },
+    "industryUseCases": {
+      "healthcare": "Randevu planlama, hasta hatırlatmaları ve destek",
+      "ecommerce": "Sipariş takibi, iadeler ve müşteri desteği", 
+      "realEstate": "Müşteri adayı değerlendirme, emlak sorguları ve planlama",
+      "education": "Öğrenci desteği, kayıt ve bilgi",
+      "automotive": "Servis randevuları, satış takipleri ve destek",
+      "legal": "Müvekkil kabulü, randevu planlama ve dava güncellemeleri",
+      "restaurant": "Rezervasyonlar, siparişler ve müşteri hizmetleri",
+      "services": "Randevu rezervasyonu, takipler ve destek"
+    },
+    "demoFeatures": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "features": ["24/7 Erişilebilirlik", "Çok Dilli Destek", "CRM Entegrasyonu"]
+      },
+      "appointmentBooking": {
+        "title": "Randevu Rezervasyonu",
+        "industry": "Sağlık"
+      }
+    },
+    "benefits": {
     "title": "AI Arama Sistemimizi Neden Seçmelisiniz",
     "subtitle": "Ürününüzün temel avantajlarını vurgulayın - 7/24 işlevsellik, sorunsuz entegrasyon ve üstün verimlilik.",
     "availability": {

@@ -129,6 +129,15 @@
     "changeCampaign": "Change Campaign",
     "voiceSelection": "Voice Selection",
     "leadsManagement": "Leads Management",
+    "knowledgeBase": "Knowledge Base",
+    "uploadPdfFiles": "Upload PDF files to train your AI agent.",
+    "aiConfiguration": "AI Configuration",
+    "setupAiAgent": "Set up your AI agent's personality and behavior.",
+    "aiVoiceSelection": "AI Voice Selection",
+    "chooseFromPremium": "Choose from premium or custom voices.",
+    "uploadAndManageLeads": "Upload and manage your calling lists.",
+    "knowledgeBaseRequired": "Knowledge Base Required",
+    "knowledgeBaseUploaded": "Knowledge Base Uploaded",
     "campaignLaunch": "Campaign Launch",
     "notifications": "Notifications",
     "noNotifications": "No notifications",
@@ -548,17 +557,249 @@
     "title": "AI Sales Calling Agent",
     "subtitle": "Transform your sales with intelligent voice automation",
     "hero": {
-      "title": "AI Sales Calls That Actually Convert",
-      "subtitle": "Stop losing leads to missed calls. Our AI agents make 24/7 sales calls that sound human, qualify prospects, and book meetings automatically. Save 10+ hours per week while increasing conversions by 300%.",
-      "tryForFree": "Try for Free - Save 10+ Hours/Week",
-      "tryInteractiveDemo": "Try Interactive Demo"
+      "title": "Transform Your Business with AI Voice Agents",
+      "subtitle": "Never miss another call. Our AI agents work 24/7 to qualify leads, book appointments, and provide customer support that converts.",
+      "startFreeTrial": "Start Free Trial",
+      "seeInAction": "See Spark AI in Action",
+      "watchDescription": "Watch our AI agent handle real customer calls with natural conversation and intelligent responses",
+      "tryLiveDemo": "Try Live Demo",
+      "enterPhoneNumber": "Enter your phone number",
+      "playDemoVideo": "Play Demo Video",
+      "stats": {
+        "successRate": "98%",
+        "successRateLabel": "Success Rate",
+        "availability": "24/7",
+        "availabilityLabel": "Availability",
+        "languages": "100+",
+        "languagesLabel": "Languages"
+      }
+    },
+    "problem": {
+      "title": "Missed Calls = Missed Revenue",
+      "subtitle": "Every missed call costs your company money. Answer every call 24/7/365.",
+      "tag": "24/7 Call Handling",
+      "problems": [
+        "Want to get more leads?",
+        "Struggling with high call volume?",
+        "Distracted from important tasks?",
+        "Looking for a scalable, 24/7 solution?"
+      ],
+      "solutions": [
+        "AI agents work 24/7 to capture every lead",
+        "Handle unlimited calls simultaneously",
+        "Focus on high-value activities",
+        "Scale without hiring more staff"
+      ]
     },
     "benefits": {
+      "title": "Why Choose Our AI Calling System",
+      "subtitle": "Transform your business with intelligent voice automation",
       "moreSalesCalls": {
         "title": "300% More Sales Calls",
         "description": "Never miss another lead. AI agents make calls 24/7, even when you're sleeping, increasing your reach by 300%.",
         "stats": "300% increase"
       },
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Never miss a call again with round-the-clock AI agents"
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Instant responses and immediate lead qualification"
+      },
+      "scalableTeam": {
+        "title": "Scalable Team",
+        "description": "Handle unlimited calls simultaneously without hiring"
+      },
+      "dataDriven": {
+        "title": "Data Driven",
+        "description": "Real-time analytics and performance insights"
+      },
+      "uploadData": {
+        "title": "Upload Your Data",
+        "description": "Simply upload your contact list and let AI do the rest"
+      },
+      "industries": {
+        "healthcare": "Healthcare",
+        "ecommerce": "E-commerce",
+        "realEstate": "Real Estate",
+        "education": "Education",
+        "automotive": "Automotive",
+        "legal": "Legal",
+        "restaurant": "Restaurant",
+        "services": "Services"
+      },
+      "solutions": {
+        "customerSupport": {
+          "title": "Customer Support",
+          "description": "24/7 automated customer service that never sleeps"
+        },
+        "leadQualification": {
+          "title": "Lead Qualification",
+          "description": "AI-powered lead scoring and qualification"
+        },
+        "salesAutomation": {
+          "title": "Sales Automation",
+          "description": "Automated follow-ups that convert prospects to customers"
+        }
+      }
+    },
+    "industries": {
+      "healthcare": "Healthcare",
+      "ecommerce": "E-commerce", 
+      "realEstate": "Real Estate",
+      "education": "Education",
+      "automotive": "Automotive",
+      "legal": "Legal",
+      "restaurant": "Restaurant",
+      "services": "Services"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Customer Support",
+        "description": "24/7 automated customer service that never sleeps"
+      },
+      "leadQualification": {
+        "title": "Lead Qualification", 
+        "description": "AI-powered lead scoring and qualification"
+      },
+      "salesAutomation": {
+        "title": "Sales Automation",
+        "description": "Automated follow-ups that convert prospects to customers"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Never miss a call again with round-the-clock AI agents"
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Instant responses and immediate lead qualification"
+      },
+      "scalableTeam": {
+        "title": "Scalable Team",
+        "description": "Handle unlimited calls simultaneously without hiring"
+      },
+      "dataDriven": {
+        "title": "Data Driven",
+        "description": "Real-time analytics and performance insights"
+      },
+      "uploadData": {
+        "title": "Upload Your Data",
+        "description": "Add your business information, scripts, and knowledge base"
+      },
+      "trainAi": {
+        "title": "Train Your AI",
+        "description": "Our AI learns your voice, tone, and business processes"
+      },
+      "goLive": {
+        "title": "Go Live",
+        "description": "Start receiving and making calls with your AI agent"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basic",
+        "description": "Perfect for small businesses getting started",
+        "features": [
+          "Basic analytics",
+          "Email support"
+        ],
+        "cta": "Get Started"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Advanced features for growing businesses",
+        "features": [
+          "Advanced analytics",
+          "Priority support", 
+          "Custom integrations"
+        ],
+        "cta": "Get Started"
+      }
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "Spark AI transformed our lead qualification process. We went from 20% conversion rate to 65% in just 3 months."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Sales Director, RealEstate Pro",
+        "content": "The AI agents handle our appointment scheduling flawlessly. Our team can now focus on closing deals instead of managing calendars."
+      },
+      "emily": {
+        "name": "Emily Rodriguez", 
+        "role": "Founder, HealthCare Plus",
+        "content": "Patient satisfaction increased by 40% since implementing Spark AI. Our patients love the instant, personalized support."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Customer Support Demo",
+        "description": "See how our AI handles customer inquiries and resolves issues instantly."
+      },
+      "appointmentBooking": {
+        "title": "Appointment Booking Demo",
+        "description": "Watch our AI agent schedule appointments and manage calendars seamlessly.",
+        "industry": "Healthcare"
+      },
+      "salesQualification": {
+        "title": "Sales Qualification Demo",
+        "description": "Experience how our AI qualifies leads and books meetings automatically."
+      }
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "How does Spark AI work?",
+        "answer": "Spark AI uses advanced natural language processing and machine learning to create intelligent voice agents that can handle customer calls, qualify leads, and book appointments automatically."
+      },
+      "customization": {
+        "question": "Can I customize the AI agent?",
+        "answer": "Yes! You can train the AI with your business information, scripts, and knowledge base. The AI will learn your voice, tone, and business processes."
+      },
+      "languages": {
+        "question": "What languages are supported?",
+        "answer": "Spark AI supports over 100 languages with natural-sounding voices and accents. You can also clone your own voice for a personalized experience."
+      },
+      "pricing": {
+        "question": "How much does it cost?",
+        "answer": "Our pricing starts at $150/month for the Basic plan with 100 calls. We also offer a Pro plan with advanced features and higher call volumes."
+      },
+      "freeTrial": {
+        "question": "Is there a free trial?",
+        "answer": "Yes! We offer a 14-day free trial with no credit card required. You can test all features and see the results before committing."
+      }
+    },
+    "callForm": {
+      "callInitiated": "Call Initiated!",
+      "callDescription": "Our AI agent will call you shortly to demonstrate our capabilities."
+    },
+    "companies": {
+      "trustedBy": "Trusted by leading companies"
+    },
+    "industryUseCases": {
+      "healthcare": "Appointment scheduling, patient reminders, and support",
+      "ecommerce": "Order tracking, returns, and customer support", 
+      "realEstate": "Lead qualification, property inquiries, and scheduling",
+      "education": "Student support, enrollment, and information",
+      "automotive": "Service appointments, sales follow-ups, and support",
+      "legal": "Client intake, appointment scheduling, and case updates",
+      "restaurant": "Reservations, orders, and customer service",
+      "services": "Appointment booking, follow-ups, and support"
+    },
+    "demoFeatures": {
+      "customerSupport": {
+        "title": "Customer Support",
+        "features": ["24/7 Availability", "Multi-language Support", "CRM Integration"]
+      },
+      "appointmentBooking": {
+        "title": "Appointment Booking",
+        "industry": "Healthcare"
+      }
+    },
+    "benefits": {
       "saveTime": {
         "title": "Save 10+ Hours Weekly",
         "description": "Stop spending hours on cold calls. Our AI handles the entire process while you focus on closing deals.",
@@ -629,6 +870,116 @@
         "testimonial2": "Saved 20 hours per week on cold calling. Our team now focuses on closing deals instead of prospecting. Game changer!",
         "testimonial3": "As a startup, we couldn't afford a sales team. This AI agent became our best salesperson, working 24/7 for a fraction of the cost."
       }
+    },
+    "industries": {
+      "healthcare": "Healthcare",
+      "ecommerce": "E-commerce", 
+      "realEstate": "Real Estate",
+      "education": "Education",
+      "automotive": "Automotive",
+      "legal": "Legal",
+      "restaurant": "Restaurant",
+      "services": "Services"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Customer Support",
+        "description": "24/7 automated customer service that never sleeps"
+      },
+      "leadQualification": {
+        "title": "Lead Qualification", 
+        "description": "AI-powered lead scoring and qualification"
+      },
+      "salesAutomation": {
+        "title": "Sales Automation",
+        "description": "Automated follow-ups that convert prospects to customers"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Never miss a call again with round-the-clock AI agents"
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Instant responses and immediate lead qualification"
+      },
+      "scalableTeam": {
+        "title": "Scalable Team",
+        "description": "Handle unlimited calls simultaneously without hiring"
+      },
+      "dataDriven": {
+        "title": "Data Driven",
+        "description": "Real-time analytics and performance insights"
+      },
+      "uploadData": {
+        "title": "Upload Your Data",
+        "description": "Add your business information, scripts, and knowledge base"
+      },
+      "trainAi": {
+        "title": "Train Your AI",
+        "description": "Our AI learns your voice, tone, and business processes"
+      },
+      "goLive": {
+        "title": "Go Live",
+        "description": "Start receiving and making calls with your AI agent"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basic",
+        "description": "Perfect for small businesses getting started",
+        "features": [
+          "Basic analytics",
+          "Email support"
+        ],
+        "cta": "Get Started"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Advanced features for growing businesses",
+        "features": [
+          "Advanced analytics",
+          "Priority support", 
+          "Custom integrations"
+        ],
+        "cta": "Get Started"
+      }
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "Spark AI transformed our lead qualification process. We went from 20% conversion rate to 65% in just 3 months."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Sales Director, RealEstate Pro",
+        "content": "The AI agents handle our appointment scheduling flawlessly. Our team can now focus on closing deals instead of managing calendars."
+      },
+      "emily": {
+        "name": "Emily Rodriguez", 
+        "role": "Founder, HealthCare Plus",
+        "content": "Patient satisfaction increased by 40% since implementing Spark AI. Our patients love the instant, personalized support."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Customer Support Demo",
+        "description": "See how our AI handles customer inquiries and resolves issues instantly."
+      },
+      "appointmentBooking": {
+        "title": "Appointment Booking Demo",
+        "description": "Watch our AI agent schedule appointments and manage calendars seamlessly.",
+        "industry": "Healthcare"
+      },
+      "salesQualification": {
+        "title": "Sales Qualification Demo",
+        "description": "Experience how our AI qualifies leads and books meetings automatically."
+      }
+    },
+    "solutionsSection": {
+      "title": "Powerful AI Solutions",
+      "subtitle": "Transform your business with cutting-edge AI technology that delivers real results"
     }
   },
   "chat": {

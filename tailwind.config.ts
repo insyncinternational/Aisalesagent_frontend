@@ -40,6 +40,7 @@ export default {
       colors: {
         // Custom brand colors
         brand: {
+          25: "#f8f9ff",
           50: "#f0f0ff",
           100: "#e0d9fb",
           200: "#afaef8",

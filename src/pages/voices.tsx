@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
-import { Search, Play, Upload, MicOff, Trash2, Plus, Pause } from "lucide-react";
+import { Search, Play, Upload, MicOff, Trash2, Plus, Pause, Menu } from "lucide-react";
 import { api, type Voice } from "@/lib/api";
 import Sidebar from "@/components/sidebar";
 import ThemeToggle from "@/components/theme-toggle";
@@ -22,6 +23,7 @@ export default function Voices() {
   const [playingVoice, setPlayingVoice] = useState<string | null>(null);
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -293,16 +295,41 @@ export default function Voices() {
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
-      <Sidebar />
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      
+      {/* Mobile Sidebar */}
+      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+          <Sidebar />
+        </SheetContent>
+      </Sheet>
       
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-8 py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
-                {t('voices.title')}
-              </h2>
-              <p className="text-brand-600 dark:text-brand-400 mt-2">{t('voices.subtitle')}</p>
+            <div className="flex items-center space-x-4">
+              {/* Mobile Menu Button */}
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="lg:hidden hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white transition-all duration-300"
+                  >
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+              </Sheet>
+              
+              <div>
+                <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
+                  {t('voices.title')}
+                </h2>
+                <p className="text-brand-600 dark:text-brand-400 mt-2">{t('voices.subtitle')}</p>
+              </div>
             </div>
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />

@@ -126,7 +126,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                         <Menu className="h-5 w-5" />
                       </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-80 p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                    <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
                       <Sidebar />
                     </SheetContent>
                   </Sheet>

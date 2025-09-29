@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
+import { useTranslation } from 'react-i18next';
 import { 
   FileText, 
   Bot, 
@@ -66,6 +67,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [customScript, setCustomScript] = useState('');
 
   const { toast } = useToast();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
 
   // Preset conversation scripts
@@ -792,7 +794,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             <FileText className="h-4 w-4 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-brand-800 dark:text-brand-200">Campaign Management</h1>
+            <h1 className="text-xl font-bold text-brand-800 dark:text-brand-200">{t('dashboard.campaignManagement')}</h1>
             {currentCampaign && (
               <div className="flex items-center space-x-2">
                 <span className="text-xs text-brand-600 dark:text-brand-400">Campaign: {currentCampaign.name}</span>
@@ -828,7 +830,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                 className="inline-flex items-center space-x-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
               >
                 <Plus className="h-5 w-5" />
-                <span>Create New Campaign</span>
+                <span>{t('dashboard.createNewCampaignButton')}</span>
               </button>
             ) : (
               <div className="max-w-md mx-auto space-y-4">
@@ -887,8 +889,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <FileText className="h-3 w-3 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">Knowledge Base</h3>
-                  <p className="text-xs text-brand-600 dark:text-brand-400">Upload PDF files to train your AI agent.</p>
+                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">{t('dashboard.knowledgeBase')}</h3>
+                  <p className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.uploadPdfFiles')}</p>
                 </div>
               </div>
               
@@ -947,8 +949,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <Bot className="h-3 w-3 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">AI Configuration</h3>
-                  <p className="text-xs text-brand-600 dark:text-brand-400">Set up your AI agent's personality and behavior.</p>
+                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">{t('dashboard.aiConfiguration')}</h3>
+                  <p className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.setupAiAgent')}</p>
                 </div>
               </div>
               
@@ -1052,8 +1054,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <Volume2 className="h-3 w-3 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">AI Voice Selection</h3>
-                  <p className="text-xs text-brand-600 dark:text-brand-400">Choose from premium or custom voices.</p>
+                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">{t('dashboard.aiVoiceSelection')}</h3>
+                  <p className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.chooseFromPremium')}</p>
                 </div>
               </div>
               
@@ -1210,8 +1212,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <Users className="h-3 w-3 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">Leads Management</h3>
-                  <p className="text-xs text-brand-600 dark:text-brand-400">Upload and manage your calling lists.</p>
+                  <h3 className="text-sm font-semibold text-brand-800 dark:text-brand-200">{t('dashboard.leadsManagement')}</h3>
+                  <p className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.uploadAndManageLeads')}</p>
                 </div>
               </div>
               

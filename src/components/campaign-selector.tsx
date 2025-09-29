@@ -7,12 +7,14 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Plus, FolderOpen } from "lucide-react";
 import { api } from "@/lib/api";
+import { useTranslation } from "react-i18next";
 
 interface CampaignSelectorProps {
   onCampaignSelect: (campaign: any) => void;
 }
 
 export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorProps) {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
@@ -58,8 +60,8 @@ export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorP
             <FolderOpen className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-foreground">Campaign Selection</h3>
-            <p className="text-sm text-muted-foreground font-medium">Create a new campaign or select an existing one</p>
+            <h3 className="text-xl font-bold text-foreground">{t('dashboard.campaignSelection')}</h3>
+            <p className="text-sm text-muted-foreground font-medium">{t('dashboard.createNewCampaign')}</p>
           </div>
         </CardTitle>
       </CardHeader>
@@ -72,7 +74,7 @@ export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorP
             onClick={() => setLocation('/campaigns')}
           >
             <Plus className="h-4 w-4 mr-2" />
-            Create New Campaign
+{t('dashboard.createNewCampaignButton')}
           </Button>
         </div>
 

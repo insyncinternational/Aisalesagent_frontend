@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Play, Phone, TrendingUp, Clock, Sparkles, BarChart3, PieChart, Activity, MessageCircle, Users, Target, Zap } from "lucide-react";
 import { api } from "@/lib/api";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function StatsOverview() {
+  const { t } = useTranslation();
   const { data: stats, isLoading: statsLoading } = useQuery({
     queryKey: ["/api/stats"],
     queryFn: () => api.getStats(),
@@ -112,37 +114,37 @@ export default function StatsOverview() {
 
   const statCards = [
     {
-      title: "Active Campaigns",
+      title: t('dashboard.activeCampaigns'),
       value: animatedValues.activeCampaigns,
       icon: Play,
       color: "from-purple-500 to-pink-500",
       bgColor: "from-purple-50 to-pink-50",
       darkBgColor: "from-purple-900/20 to-pink-900/20",
-      description: "Currently running campaigns",
+      description: t('dashboard.currentlyRunningCampaigns'),
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, campaignStats.activeCampaigns + Math.floor(Math.random() * 5) - 2))
     },
     {
-      title: "Calls Today", 
+      title: t('dashboard.callsToday'), 
       value: animatedValues.callsToday,
       icon: Phone,
       color: "from-blue-500 to-purple-500",
       bgColor: "from-blue-50 to-purple-50",
       darkBgColor: "from-blue-900/20 to-purple-900/20",
-      description: "Total calls made today",
+      description: t('dashboard.totalCallsMadeToday'),
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, campaignStats.totalCalls + Math.floor(Math.random() * 20) - 10))
     },
     {
-      title: "Success Rate",
+      title: t('dashboard.successRate'),
       value: `${animatedValues.successRate}%`,
       icon: TrendingUp,
       color: "from-purple-600 to-pink-500",
       bgColor: "from-purple-50 to-pink-50",
       darkBgColor: "from-purple-900/20 to-pink-900/20",
-      description: "Overall campaign success",
+      description: t('dashboard.overallCampaignSuccess'),
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, Math.min(100, campaignStats.successRate + Math.floor(Math.random() * 10) - 5)))
     },
     {
-      title: "Total Minutes",
+      title: t('dashboard.totalMinutes'),
       value: animatedValues.totalMinutes,
       icon: Clock,
       color: "from-pink-600 to-purple-500",

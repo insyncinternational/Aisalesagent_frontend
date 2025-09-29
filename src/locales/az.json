@@ -113,7 +113,16 @@
     "notifications": "Bildirişlər",
     "noNotifications": "Bildiriş yoxdur",
     "markAllAsRead": "Hamısını oxunmuş kimi işarələ",
-    "clearAll": "Hamısını Təmizlə"
+    "clearAll": "Hamısını Təmizlə",
+    "knowledgeBase": "Bilgi Bazası",
+    "uploadPdfFiles": "AI agentinizi təlim etmək üçün PDF fayllarını yükləyin.",
+    "aiConfiguration": "AI Konfiqurasiyası",
+    "setupAiAgent": "AI agentinizin şəxsiyyətini və davranışını təyin edin.",
+    "aiVoiceSelection": "AI Səs Seçimi",
+    "chooseFromPremium": "Premium və ya xüsusi səslərdən seçin.",
+    "uploadAndManageLeads": "Zəng siyahılarınızı yükləyin və idarə edin.",
+    "knowledgeBaseRequired": "Bilgi Bazası Tələb Olunur",
+    "knowledgeBaseUploaded": "Bilgi Bazası Yükləndi"
   },
   "campaigns": {
     "title": "Kampaniya İdarəetməsi",
@@ -792,8 +801,22 @@
     "hero": {
       "title": "Həqiqətən Dönüşən AI Satış Zəngləri",
       "subtitle": "Qaçırılan zənglər səbəbindən müştəri namizədlərini itirməyi dayandırın. AI ajanlarımız 7/24 insan kimi səs çıxaran satış zəngləri edir, müştəri namizədlərini keyfiyyətləndirir və avtomatik olaraq görüşlər planlayır. Həftədə 10+ saat qənaət edərkən dönüşümləri %300 artırın.",
+      "startFreeTrial": "Pulsuz Sınaq Başlat",
+      "seeInAction": "Spark AI-nı Fəaliyyətdə Görün",
+      "watchDescription": "AI ajanımızın real müştəri zənglərini təbii söhbət və ağıllı cavablarla necə idarə etdiyini izləyin",
+      "tryLiveDemo": "Canlı Demo Sınaq",
+      "enterPhoneNumber": "Telefon nömrənizi daxil edin",
+      "playDemoVideo": "Demo Videosunu Oynat",
       "tryForFree": "Pulsuz Sınaq - Həftədə 10+ Saat Qənaət Et",
-      "tryInteractiveDemo": "İnteraktiv Demo Sınaq"
+      "tryInteractiveDemo": "İnteraktiv Demo Sınaq",
+      "stats": {
+        "successRate": "%98",
+        "successRateLabel": "Uğur Dərəcəsi",
+        "availability": "7/24",
+        "availabilityLabel": "Mövcudluq",
+        "languages": "100+",
+        "languagesLabel": "Dil"
+      }
     },
     "benefits": {
       "moreSalesCalls": {
@@ -960,9 +983,168 @@
         "title": "Daha Çox Müqavilə Bağlayın",
         "description": "Keyfiyyətli müştəri namizədlərinə diqqət yetirin və daha çox müqavilə bağlayın. Hər zəng və dönüşüm haqqında ətraflı hesabatlar alın."
       }
-    }
-  },
-  "benefits": {
+      }
+    },
+    "industries": {
+      "healthcare": "Səhiyyə",
+      "ecommerce": "E-ticarət", 
+      "realEstate": "Daşınmaz əmlak",
+      "education": "Təhsil",
+      "automotive": "Avtomobil",
+      "legal": "Hüquq",
+      "restaurant": "Restoran",
+      "services": "Xidmətlər"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Müştəri Dəstəyi",
+        "description": "Heç vaxt yatmayan 24/7 avtomatik müştəri xidməti"
+      },
+      "leadQualification": {
+        "title": "Müştəri Namizədi Keyfiyyətləndirmə", 
+        "description": "AI dəstəkli müştəri namizədi qiymətləndirmə və keyfiyyətləndirmə"
+      },
+      "salesAutomation": {
+        "title": "Satış Avtomatlaşdırması",
+        "description": "Müştəri namizədlərini müştəriyə çevirən avtomatik təqib"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Əlçatanlıq",
+        "description": "7/24 AI ajanlarla bir daha heç vaxt zəng qaçırmayın"
+      },
+      "lightningFast": {
+        "title": "İldırım Sürəti",
+        "description": "Ani cavablar və təcili müştəri namizədi keyfiyyətləndirmə"
+      },
+      "scalableTeam": {
+        "title": "Ölçənəbilən Komanda",
+        "description": "İşə almadan eyni vaxtda limitsiz zəng edin"
+      },
+      "dataDriven": {
+        "title": "Məlumat Əsaslı",
+        "description": "Real-vaxt analitikası və performans məlumatları"
+      },
+      "uploadData": {
+        "title": "Məlumatlarınızı Yükləyin",
+        "description": "Biznes məlumatlarınızı, skriptlərinizi və bilik bazanızı əlavə edin"
+      },
+      "trainAi": {
+        "title": "AI-nızı Öyrədin",
+        "description": "AI-mız səsinizi, tonunuzu və biznes proseslərinizi öyrənir"
+      },
+      "goLive": {
+        "title": "Canlı Yayıma Keçin",
+        "description": "AI ajanınızla zəng almağı və etməyi başlayın"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Əsas",
+        "description": "Başlayan kiçik bizneslər üçün mükəmməl",
+        "features": [
+          "Əsas analitika",
+          "E-poçt dəstəyi"
+        ],
+        "cta": "Başla"
+      },
+      "pro": {
+        "name": "Professional",
+        "description": "Böyüyən bizneslər üçün təkmilləşmiş xüsusiyyətlər",
+        "features": [
+          "Təkmilləşmiş analitika",
+          "Prioritet dəstəyi", 
+          "Xüsusi inteqrasiyalar"
+        ],
+        "cta": "Başla"
+      }
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "Spark AI müştəri namizədi keyfiyyətləndirmə prosesimizi dəyişdi. Yalnız 3 ayda %20-dən %65-ə dönüşüm nisbətinə çıxdıq."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Satış Direktoru, RealEstate Pro",
+        "content": "AI ajanlar görüş planlamamızı mükəmməl şəkildə idarə edir. Komandamız indi təqvim idarə etmək əvəzinə müqavilə bağlamağa diqqət yetirə bilir."
+      },
+      "emily": {
+        "name": "Emily Rodriguez", 
+        "role": "Təsisçi, HealthCare Plus",
+        "content": "Spark AI tətbiq etdiyimizdən bəri xəstə məmnuniyyəti %40 artdı. Xəstələrimiz ani, fərdiləşdirilmiş dəstəyi sevir."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Müştəri Dəstəyi Demo",
+        "description": "AI-mızın müştəri sorğularını necə idarə etdiyini və problemləri ani necə həll etdiyini görün."
+      },
+      "appointmentBooking": {
+        "title": "Görüş Rezervasiyası Demo",
+        "description": "AI ajanımızın görüşləri necə planladığını və təqvimləri problemsiz necə idarə etdiyini izləyin.",
+        "industry": "Səhiyyə"
+      },
+      "salesQualification": {
+        "title": "Satış Keyfiyyətləndirmə Demo",
+        "description": "AI-mızın müştəri namizədlərini necə keyfiyyətləndirdiyini və görüşləri avtomatik necə planladığını təcrübə edin."
+      }
+    },
+    "solutionsSection": {
+      "title": "Güclü AI Həlləri",
+      "subtitle": "Həqiqi nəticələr verən kəskin AI texnologiyası ilə biznesinizi dönüştürün"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "Spark AI necə işləyir?",
+        "answer": "Spark AI müştəri zənglərini idarə edə bilən, müştəri namizədlərini keyfiyyətləndirən və avtomatik olaraq görüş planlayan ağıllı səs ajanları yaratmaq üçün təkmilləşmiş təbii dil emalı və maşın öyrənməsi istifadə edir."
+      },
+      "customization": {
+        "question": "AI ajanını fərdiləşdirə bilərəm?",
+        "answer": "Bəli! AI-nı biznes məlumatlarınız, skriptləriniz və bilik bazanızla öyrədə bilərsiniz. AI səsinizi, tonunuzu və biznes proseslərinizi öyrənəcək."
+      },
+      "languages": {
+        "question": "Hansı dillər dəstəklənir?",
+        "answer": "Spark AI təbii səsli və aksanlı 100-dən çox dili dəstəkləyir. Fərdiləşdirilmiş təcrübə üçün öz səsinizi də klonlaya bilərsiniz."
+      },
+      "pricing": {
+        "question": "Qiyməti nə qədərdir?",
+        "answer": "Qiymətlərimiz 100 zəng ilə Əsas plan üçün ayda 150$-dan başlayır. Həmçinin təkmilləşmiş xüsusiyyətlər və daha yüksək zəng həcmləri ilə Pro plan da təklif edirik."
+      },
+      "freeTrial": {
+        "question": "Pulsuz sınaq var?",
+        "answer": "Bəli! Kredit kartı tələb etməyən 14 günlük pulsuz sınaq təklif edirik. Bütün xüsusiyyətləri sınaqdan keçirə bilər və öhdəlik götürmədən əvvəl nəticələri görə bilərsiniz."
+      }
+    },
+    "callForm": {
+      "callInitiated": "Zəng Başladıldı!",
+      "callDescription": "AI ajanımız bacarıqlarımızı nümayiş etdirmək üçün tezliklə sizi zəng edəcək."
+    },
+    "companies": {
+      "trustedBy": "Aparıcı şirkətlər tərəfindən güvənilir"
+    },
+    "industryUseCases": {
+      "healthcare": "Görüş planlama, xəstə xatırlatmaları və dəstək",
+      "ecommerce": "Sifariş izləmə, qaytarma və müştəri dəstəyi", 
+      "realEstate": "Müştəri namizədi keyfiyyətləndirmə, əmlak sorğuları və planlama",
+      "education": "Tələbə dəstəyi, qeydiyyat və məlumat",
+      "automotive": "Xidmət görüşləri, satış təqibləri və dəstək",
+      "legal": "Müvəkkil qəbulu, görüş planlama və iş yeniləmələri",
+      "restaurant": "Rezervasiyalar, sifarişlər və müştəri xidməti",
+      "services": "Görüş rezervasiyası, təqiblər və dəstək"
+    },
+    "demoFeatures": {
+      "customerSupport": {
+        "title": "Müştəri Dəstəyi",
+        "features": ["24/7 Əlçatanlıq", "Çoxdilli Dəstək", "CRM İnteqrasiyası"]
+      },
+      "appointmentBooking": {
+        "title": "Görüş Rezervasiyası",
+        "industry": "Səhiyyə"
+      }
+    },
+    "benefits": {
     "title": "AI Zəng Sistemimizi Niyə Seçməlisiniz",
     "subtitle": "Məhsulunuzun əsas üstünlüklərini vurğulayın - 7/24 funksionallıq, problemsiz inteqrasiya və üstün səmərəlilik.",
     "availability": {
