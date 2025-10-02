@@ -11,6 +11,7 @@ import { useLocation } from "wouter";
 import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useMemo } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 interface CampaignDetailsProps {
   id: string;
@@ -21,11 +22,28 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
   const [selectedLog, setSelectedLog] = useState<any>(null);
   const [playingCallSid, setPlayingCallSid] = useState<string | null>(null);
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
+  const { toast } = useToast();
 
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["/api/campaigns", id],
     queryFn: () => api.getCampaignDetails(id),
   });
+
+  const handleRefresh = async () => {
+    try {
+      await refetch();
+      toast({
+        title: "Data Refreshed",
+        description: "Campaign data has been updated.",
+      });
+    } catch (error) {
+      toast({
+        title: "Refresh Failed",
+        description: "Failed to refresh campaign data.",
+        variant: "destructive"
+      });
+    }
+  };
 
   useEffect(() => {
     // Cleanup audio player on component unmount
@@ -35,6 +53,17 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
       }
     };
   }, []);
+
+  // Auto-refresh call logs every 30 seconds for active campaigns
+  useEffect(() => {
+    if (!data?.campaign || data.campaign.status !== 'active') return;
+
+    const interval = setInterval(() => {
+      refetch();
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, [data?.campaign?.status, refetch]);
 
   const handlePlayAudio = async (conversationId: string) => {
     try {
@@ -112,8 +141,8 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" onClick={() => refetch()}>
-                <RefreshCw className="h-4 w-4 mr-2" />
+              <Button variant="outline" onClick={handleRefresh} disabled={isLoading}>
+                <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
                 Refresh Status
               </Button>
               <Badge>{campaign.status}</Badge>
@@ -160,40 +189,58 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {callLogs.map((log: any) => (
-                    <TableRow key={log.id}>
-                      <TableCell>{leads.find((l: any) => l.id === log.leadId)?.firstName || "Unknown"}</TableCell>
-                      <TableCell>{log.phoneNumber}</TableCell>
-                      <TableCell>
-                        <Badge variant={log.status === 'completed' ? 'default' : 'secondary'}>{log.status}</Badge>
-                      </TableCell>
-                      <TableCell>{log.duration}s</TableCell>
-                      <TableCell>{new Date(log.created_at).toLocaleString()}</TableCell>
-                      <TableCell className="text-center">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handlePlayAudio(log.elevenlabsConversationId)}
-                          disabled={!log.elevenlabsConversationId || log.elevenlabsConversationId === 'null' || log.elevenlabsConversationId === 'undefined'}
-                          title={!log.elevenlabsConversationId || log.elevenlabsConversationId === 'null' || log.elevenlabsConversationId === 'undefined' ? 'Audio not available yet' : 'Play audio'}
-                        >
-                          {playingCallSid === log.elevenlabsConversationId ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                        </Button>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setSelectedLog(log)}
-                          disabled={!log.elevenlabsConversationId || log.elevenlabsConversationId === 'null' || log.elevenlabsConversationId === 'undefined'}
-                          title={!log.elevenlabsConversationId || log.elevenlabsConversationId === 'null' || log.elevenlabsConversationId === 'undefined' ? 'Conversation details unavailable' : 'View details'}
-                        >
-                          <MessageSquare className="h-4 w-4 mr-2" />
-                          Details
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                  {callLogs.map((log: any) => {
+                    const lead = leads.find((l: any) => l.id === log.leadId);
+                    const leadName = lead?.firstName || lead?.name || "Unknown";
+                    const phoneNumber = log.phoneNumber || lead?.contactNo || lead?.phone || "N/A";
+                    const duration = log.duration ? `${log.duration}s` : "N/A";
+                    const hasAudio = log.elevenlabsConversationId && 
+                                   log.elevenlabsConversationId !== 'null' && 
+                                   log.elevenlabsConversationId !== 'undefined';
+                    
+                    return (
+                      <TableRow key={log.id}>
+                        <TableCell className="font-medium">{leadName}</TableCell>
+                        <TableCell className="font-mono text-sm">{phoneNumber}</TableCell>
+                        <TableCell>
+                          <Badge 
+                            variant={
+                              log.status === 'completed' ? 'default' : 
+                              log.status === 'failed' ? 'destructive' :
+                              log.status === 'calling' || log.status === 'ringing' ? 'secondary' : 'outline'
+                            }
+                          >
+                            {log.status || 'Unknown'}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="font-mono text-sm">{duration}</TableCell>
+                        <TableCell className="text-sm">{new Date(log.created_at).toLocaleString()}</TableCell>
+                        <TableCell className="text-center">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handlePlayAudio(log.elevenlabsConversationId)}
+                            disabled={!hasAudio}
+                            title={hasAudio ? 'Play audio' : 'Audio not available yet'}
+                          >
+                            {playingCallSid === log.elevenlabsConversationId ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                          </Button>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => setSelectedLog(log)}
+                            disabled={!hasAudio}
+                            title={hasAudio ? 'View conversation details' : 'No conversation details available'}
+                          >
+                            <MessageSquare className="h-4 w-4 mr-2" />
+                            Details
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
                 </TableBody>
               </Table>
             </CardContent>

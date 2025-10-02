@@ -61,6 +61,9 @@ import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import Logo from '@/components/logo';
 import BackToTop from '@/components/back-to-top';
+import CalendlyScheduling from '@/components/calendly-scheduling';
+import AIDemoCall from '@/components/ai-demo-call';
+import AIDemoCallMinimal from '@/components/ai-demo-call-minimal';
 
 // Animated Background Components
 const VoiceWaveAnimation = () => (
@@ -140,15 +143,8 @@ export default function HomeOption2() {
   const { theme, toggleTheme } = useTheme();
   const { user } = useAuth();
   const { toast } = useToast();
-  const [isCalling, setIsCalling] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [callForm, setCallForm] = useState({
-    name: '',
-    phone: '',
-    industry: '',
-    company: ''
-  });
 
   // Animation observer for scroll-triggered animations
   useEffect(() => {
@@ -354,21 +350,6 @@ export default function HomeOption2() {
     }
   ];
 
-  const handleCallSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsCalling(true);
-    
-    // Simulate call initiation
-    setTimeout(() => {
-      setIsCalling(false);
-      toast({
-        title: t('home.callForm.callInitiated'),
-        description: t('home.callForm.callDescription'),
-        variant: "default",
-      });
-    }, 2000);
-  };
-
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
@@ -516,21 +497,10 @@ export default function HomeOption2() {
                       {t('home.hero.watchDescription')}
                     </p>
                     
-                    {/* Enhanced CTA Button */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-900">
-                      <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
-                        <input
-                          type="tel"
-                          placeholder={t('home.hero.enterPhoneNumber')}
-                          className="flex-1 px-4 py-3 rounded-lg bg-white/20 backdrop-blur-sm text-white placeholder-white/70 border border-white/30 focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-300"
-                        />
-                        <Button 
-                          size="lg"
-                          className="bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-brand-600 px-8 py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg dark:shadow-2xl"
-                        >
-                          <Phone className="w-5 h-5 mr-2" />
-                          {t('home.hero.tryLiveDemo')}
-                        </Button>
+                    {/* Enhanced AI Demo Call Section - Minimal Version */}
+                    <div className="flex justify-center animate-fade-in-up animate-delay-900">
+                      <div className="w-full max-w-2xl">
+                        <AIDemoCallMinimal className="p-6" />
                       </div>
                     </div>
                     
@@ -539,7 +509,7 @@ export default function HomeOption2() {
                       <div className="text-center">
                         <div className="text-2xl sm:text-3xl font-bold text-white mb-2">{t('home.hero.stats.successRate')}</div>
                         <div className="text-white/80 text-sm sm:text-base">{t('home.hero.stats.successRateLabel')}</div>
-            </div>
+                      </div>
                       <div className="text-center">
                         <div className="text-2xl sm:text-3xl font-bold text-white mb-2">{t('home.hero.stats.availability')}</div>
                         <div className="text-white/80 text-sm sm:text-base">{t('home.hero.stats.availabilityLabel')}</div>
@@ -1267,76 +1237,13 @@ export default function HomeOption2() {
                 </div>
               </div>
 
-              {/* Right Section - Calendar */}
+              {/* Right Section - Calendly Scheduling */}
               <div className="p-8 lg:p-12">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Select a Date & Time</h3>
-                
-                {/* Calendar Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h4 className="text-xl font-semibold text-slate-900 dark:text-white">June 2025</h4>
-                  <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" className="w-8 h-8 p-0">
-                      <ChevronLeft className="w-4 h-4" />
-                    </Button>
-                    <Button variant="outline" size="sm" className="w-8 h-8 p-0">
-                      <ChevronRight className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Calendar Grid */}
-                <div className="mb-6">
-                  <div className="grid grid-cols-7 gap-1 mb-2">
-                    {['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map((day) => (
-                      <div key={day} className="text-center text-sm font-medium text-slate-500 dark:text-slate-400 py-2">
-                        {day}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-7 gap-1">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map((date) => (
-                      <button
-                        key={date}
-                        className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors ${
-                          date === 30
-                            ? 'bg-blue-500 text-white'
-                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
-                        }`}
-                      >
-                        {date}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Time Selection */}
-                <div className="mb-6">
-                  <h5 className="font-semibold text-slate-900 dark:text-white mb-3">Available Times</h5>
-                  <div className="grid grid-cols-2 gap-2">
-                    {['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM', '4:00 PM'].map((time) => (
-                      <button
-                        key={time}
-                        className="p-3 text-sm font-medium border border-slate-200 dark:border-slate-600/50 rounded-lg hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
-                      >
-                        {time}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Time Zone */}
-                <div className="mb-6">
-                  <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400">
-                    <Globe className="w-4 h-4" />
-                    <span>Kazakhstan Time (21:53)</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </div>
-
-                {/* Book Button */}
-                <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3">
-                  Book Free Consultation
-                </Button>
+                <CalendlyScheduling 
+                  userSlug="insyncinternational" // Your Calendly username
+                  eventTypeSlug="30min" // Common slug for 30 minute meetings
+                  className="max-w-md mx-auto"
+                />
               </div>
             </div>
           </div>
@@ -1559,98 +1466,9 @@ export default function HomeOption2() {
             </p>
           </div>
 
-          {/* Enhanced Demo Call Form */}
-          <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 max-w-4xl mx-auto border border-slate-200 dark:border-slate-700/50 animate-fade-in-up animate-delay-600">
-            <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-fade-in-scale animate-delay-700">
-                <Phone className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-up animate-delay-800">
-                Experience the Magic - Get a Free Demo Call
-              </h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 animate-fade-in-up animate-delay-900">
-                Our AI agent will call you in 60 seconds to demonstrate our capabilities. 
-                See how it handles real customer conversations and converts leads automatically.
-              </p>
-            </div>
-            
-            <form onSubmit={handleCallSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Your Name</label>
-                  <input
-                    type="text"
-                    placeholder="Enter your full name"
-                    value={callForm.name}
-                    onChange={(e) => setCallForm({...callForm, name: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-200 dark:border-slate-600/50 rounded-lg bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Phone Number</label>
-                  <input
-                    type="tel"
-                    placeholder="+1 (555) 123-4567"
-                    value={callForm.phone}
-                    onChange={(e) => setCallForm({...callForm, phone: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-200 dark:border-slate-600/50 rounded-lg bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Your Industry</label>
-                <select
-                  value={callForm.industry}
-                  onChange={(e) => setCallForm({...callForm, industry: e.target.value})}
-                  className="w-full px-4 py-3 border border-slate-200 dark:border-slate-600/50 rounded-lg bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                  required
-                >
-                  <option value="">Select Your Industry</option>
-                  {industries.map((industry) => (
-                    <option key={industry.name} value={industry.name}>{industry.name}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <Button
-                type="submit"
-                disabled={isCalling}
-                className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white py-4 text-lg font-semibold shadow-lg dark:shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                {isCalling ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Calling You Now...
-                  </>
-                ) : (
-                  <>
-                    <Phone className="mr-2 w-5 h-5" />
-                    Get Free Demo Call
-                  </>
-                )}
-              </Button>
-            </form>
-
-            {/* Trust Indicators */}
-            <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-600/50">
-              <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
-                <div className="flex items-center space-x-2">
-                  <Shield className="w-4 h-4 text-green-500" />
-                  <span>100% Secure</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4 text-blue-500" />
-                  <span>60 Second Setup</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-purple-500" />
-                  <span>No Credit Card Required</span>
-                </div>
-              </div>
-            </div>
+          {/* Enhanced AI Demo Call Form */}
+          <div className="max-w-4xl mx-auto animate-fade-in-up animate-delay-600">
+            <AIDemoCall className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700/50" />
           </div>
 
           {/* AI Sales Team Features */}

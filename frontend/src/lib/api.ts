@@ -701,4 +701,177 @@ export const api = {
       throw new Error(error instanceof Error ? error.message : 'Failed to delete leads');
     }
   },
+
+  // Calendly API endpoints
+  calendly: {
+    // Public scheduling endpoint for landing pages
+    getPublicSchedulingLink: async (eventType: string = '30min', prefillData?: any) => {
+      const params = new URLSearchParams();
+      params.append('eventType', eventType);
+      
+      if (prefillData) {
+        params.append('prefill', JSON.stringify(prefillData));
+      }
+      
+      const response = await fetch(`${BASE_URL}/api/calendly/public/schedule-link?${params}`, {
+        method: 'GET'
+      });
+      
+      return handleResponse(response);
+    },
+
+    // Capture lead information and get personalized scheduling link
+    captureLeadAndSchedule: async (leadData: {
+      name: string;
+      email: string;
+      phone?: string;
+      company?: string;
+      message?: string;
+      eventType?: string;
+    }) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/public/lead-capture`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(leadData),
+      });
+      
+      return handleResponse(response);
+    },
+
+    // Admin/authenticated endpoints
+    getAuthUrl: async () => {
+      const response = await fetch(`${BASE_URL}/api/calendly/auth/url`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+      
+      return handleResponse(response);
+    },
+
+    exchangeToken: async (code: string) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/auth/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ code }),
+      });
+      
+      return handleResponse(response);
+    },
+
+    getCurrentUser: async (accessToken: string) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/user/me?accessToken=${encodeURIComponent(accessToken)}`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+      
+      return handleResponse(response);
+    },
+
+    getEventTypes: async (accessToken: string, userUri: string) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/event-types?accessToken=${encodeURIComponent(accessToken)}&userUri=${encodeURIComponent(userUri)}`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+      
+      return handleResponse(response);
+    },
+
+    getScheduledEvents: async (accessToken: string, userUri: string, options: {
+      minStartTime?: string;
+      maxStartTime?: string;
+      count?: number;
+    } = {}) => {
+      const params = new URLSearchParams();
+      params.append('accessToken', accessToken);
+      params.append('userUri', userUri);
+      
+      if (options.minStartTime) params.append('minStartTime', options.minStartTime);
+      if (options.maxStartTime) params.append('maxStartTime', options.maxStartTime);
+      if (options.count) params.append('count', options.count.toString());
+      
+      const response = await fetch(`${BASE_URL}/api/calendly/scheduled-events?${params}`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+      
+      return handleResponse(response);
+    },
+
+    // Public scheduling link generation (no auth required)
+    generateSchedulingLink: async (eventTypeSlug: string, userSlug: string, options: any = {}) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/scheduling-link`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ eventTypeSlug, userSlug, options }),
+      });
+      
+      return handleResponse(response);
+    },
+
+    setupWebhook: async (accessToken: string, webhookUrl: string, events?: string[]) => {
+      const response = await fetch(`${BASE_URL}/api/calendly/webhooks/setup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ accessToken, webhookUrl, events }),
+      });
+      
+      return handleResponse(response);
+    },
+
+    getAvailableTimes: async (accessToken: string, eventTypeUri: string, startDate: string, endDate: string) => {
+      const params = new URLSearchParams();
+      params.append('accessToken', accessToken);
+      params.append('eventTypeUri', eventTypeUri);
+      params.append('startDate', startDate);
+      params.append('endDate', endDate);
+      
+      const response = await fetch(`${BASE_URL}/api/calendly/available-times?${params}`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+      
+      return handleResponse(response);
+    },
+  },
+
+  // AI Demo Call API endpoints
+  aiDemo: {
+    scheduleCall: async (demoData: {
+      name: string;
+      phone: string;
+      industry: string;
+      useCase: string;
+    }) => {
+      const response = await fetch(`${BASE_URL}/api/ai-demo/schedule-call`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(demoData),
+      });
+      
+      return handleResponse(response);
+    },
+
+    getIndustries: async () => {
+      const response = await fetch(`${BASE_URL}/api/ai-demo/industries`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      return handleResponse(response);
+    },
+  },
 };
